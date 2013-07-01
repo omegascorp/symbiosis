@@ -14,11 +14,6 @@ $kernel->init();
 $kernel->addSymbiont("Main");
 $symbionts->Main->main();
 
-/*
-$kernel->addLibrary('Image');
-$img=new Image('uploads/aaa/logo.png');
-$img->poster('test.png', 100, 100, 0, 100, 0, 80, true);
-*/
 $kernel->destroy();
 
 /*
