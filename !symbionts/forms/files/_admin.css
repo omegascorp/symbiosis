@@ -1,0 +1,13 @@
+.symbionts-forms-edit ul{
+    display: block;
+    list-style: none;
+    margin: 5px 0;
+}
+.symbionts-forms-edit ul li{
+    padding: 0 4px;
+    margin: 2px;
+    cursor: pointer;
+}
+.symbionts-forms-edit input{
+    width: 100%;
+}
