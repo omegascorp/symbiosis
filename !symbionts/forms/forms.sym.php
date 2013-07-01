@@ -6,7 +6,7 @@ class SForms extends Symbiont{
             'uniq'=>''
         ), $attributes);
         $vars=array('email'=>'', 'name'=>'', 'uniq'=>$attributes['uniq']);
-        $template=$this->_check($template, "form-main");
+        $template=$this->_check("main/".$template, "main/main");
         if($user->id){
             $data=$db->select('users', array('email', 'firstName'), array('id'=>$user->id), '', 1);
             $vars['email']=$data['email'];
@@ -27,8 +27,15 @@ class SForms extends Symbiont{
             return '{"error":"'.$labels->get('symbionts.forms.incorrectUniq').'"}';
         }
         $email=$json->$uniq;
+        
+        if($_SESSION['capcha_'.$_POST['captchaUniq']]!=$_POST['captcha']){
+            return '{"error":"'.$labels->get('symbionts.forms.incorrectCaptcha').'"}';
+        }
+        
         $message='';
         foreach($_POST['data'] as $val){
+            if(!isset($val['type'])) $val['type']='text';
+            if(!isset($val['label'])) $val['label']='';
             switch($val['type']){
                 case 'email':
                     if(!Data::isEmail($val['value'])){
@@ -39,7 +46,8 @@ class SForms extends Symbiont{
                     $val['value']=Data::htmlRemove($val['value']);
                     break;
             }
-            $message.=$val['label'].' '.$val['value'].'<br/>';
+            $val['label']=Data::htmlRemove($val['label']);
+            $message.=$val['label'].':'.$val['value'].'<br/>';
         }
         $kernel->addLibrary("Mail");
         
@@ -51,30 +59,7 @@ class SForms extends Symbiont{
             return '{"error":"'.$labels->get('symbionts.forms.error').'"}';
         }
     }
-    public function  _edit($info=null){
-        global $db, $design, $kernel;
-        $info->attributes=Data::extend(array(
-            'uniq'=>''
-        ), $info->attributes);
-        if($info->template==null) $info->template="form-main";
-        $vars=array();
-        $vars['template']=substr($info->template, 5);
-        $vars['templates']=Data::read('design/'.$kernel->conf->design.'/symbionts/forms/', '/form\-(.*)/');
-        foreach($vars['templates'] as $key=>$val){
-            $vars['templates'][$key]=array(
-                'title'=>substr($val, 5, -9),
-                'template'=>substr($val, 5, -9),
-            );
-        }
-        
-        $file='db/forms.json';
-        $json=json_decode(file_get_contents($file));
-        $vars['uniq']=$uniq=$info->attributes["uniq"];
-        $vars['emails']=$json->$uniq;
-        
-        $design->show('symbionts/forms/edit', $vars);
-    }
-    public function editSave($template=null, $attributes=null, $content=null){
+    public function adminSave($template=null, $attributes=null, $content=null){
         if(!isset($_POST['uniq'])||!isset($_POST['emails'])){
             return;
         }
@@ -118,13 +103,34 @@ class SForms extends Symbiont{
         fclose($f);
         return true;
     }
-    public function _info($info=null){
-        global $labels;
+    public function _admin($info=null){
+        global $db, $design, $kernel;
+        $info->attributes=Data::extend(array(
+            'uniq'=>null
+        ), $info->attributes);
+        $vars=array();
+        $vars['template']=$info->template?$info->template:'main';
+        $vars['templates']=Data::read('!symbionts/forms/main/');
+        foreach($vars['templates'] as $key=>$val){
+            $vars['templates'][$key]=array(
+                'title'=>substr($val,0,strlen($val)-9),
+                'template'=>substr($val,0,strlen($val)-9),
+            );
+        }
         $file='db/forms.json';
-        $json=json_decode(file_get_contents($file));
+        $json=json_decode(file_get_contents($file), true);
         $uniq=$info->attributes["uniq"];
-        $emails=$json->$uniq;
-        return array('title'=>$labels->grab('symbionts.forms.sendingMessage', array('emails'=>$emails)), 'block'=>false);
+        if($uniq==null){
+            do{
+                $uniq=Data::uniq(6);
+            }while(isset($json[$uniq]));
+            
+        }
+        $vars['uniq']=$uniq;
+        if(isset($json[$uniq])) $vars['emails']=$json[$uniq];
+        else $vars['emails']='';
+        
+        $design->show('symbionts/forms/_admin', $vars);
     }
 }
 ?>

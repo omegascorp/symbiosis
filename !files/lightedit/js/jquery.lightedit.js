@@ -1,5 +1,5 @@
 /*
- * LightEdit 0.1.9
+ * LightEdit 0.1.10
  * lightedit.omegascorp.net
  */
 (function ($) {
@@ -727,6 +727,12 @@
 		original.preventDefault();
 		// get text representation of clipboard
 		var text = original.clipboardData.getData("text/plain");
+		text="<p>"+text+"</p>";
+		text=text.replace(/\n\r/g, "\n");
+		text=text.replace(/\r/g, "\n");
+		text=text.replace(/\n(\s*)\n/g, "</p><p>");
+		text=text.replace(/\n/g, "<br/>");
+		
 		// insert text manually
 		this.exec("insertHTML", text);
 	    },this));

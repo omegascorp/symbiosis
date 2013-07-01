@@ -17,3 +17,8 @@ Updated LightEdit. Added select tag support.
 
 25.06.13 Symbiosis 0.14.4 Dark Side [OmegaScorp]
 Fixed bug in symbiont Menu.
+
+01.07.13 Symbiosis 0.14.5 Dark Side [OmegaScrop]
+Added symbiont Captcha.
+Updated symbiont Forms.
+Fixed bug in symbiont pages.

@@ -1,5 +1,6 @@
 {
     "symbionts.forms": "Forms",
+    "symbionts.forms.plugin": "Forms",
     "symbionts.forms.widget": "Forms",
     "symbionts.forms.sendingMessage": "Sending messages to: {&emails}",
     "symbionts.forms.template": "Template",
@@ -8,10 +9,15 @@
     "symbionts.forms.cancel": "Cancel",
     "symbionts.forms.name": "Your name",
     "symbionts.forms.email": "E-mail",
+    "symbionts.forms.text": "Text",
     "symbionts.forms.send": "Send",
     "symbionts.forms.sending": "Seding...",
     "symbionts.forms.sent": "The mail was sent.",
     "symbionts.forms.error": "Sending error. Try later.",
     "symbionts.forms.incorrectUniq": "Form data is incorrent.",
-    "symbionts.forms.incorrect": "The value of «{&label}» is incorrect"
+    "symbionts.forms.incorrect": "The value of «{&label}» is incorrect",
+    "symbionts.forms.incorrectCaptcha": "Incorrect captcha",
+    "symbionts.forms.firstName": "First name",
+    "symbionts.forms.lastName": "Last name",
+    "symbionts.forms.phone": "Phone"
 }

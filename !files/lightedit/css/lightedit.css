@@ -56,6 +56,11 @@
     position: absolute;
     z-index: 101;
 }
+.lightedit-tabs{
+    -moz-box-shadow: 0 0 2px rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 2px rgba(0,0,0,.5);
+    box-shadow: 0 0 2px rgba(0,0,0,.5);
+}
 .lightedit .lightedit-input-container, .lightedit .lightedit-select-container{
     margin-top: 5px;
 }
@@ -325,8 +330,9 @@
     text-decoration: none;
 }
 .lightedit .lightedit-nav ul li.lightedit-current a{
-    background-color: #EEEEEE;
-    border-color: #999999;
+    background-color: #444444;
+    color: #FFFFFF;
+    border-color: #000000;
 }
 .lightedit-button{
     display: inline-block;

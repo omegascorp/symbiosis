@@ -18,10 +18,12 @@ class SPages_Page extends Symbiont{
         if($page['symbiont']){
             $info=new SymbiontInfo($page['symbiont']);
             $name=$info->symbiont;
-            $kernel->addSymbiont($name);
-            ob_start();
-            $symbionts->$name->_admin($info);
-            $content=ob_get_clean();
+            if($kernel->isExistsSymbiont($name)){
+                $kernel->addSymbiont($name);
+                ob_start();
+                $symbionts->$name->_admin($info);
+                $content=ob_get_clean();
+            }
         }
         
         //Data::createFolder('temp/plugins/');

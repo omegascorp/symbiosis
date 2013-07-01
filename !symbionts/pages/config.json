@@ -1,6 +1,6 @@
 {
-    "title": "symbionts.pages",
-    "version": "0.2.9",
+    "symbiont": "Pages",
+    "version": "0.2.10",
     "admin":true,
     "need":{
         "libraries":{

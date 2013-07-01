@@ -246,7 +246,7 @@ class SPages extends Symbiont{
             SELECT
                 accessLevel,
                 title
-            FROM `accessLevels`
+            FROM `accesslevels`
             WHERE languageId='.$kernel->lang->id.'
             ORDER BY accessLevel
         ');

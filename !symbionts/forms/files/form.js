@@ -1,5 +1,8 @@
 $(document).ready(function(){
     $('.symbionts-forms form').submit(function(){
+        if(!$(this).validateForm()){
+            return false;
+        }
         var element=$(this).closest('.symbionts-forms');
         element.find('.message').removeClass('error').slideUp();
         $(this).find('input[type=submit]').attr('disabled', true);
@@ -7,18 +10,17 @@ $(document).ready(function(){
         data['symbiont']='Forms.send';
         data['uniq']=element.attr('data-uniq');
         data['data']=[];
-        $(this).find('.data').each(function(){
+        $(this).find('input[type=text],textarea').each(function(){
             var current={};
-            current['type']=$(this).attr('data-type');
-            var label=$(this).find('label').html();
-            current['label']=label!=null?label:'';
-            current['value']='';
-            var input=$(this).find('input').val();
-            var textarea=$(this).find('textarea').val();
-            if(input!=undefined) current['value']=input;
-            if(textarea!=undefined) current['value']=textarea;
+            //current['type']=$(this).attr('data-type');
+            var label=$(this).parent().find('label').html();
+            var placeholder = $(this).attr('placeolder');
+            current['label']= label || placeholder;
+            current['value']=$(this).val();
             data['data'].push(current);
         });
+        data['captcha']=element.find('.symbionts-captcha input').val();
+        data['captchaUniq']=element.find('.symbionts-captcha').attr('data-uniq');
         $.ajax({
             'data': data,
             'success': function(r){

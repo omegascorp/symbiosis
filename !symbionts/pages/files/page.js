@@ -16,12 +16,12 @@ $(document).ready(function(){
                 
             }
         });
-        AdminPageContent($('.symbiosis-page').attr('data-symbiont'));
+        SPageContent($('.symbiosis-page').attr('data-symbiont'));
     });
     $('.symbiosis-page .admin-widget-tab[data-tab="plugin"] .admin-button-reset').click(function(){
         $('.symbiosis-page .admin-widget-tab[data-tab="plugin"] .admin-selected').removeClass('admin-selected');
         $('.symbiosis-page .admin-widget-tab[data-tab="plugin"] .default').addClass('admin-selected');
-        AdminPageContent($('.symbiosis-page').attr('data-symbiont'));
+        SPageContent($('.symbiosis-page').attr('data-symbiont'));
     });
     
     
@@ -87,7 +87,7 @@ $(document).ready(function(){
     });
     */
 });
-function AdminPageContent(symbiont){
+function SPageContent(symbiont){
         $.ajax({
             'data':{
                 'symbiont': 'Admin.ajax',
@@ -101,7 +101,7 @@ function AdminPageContent(symbiont){
             }
         });
     }
-    function AdminPageSave(symbiont){
+    function SPageSave(symbiont){
         $.ajax({
             'data':{
                 'symbiont': 'Pages-Page.dbSet',
