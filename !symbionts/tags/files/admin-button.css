@@ -1,0 +1,16 @@
+.symbionts-tags-admin-select .tabs .tab{
+    position: static;
+}
+.symbionts-tags-admin-select .tags .tag{
+    display: inline-block;
+    margin: 5px;
+}
+.symbionts-tags-admin-select .selected .tag{
+    display: inline-block;
+    margin: 5px;
+    font-size: 16px;
+}
+.symbionts-tags-admin-button .tag{
+    display: inline-block;
+    margin: 0 2px;
+}

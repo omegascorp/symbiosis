@@ -1,0 +1,11 @@
+.symbionts-languages-admin-main .admin-list label,.symbionts-languages-admin-main .admin-list a{
+    display: inline-block;
+    margin: 4px;
+}
+.symbionts-languages-admin-main .admin-choose{
+    padding: 1px 2px;
+}
+.symbionts-languages-admin-change input{
+    border: 1px solid silver;
+    text-align: center;
+}

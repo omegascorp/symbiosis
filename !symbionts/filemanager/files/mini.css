@@ -1,0 +1,17 @@
+.symbionts-filemanager-mini form{
+    display: block;
+    padding-bottom: 10px;
+}
+.symbionts-filemanager-mini .files .file{
+    display: inline-block;
+    background: white;
+    border: 1px solid white;
+    padding: 2px;
+    cursor: pointer;
+}
+.symbionts-filemanager-mini .files .file:hover{
+    border: 1px solid silver;
+}
+.symbionts-filemanager-mini .files .file img{
+    display: block;
+}

@@ -1,0 +1,44 @@
+<div class="symbionts-pages-admin-addBlog admin-widget admin-widget-addBlog">
+    <h1 class="admin-widget-header">{@symbionts.pages.newBlog}</h1>
+    <div class="admin-widget-absconder">
+        <input class="template" type="hidden" value="{&template}" />
+        {if(count(&languages)>1)}
+        <div class="tabs">
+            <ul>
+            {each(&languages as &language)}
+                    <li><a href="#symbionts-pages-admin-addBlog-{&language[abbr]}">{&language[abbr]}</a></li>
+            {/each}
+            </ul>
+            {each(&languages as &language)}
+            <div id="symbionts-pages-admin-addBlog-{&language[abbr]}" class="tab {if(&language[isDefault])}default{/if} {&language[abbr]}">
+                    <div class="title"><label>{@symbionts.pages.title}</label><input type="text" class="ui-corner-all admin-source" value="{&language[title]}" admin-translit="{&language[abbr]}" /></div>
+                    {if(!$conf.abbreviations)}
+                    <div class="alias"><label>{@symbionts.pages.alias}</label><input type="text" class="ui-corner-all admin-receiver-{&language[abbr]}" value="{&language[alias]}" /></div>
+                    {/if}
+                    {if(&aliasesInTranslit)}
+                    <script>
+                    $.adminTranslit['{&language[abbr]}']={&language[translit]};
+                    </script>
+                    {/if}
+                    <input class="id" type="hidden" class="ui-corner-all" value="{&language[id]}" />
+                    <input class="abbr" type="hidden" class="ui-corner-all" value="{&language[abbr]}" />
+            </div>
+            {/each}
+        </div>
+        {else}
+        <div class="title"><label>{@symbionts.pages.title}</label><input type="text" class="ui-corner-all admin-source" value="{&title}" /></div>
+        {if(&aliasesInTranslit)}
+        <script>
+        $.adminTranslit['{$lang.abbr}']={&translit};
+        </script>
+        {/if}
+        {/if}
+        {if($conf.abbreviations||count(&languages)==1)}
+        <div class="alias"><label>{@symbionts.pages.alias}</label><input type="text" class="ui-corner-all admin-receiver-{&aliasesLanguage}" value="{&alias}" /></div>
+        {/if}
+        <div class="controls">
+            <span class="admin-button-save">{@symbionts.pages.save}</span>
+            <span class="admin-button-cancel">{@symbionts.pages.cancel}</span>
+        </div>
+    </div>
+</div>

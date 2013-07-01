@@ -1,0 +1,19 @@
+{
+    "symbionts.tags": "Tags",
+    "symbionts.tags.widget": "Tags",
+    "symbionts.tags.add": "Add",
+    "symbionts.tags.edit": "Edit",
+    "symbionts.tags.delete": "Delete",
+    "symbionts.tags.new": "New tag",
+    "symbionts.tags.title": "Title",
+    "symbionts.tags.alias": "Alias",
+    "symbionts.tags.save": "Save",
+    "symbionts.tags.cancel": "Cancel",
+    "symbionts.tags.areYouShure": "Are you shure?",
+    "symbionts.tags.yes": "Yes",
+    "symbionts.tags.no": "No",
+    "symbionts.tags.addTags": "Add tags",
+    "symbionts.tags.tags": "Tags: ",
+    "symbionts.tags.main": "Main",
+    "symbionts.tags.mainDescription": "the links of the all tags colds will navigate to this page"
+}

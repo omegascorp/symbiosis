@@ -1,0 +1,14 @@
+{Script}{$conf.symbionts}filemanager/files/mini.js{/Script}
+{Style}{$conf.symbionts}filemanager/files/mini.css{/Style}
+
+<div class="symbionts-filemanager-mini">
+    <form accept="">
+        <input name="file" type="file" />
+    </form>
+    <div class="files" data-path="{&path}">
+        <span href="" class="file" data-name="" data-type="" style="display: none;"><img src="" /></span>
+    {each(&files as &file)}
+        <span href="" class="file" data-name="{&file[name]}" data-type="{&file[type]}"><img src="{&file[icon]}" /></span>
+    {/each}
+    </div>
+</div>

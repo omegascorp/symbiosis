@@ -1,0 +1,13 @@
+{if(substr($page.template,0,5)=='admin')}
+<a href="{$conf.base}{if($link.param1=='pages')}{$link.param2}/{/if}" class="admin-widget-icon">
+        <div class="min">
+                <label>{@symbionts.admin.site}</label>
+        </div>
+</a>
+{else}
+<a href="{$conf.base}admin/pages/{$page.alias}/" class="admin-widget-icon">
+        <div class="min">
+                <label>{@symbionts.admin.admin}</label>
+        </div>
+</a>
+{/if}

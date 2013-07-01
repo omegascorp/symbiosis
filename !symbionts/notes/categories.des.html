@@ -1,0 +1,18 @@
+{Style}{$conf.symbionts}notes/files/categories.css{/Style}
+
+{if(&level==0)}
+<div class="symbionts-notes-categories">
+{/if}
+    <ul>
+        {each(&categories as &category)}
+        <li>
+            <a href="{$conf.base}{&path}/category/{&category['alias']}/">{&category[title]}</a>
+            {if(&category[sub])}
+                {#Notes.categories.&template[for='Notes',id=&category[id],level=&level+1]#}
+            {/if}
+        </li>
+        {/each}
+    </ul>
+{if(&level==0)}
+</div>
+{/if}

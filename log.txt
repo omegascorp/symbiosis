@@ -1,0 +1,19 @@
+12.06.13 Symbiosis 0.13.15 Dark Side [OmegaScorp]
+Fixed bugs in installer.
+
+13.06.13 Symbiosis 0.14.0 Dark Side [OmegaScorp]
+Fixed bugs in symbionts Notes and Filemanager.
+
+15.06.13 Symbiosis 0.14.1 Dark Side [OmegaScorp]
+Updated administrator panel included in site pages.
+
+18.06.13 Symbiosis 0.14.2 Dark Side [OmegaScorp]
+Fixed bugs in symbionts Menu, Languages and Filemanager.
+Fixed bug in Admin panel.
+
+24.06.13 Symbiosis 0.14.3 Dark Side [OmegaScorp]
+Fixed bugs in libraries Design and Kernel.
+Updated LightEdit. Added select tag support.
+
+25.06.13 Symbiosis 0.14.4 Dark Side [OmegaScorp]
+Fixed bug in symbiont Menu.

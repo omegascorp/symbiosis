@@ -1,0 +1,4 @@
+{if(~==0)}
+{Script}http://ulogin.ru/js/ulogin.js{/Script}
+<div id="uLogin" x-ulogin-params="display=small;fields=first_name,last_name,photo;providers=facebook,twitter,vkontakte,google;hidden=other;redirect_uri={urlencode($conf.url . $link.full . $conf.postfix)}"></div>
+{/if}

@@ -1,0 +1,20 @@
+{
+    "symbionts.categories": "Категории",
+    "symbionts.categories.add": "Добавить",
+    "symbionts.categories.edit": "Редактировать",
+    "symbionts.categories.delete": "Удалить",
+    "symbionts.categories.new": "Новая категория",
+    "symbionts.categories.nameless": "Безымянная категория",
+    "symbionts.categories.title": "Заголовок",
+    "symbionts.categories.alias": "Псевдоним",
+    "symbionts.categories.save": "Сохранить",
+    "symbionts.categories.cancel": "Отменить",
+    "symbionts.categories.areYouShure": "Вы уверены?",
+    "symbionts.categories.yes": "Да",
+    "symbionts.categories.no": "Нет",
+    "symbionts.categories.settings": "Настройки",
+    "symbionts.categories.all": "Все",
+    "symbionts.categories.error": "Категория с таким названием уже существует.",
+    "symbionts.categories.parent": "Родитель",
+    "symbionts.categories.root": "Корень"
+}

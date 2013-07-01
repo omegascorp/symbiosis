@@ -1,0 +1,21 @@
+{
+    "symbionts.settings": "Settings",
+    "symbionts.settings.version": "Verstion",
+    "symbionts.settings.regenerate": "Development mode",
+    "symbionts.settings.regenerateHelp": "All temporary files will be deleted after page generation.",
+    "symbionts.settings.abbreviations": "Abbreviation",
+    "symbionts.settings.abbreviationsHelp": "Language abbreviation will be written before page alias (example: /en/about/).",
+    "symbionts.settings.browserLanguage": "Browser language",
+    "symbionts.settings.browserLanguageHelp": "Content will be shown in browser's language, if the language is not specified.",
+    "symbionts.settings.aliasesInTranslit": "Page aliases in translit",
+    "symbionts.settings.aliasesInTranslitHelp": "Page aliases will be converted to translit.",
+    "symbionts.settings.aliasesLanguage": "The source language for conversion to the transliteration",
+    "symbionts.settings.path": "Path to the site",
+    "symbionts.settings.postfix": "The string after page address",
+    "symbionts.settings.sessionPrefix": "Session key",
+    "symbionts.settings.autorisationType": "Autorisation type",
+    "symbionts.settings.autorisationTypeSession": "Sesstion",
+    "symbionts.settings.autorisationTypeCookie": "Cookie",
+    "symbionts.settings.save": "Save",
+    "symbionts.settings.refresh": "Refresh"
+}

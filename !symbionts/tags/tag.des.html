@@ -1,0 +1,9 @@
+{Style}{$conf.symbionts}tags/files/tag.css{/Style}
+
+<div class="symbionts-tags-tag">
+    <ul>
+    {each(&items as &item)}
+       <li><a href="{&item[link]}">{&item[title]}</a></li>
+    {/each}
+    </ul>
+</div>

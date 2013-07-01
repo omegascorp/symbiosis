@@ -1,0 +1,308 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	vertical-align: baseline;
+	background: transparent;
+}
+h1, h2, h3, h4, h5, h6{
+	padding-bottom: 15px;
+	color: #414141;
+}
+blockquote, q {
+	quotes: none;
+}
+:focus {
+	outline: 0;
+}
+ins {
+	text-decoration: none;
+}
+del {
+	text-decoration: line-through;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+body {
+	font: 12px/18px sans-serif;
+}
+a {
+	color: #007fff;
+	outline: none;
+	text-decoration: underline;
+}
+a:hover {
+	text-decoration: none;
+}
+a.js{
+	text-decoration: none;
+	border-bottom: 1px dashed #1C94C4;
+	cursor: pointer;
+}
+a.js:hover{
+	border-bottom: none;
+}
+p {margin: 0 0 18px}
+img {
+	border: none;
+}
+.light_menu{
+	padding-left: 20px;
+}
+#login h1{
+	display: none;
+}
+#login .button{
+	height: 0px;
+	overflow: hidden;
+}
+
+#wrapper {
+	width: 100%;
+	min-width: 600px;
+}
+
+
+/* Header
+-----------------------------------------------------------------------------*/
+header {
+	display: block;
+	height: 40px;
+	background: #444444;
+	position: relative;
+	z-index: 2;
+	-moz-box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
+	box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
+}
+header a{
+	color: #FFFFFF;
+}
+.header-left{
+	float: left;
+}
+.header-right{
+	float: right;
+}
+
+/* Middle
+-----------------------------------------------------------------------------*/
+#middle {
+	width: 100%;
+	height: 1%;
+}
+#middle:after {
+	content: '.';
+	display: block;
+	clear: both;
+	visibility: hidden;
+	height: 0;
+}
+#container {
+	width: 100%;
+	float: left;
+	overflow: hidden;
+}
+#content {
+	padding: 0px 0px 0px 38px;
+	background: #555555;
+}
+#content:after {
+	content: '.';
+	display: block;
+	clear: both;
+	visibility: hidden;
+	height: 0;
+}
+#middle #content{
+	padding: 0px 0px 0px 38px;
+}
+#middleside{
+	display: block;
+	-moz-box-shadow: inset 2px 0 0 rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.2);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+	position: relative;
+	background: white;
+}
+/* Sidebar Left
+-----------------------------------------------------------------------------*/
+#middle aside#leftside {
+	float: left;
+	width: 38px;
+	margin-left: -100%;
+	/*position: relative;*/
+}
+
+/* Footer
+-----------------------------------------------------------------------------*/
+footer {
+	display: block;
+	padding-top: 12px;
+	height: 28px;
+	text-align: center;
+	background: #444444;
+	color: white;
+}
+.admin-widget-header{
+	cursor: pointer;
+}
+.admin-widget-absconder{
+	padding-bottom: 10px;
+}
+
+
+.admin-widget-square{
+	float: left;
+	padding: 5px;
+	margin: 5px;
+	text-align: center;
+}
+.admin-widget-square-32{
+	width: 32px;
+}
+.admin-widget-square-64{
+	width: 64px;
+}
+.admin-widget-square-128{
+	width: 128px;
+	height: 158px;
+}
+
+
+#signin-overlay{
+	background: #444444;
+}
+#signin-overlay .circle{
+	position: absolute;
+}
+#signin-shadow{
+	width: 260px;
+	height: 260px;
+	position: absolute;
+	z-index: 5002;
+	background: rgba(255,255,255,0.1);
+	border-radius: 130px;
+}
+#signin-content{
+	background: white;
+	position: absolute;
+	width: 160px;
+	height: 120px;
+	padding: 60px 40px;
+	z-index: 5003;
+	border-radius: 120px;
+}
+#signin-content input[type=text],#signin-content input[type=password]{
+	height: 20px;
+	display: block;
+	margin: 2px 0;
+	width: 158px;
+	text-align: center;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+}
+#signin-content{
+	text-align: center;
+}
+#signin-content h1{
+	text-align: center;
+}
+#top{
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	width: 38px;
+	height: 40px;
+	cursor: pointer;
+	display: none;
+	background: url('../img/top.png') no-repeat 50% 50%;
+}
+
+
+/* Spinning circle (inner circle) */
+#signin-shadow .maskedCircle {
+    width: 240px;
+    height: 240px;
+    border-radius: 140px;
+    border: 12px solid #DDDDDD;
+    
+}
+ 
+/* Spinning circle mask */
+#signin-shadow .mask {
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+}
+ 
+/* Spinner */
+#signin-shadow .spinner {
+    position: absolute;
+    
+    width: 260px;
+    height: 260px;
+    animation: spin 1s infinite linear;
+    -webkit-animation: spin 1s infinite linear;
+}
+
+ 
+/* Loading animation container */
+#loading{
+    z-index: 10000;
+    position: fixed;
+    width: 28px;
+    height: 28px;
+    right: 10px;
+    bottom: 5px;
+}
+ 
+/* Spinning circle (inner circle) */
+#loading .maskedCircle {
+    width: 20px;
+    height: 20px;
+    border-radius: 12px;
+    border: 3px solid #DDDDDD;
+    
+}
+ 
+/* Spinning circle mask */
+#loading .mask {
+    width: 12px;
+    height: 12px;
+    overflow: hidden;
+}
+ 
+/* Spinner */
+#loading .spinner {
+    position: absolute;
+    left: 1px;
+    top: 1px;
+    width: 26px;
+    height: 26px;
+    animation: spin .5s infinite linear;
+    -webkit-animation: spin .5s infinite linear;
+}
+
+
+
+@keyframes spin{
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+@-webkit-keyframes spin{
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}

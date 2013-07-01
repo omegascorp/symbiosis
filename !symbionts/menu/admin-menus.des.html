@@ -1,0 +1,13 @@
+<ul>
+    {each(&menus as &menu)}
+        <li>
+            <div class="admin-item" data-id="{&menu[id]}">
+                <label class="title"><a href="{$conf.url}{$link.full}/{&menu[alias]}/">{&menu[title]}</a></label>
+                <div class="admin-right">
+                    <a href="{$link.current}#edit={&menu[id]}" class="admin-link edit">{@symbionts.menu.edit}</a>
+                    <a href="{$link.current}#remove={&menu[id]}" class="admin-link remove">{@symbionts.menu.delete}</a>
+                </div>
+            </div>
+        </li>
+    {/each}
+</ul>

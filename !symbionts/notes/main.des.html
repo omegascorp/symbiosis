@@ -1,0 +1,7 @@
+<div class="symbionts-notes">
+    <ul>
+    {each(&categories as &category)}
+       <li><a href="{$conf.base}{$link.page}/{&category[alias]}/">{&category[title]}</li>
+    {/each}
+    </ul>
+</div>

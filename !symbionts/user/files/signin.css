@@ -1,0 +1,10 @@
+.symbiontsUserSignin{
+    text-align: center;
+    clear: both;
+}
+.symbiontsUserSignin .row{
+    clear: both;
+}
+.symbiontsUserSignin input{
+    border: 1px solid silver;
+}

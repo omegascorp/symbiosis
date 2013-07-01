@@ -1,0 +1,163 @@
+.symbionts-filemanager .path input{
+    padding: 0;
+    margin: 0;
+    height: 40px;
+    border: none;
+    width: 100%;
+    font-size: 18px;
+}
+.symbionts-filemanager .path{
+    border-bottom: 1px solid silver;
+    padding: 0 10px;
+}
+.symbionts-filemanager .files:after{
+    content: '.';
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+}
+.symbionts-filemanager .file{
+    display: block;
+    float: left;
+    width: 128px;
+    height: 128px;
+    margin: 32px;
+    cursor: pointer;
+}
+.symbionts-filemanager .file.icon-folder{
+    background: url('../filetypes/big/folder.png') no-repeat;
+}
+.symbionts-filemanager .file.icon-folder.error{
+    background-position: 0 -256px;
+}
+.symbionts-filemanager .file.icon-folder.selected{
+    background-position: 0 -128px;
+}
+.symbionts-filemanager .file.icon-image{
+    width: 112px;
+    height: 112px;
+    padding: 4px;
+    border: 4px solid #444444;
+}
+.symbionts-filemanager .file.icon-file{
+    width: 112px;
+    height: 112px;
+    padding: 4px;
+    border: 4px solid #444444;
+}
+.symbionts-filemanager .file.icon-sound{
+    width: 112px;
+    height: 112px;
+    padding: 4px;
+    border: 4px solid #444444;
+}
+.symbionts-filemanager .file.icon-image.selected{
+    width: 112px;
+    height: 112px;
+    padding: 4px;
+    border: 4px solid #007fff;
+}
+.symbionts-filemanager .file.icon-image img{
+    width: 112px;
+    height: 112px;
+    
+}
+.symbionts-filemanager .file.icon-folder .name{
+    margin: 45px 10px 0 10px;
+    text-align: center;
+    color: white;
+}
+.symbionts-filemanager-settings .name{
+    width: 100%;
+}
+.symbionts-filemanager-settings label{
+    display: inline-block;
+    width: 160px;
+}
+.symbionts-filemanager-settings input{
+    width: 168px;
+    height: 20px;
+}
+.symbionts-filemanager-settings select{
+    width: 170px;
+    height: 24px;
+}
+.symbionts-filemanager-settings .icons{
+    color: #444444;
+    font-size: 10px;
+    text-align: center;
+}
+.symbionts-filemanager-settings .admin-selected{
+    color: #007fff;
+}
+.symbionts-filemanager-settings .icon{
+    width: 32px;
+    height: 32px;
+    margin: 0 auto;
+    background: url('icons.png') no-repeat;
+}
+.symbionts-filemanager-settings .admin-selectable-item{
+    display: inline-block;
+    cursor: pointer;
+    width: 64px;
+}
+.symbionts-filemanager-settings .admin-selected.images .icon{
+    background-position: 0 -32px;
+}
+.symbionts-filemanager-settings .video .icon{
+    background-position: -32px 0;
+}
+.symbionts-filemanager-settings .admin-selected.video .icon{
+    background-position: -32px -32px;
+}
+.symbionts-filemanager-settings .archives .icon{
+    background-position: -64px 0;
+}
+.symbionts-filemanager-settings .admin-selected.arcives .icon{
+    background-position: -64px -32px;
+}
+.symbionts-filemanager-settings .sounds .icon{
+    background-position: -96px 0;
+}
+.symbionts-filemanager-settings .admin-selected.sound .icon{
+    background-position: -96px -32px;
+}
+.symbionts-filemanager-settings .documents .icon{
+    background-position: -128px 0;
+}
+.symbionts-filemanager-settings .admin-selected.documents .icon{
+    background-position: -128px -32px;
+}
+.symbionts-filemanager-settings .buttons{
+    text-align: center;
+}
+
+.symbionts-filemanager-create .name{
+    width: 200px;
+    height: 30px;
+    text-align: center;
+}
+.symbionts-filemanager-create .buttons{
+    text-align: center;
+}
+.symbionts-filemanager-upload{
+    padding: 40px;
+    border: 1px dashed silver;
+    margin: 5px;
+    cursor: pointer;
+    width: 300px;
+    text-align: center;
+}
+.symbionts-filemanager-upload.grag{
+    border: 1px dashed #007FFF;
+}
+.symbionts-filemanager-upload.error{
+    border: 1px dashed #FF003F;
+}
+.symbionts-filemanager-delete .buttons{
+    text-align: center;
+}
+.symbionts-filemanager-delete h1{
+    padding: 5px;
+}

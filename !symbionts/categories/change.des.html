@@ -1,0 +1,34 @@
+<div class="symbionts-categories-admin-change admin-widget admin-widget-{&id}" data-id="{&id}">
+    {Translit}
+    <h1>{if(&title)}{&title}{elseif(&id)}{@symbionts.categories.nameless}{else}{@symbionts.categories.new}{/if}</h1>
+    {if(count(&languages)>1)}
+    <div class="admin-tabs">
+        <ul class="admin-tabs-nav">
+        {each(&languages as &language)}
+                <li>{&language[languageTitle]}</li>
+        {/each}
+        </ul>
+        {each(&languages as &language)}
+        <div class="admin-tab {if(&language[isDefault])}admin-tab-default{/if}" data-id="{&language[id]}" data-abbr="{&language[abbr]}">
+                <div class="admin-block title"><label>{@symbionts.categories.title}</label><input type="text" class="admin-translit-source" data-abbr="{&language[abbr]}" value="{&language[title]}" /></div>
+                {if(!$conf.abbreviations)}
+                <div class="admin-block alias"><label>{@symbionts.categories.alias}</label><input type="text" class="admin-translit-receiver" data-abbr="{&language[abbr]}" value="{&language[alias]}" /></div>
+                {/if}
+        </div>
+        {/each}
+    </div>
+    {else}
+    <div class="admin-block title"><label>{@symbionts.categories.title}</label><input type="text" class="admin-translit-source" data-abbr="{&language[abbr]}" value="{&title}" /></div>
+    {/if}
+    {if($conf.abbreviations||count(&languages)==1)}
+    <div class="admin-block alias"><label>{@symbionts.categories.alias}</label><input type="text" class="admin-translit-receiver" data-abbr="{&language[abbr]}" value="{&alias}" /></div>
+    {/if}
+    <div class="admin-block parent">
+        <label>{@symbionts.categories.parent}</label>
+        {Categories-Admin.categories.for=&for.selectId=&parentId.ignoreId=&id|admin-categories-select}
+    </div>
+    <div class="admin-block">
+        <span class="admin-button admin-button-save">{@symbionts.categories.save}</span>
+        <span class="admin-button admin-button-cancel">{@symbionts.categories.cancel}</span>
+    </div>
+</div>

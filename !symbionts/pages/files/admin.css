@@ -1,0 +1,79 @@
+.admin-dialog-add{
+    margin-top: 30px;
+    position: absolute;
+    z-index: 10;
+}
+.admin-dialog-add .admin-hover{
+    cursor: pointer;
+    padding: 4px;
+}
+.symbionts-pages-admin-change input{
+    border: 1px solid silver;
+    text-align: center;
+}
+.symbionts-pages-admin-change select{
+    border: none;
+    text-align: center;
+    height: 20px;
+    margin: 0px;
+    padding: 0px;
+}
+.symbionts-pages-admin-change .select{
+    height: 26px;
+}
+.symbionts-pages-admin-change .select span{
+    border: 1px solid silver;
+    padding: 4px 1px;
+    height: 20px;
+}
+.symbionts-pages-admin-change .templates{
+    padding: 10px 0;
+}
+.symbionts-pages-admin-change .templates:after{
+    content: '.';
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+}
+.symbionts-pages-admin-change .templates .template .title{
+    text-align: center;
+}
+.symbionts-pages-admin-change .templates .template{
+    float: left;
+    margin: 2px;
+    cursor: pointer;
+    padding: 20px 0 0 0;
+    
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.symbionts-pages-admin-change .templates .template:hover{
+    padding: 0 0 20px 0;
+}
+.symbionts-pages-admin-change .templates .template.admin-selected{
+    background: none;
+}
+.symbionts-pages-admin-change .templates .template img{
+    display: block;
+    border: 4px solid rgba(0,0,0,.05);
+    -moz-border-radius: 36px;
+    -webkit-border-radius: 36px;
+    border-radius: 36px;
+    
+    -moz-box-shadow: 0 0 5px rgba(0,0,0,.2);
+    -webkit-box-shadow: 0 0 5px rgba(0,0,0,.2);
+    box-shadow: 0 0 5px rgba(0,0,0,.2);
+}
+.symbionts-pages-admin-change .templates .template.admin-selected img{
+    border: 4px solid rgba(0,0,0,.5);
+}
+.symbionts-pages-admin-change label.ui-button{
+    width: auto;
+}
+.symbionts-pages-admin-addText textarea{
+    height: 200px;
+}

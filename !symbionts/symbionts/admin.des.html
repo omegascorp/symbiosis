@@ -1,0 +1,32 @@
+{Script}{$conf.symbionts}symbionts/files/symbionts.js{/Script}
+{Style}{$conf.symbionts}symbionts/files/symbionts.css{/Style}
+
+<div class="symbionts-symbionts admin-list">
+    <h1 class="admin-block">{@symbionts.symbionts}</h1>
+    <div class="admin-block items">
+        {each(&symbionts as &symbiont)}
+        <div data-symbiont="{&symbiont[name]}" class="item {if(&symbiont[active])}admin-selected{/if} {if(&symbiont[admin])}selectable{/if}" {if(&symbiont[admin])}style="background-image: url({$conf.symbionts}{&symbiont[icon]}32.png);"{/if}>
+            <span class="title">{&symbiont[title]}</span><span class="version">{&symbiont[version]}</span>
+        </div>
+        {/each}
+    </div>
+    {*
+    <div class="admin-block">
+        <span class="admin-button install">{@symbionts.symbionts.install}</span>
+    </div>
+    
+    <div class="install-template" style="display: none;">
+        <div>
+            <div class="admin-clear">
+                <input class="filename ui-corner-all" type="text" />
+                <input name="file" class="file" type="file" />
+            </div>
+            <div class="admin-clear">
+                <span class="browse">{@symbionts.symbionts.browse}</span>
+                <span class="install">{@symbionts.symbionts.install}</span>
+                <span class="cancel">{@symbionts.symbionts.cancel}</span>
+            </div>
+        </div>
+    </div>
+    *}
+</div>

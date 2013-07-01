@@ -1,0 +1,801 @@
+.lightedit{
+    
+}
+.lightedit.lightedit-full{
+    position: relative;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    background: white;
+    overflow: auto;
+    padding: 20px;
+}
+.lightedit-overlay{
+    position: absolute;
+    width: 100%;
+    background: black;
+    top: 0;
+    left: 0;
+    
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.5;
+    -khtml-opacity: 0.5;
+    opacity: 0.5;
+    z-index: 1000;
+}
+.lightedit-dialog{
+    position: absolute;
+    background: white;
+    top: 0;
+    left: 0;
+    
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+    filter: alpha(opacity=90);
+    -moz-opacity: 0.9;
+    -khtml-opacity: 0.9;
+    opacity: 0.9;
+    z-index: 1001;
+    
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    
+    -moz-box-shadow: 0px 0px 20px #FFFFFF;
+    -webkit-box-shadow: 0px 0px 20px #FFFFFF;
+    box-shadow: 0px 0px 20px #FFFFFF;
+}
+.lightedit-dialog.loading{
+    background-image: url('../img/loader.gif');
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+.lightedit .lightedit-toolbar{
+    height: 32px;
+    background: rgba(44,44,44,.9);
+    position: absolute;
+    z-index: 101;
+}
+.lightedit .lightedit-input-container, .lightedit .lightedit-select-container{
+    margin-top: 5px;
+}
+.lightedit .lightedit-input, .lightedit .lightedit-select{
+    float: right;
+    width: 79%;
+    border: 1px solid silver;
+}
+.lightedit .lightedit-input-container label, .lightedit .lightedit-input-select label{
+    display: block;
+    float: left;
+    width: 20%;
+    padding: 0;
+    margin: 4px 0;
+}
+    
+.lightedit .lightedit-input input, .lightedit .lightedit-select select{
+    padding: 0px;
+    margin: 0px;
+    border: none;
+    width: 100%;
+    outline: none;
+    font-size: 20px;
+    background: transparent;
+}
+.lightedit .lightedit-input input:focus, .lightedit .lightedit-select select:focus{
+    outline: 1px solid #999999;
+    outline-offset: 0px;
+}
+.lightedit .lightedit-text{
+    border: 1px solid silver;
+    margin-top: 5px;
+    padding-top: 32px;
+}
+.lightedit .lightedit-text textarea{
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    display: block;
+}
+.lightedit .lightedit-text.current{
+    border: 1px solid #999999;
+}
+.lightedit .lightedit-toolbar{
+    overflow: hidden;
+    height: 32px;
+}
+.lightedit .lightedit-toolbar ul{
+    display: block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.lightedit .lightedit-toolbar ul li{
+    display: block;
+    float: left;
+    height: 32px;
+    width: 32px;
+}
+.lightedit .lightedit-toolbar ul li a{
+    display: block;
+    height: 32px;
+    width: 32px;
+    background: url('../img/icons.png');
+    cursor: pointer;
+}
+.lightedit .lightedit-toolbar ul li a:hover{
+    background-color: rgba(255,255,255,0.1);
+}
+.lightedit .lightedit-toolbar ul li.lightedit-active a{
+    background-color: rgba(255,255,255,0.3);
+}
+.lightedit .lightedit-toolbar ul li.lightedit-separator{
+    border-right: 1px solid silver;
+}
+.lightedit .lightedit-toolbar ul li.lightedit-float-right{
+    float: right;
+}
+.lightedit .lightedit-toolbar ul li.lightedit-tool-class a{
+    background-position: -32px 0;
+}
+.lightedit .lightedit-toolbar ul li.lightedit-tool-text a{
+    background-position: -64px 0;
+}
+.lightedit .lightedit-toolbar ul li.lightedit-tool-bold a{
+    background-position: -96px 0;
+    font-weight: bold;
+}
+.lightedit .lightedit-toolbar ul li.lightedit-tool-italic a{
+    background-position: -128px 0;
+    font-style: italic;
+}
+.lightedit .lightedit-toolbar ul li.lightedit-tool-deleted a{
+    background-position: -160px 0;
+    text-decoration: line-through;
+}
+.lightedit .lightedit-toolbar ul li.lightedit-tool-clear a{
+    background-position: -192px 0;
+}
+.lightedit .lightedit-toolbar ul li.lightedit-tool-justify a{
+    background-position: -224px 0;
+}
+.lightedit .lightedit-toolbar ul li.lightedit-tool-justifyleft a{
+    background-position: -256px 0;
+}
+.lightedit .lightedit-toolbar ul li.lightedit-tool-justifycenter a{
+    background-position: -288px 0;
+}
+.lightedit .lightedit-toolbar ul li.lightedit-tool-justifyright a{
+    background-position: -320px 0;
+}
+.lightedit .lightedit-toolbar ul li.lightedit-tool-justifyfull a{
+    background-position: -352px 0;
+}
+.lightedit .lightedit-toolbar ul li.lightedit-tool-unorderedlist a{
+    background-position: -384px 0;
+}
+.lightedit .lightedit-toolbar ul li.lightedit-tool-orderedlist a{
+    background-position: -416px 0;
+}
+.lightedit .lightedit-toolbar ul li.lightedit-tool-table a{
+    background-position: -448px 0;
+}
+.lightedit .lightedit-toolbar ul li.lightedit-tool-insert a{
+    background-position: -480px 0;
+}
+.lightedit .lightedit-toolbar ul li.lightedit-tool-link a{
+    background-position: -512px 0;
+}
+.lightedit .lightedit-toolbar ul li.lightedit-tool-image a{
+    background-position: -544px 0;
+}
+.lightedit .lightedit-toolbar ul li.lightedit-tool-video a{
+    background-position: -576px 0;
+}
+.lightedit .lightedit-toolbar ul li.lightedit-tool-hr a{
+    background-position: -608px 0;
+}
+.lightedit .lightedit-toolbar ul li.lightedit-tool-html a{
+    background-position: 0 -32px;
+}
+.lightedit .lightedit-toolbar ul li.lightedit-tool-html.lightedit-active a{
+    background-position: 0 -32px;
+}
+.lightedit .lightedit-toolbar ul li.lightedit-tool-full a{
+    background-position: -32px -32px;
+}
+.lightedit .lightedit-toolbar ul li.lightedit-tool-full.lightedit-active a{
+    background-position: -64px -32px;
+}
+.lightedit .lightedit-toolbar ul li.lightedit-tool-grid a{
+    background-position: -256px -32px;
+}
+.lightedit .lightedit-toolbar-left, .lightedit .lightedit-toolbar-right{
+    display: block;
+    position: absolute;
+    background: url('../img/icons.png');
+    cursor: pointer;
+    z-index: 102;
+    width: 16px;
+    height: 32px;
+}
+.lightedit .lightedit-toolbar-left{
+    background-position: -96px -32px;
+}
+.lightedit .lightedit-toolbar-right{
+    background-position: -110px -32px;
+}
+.lightedit .lightedit-dropdown ul li.lightedit-tool-h1{
+    font-size: 26px;
+}
+.lightedit .lightedit-dropdown ul li.lightedit-tool-h2{
+    font-size: 24px;
+}
+.lightedit .lightedit-dropdown ul li.lightedit-tool-h3{
+    font-size: 22px;
+}
+.lightedit .lightedit-dropdown ul li.lightedit-tool-h4{
+    font-size: 20px;
+}
+.lightedit .lightedit-dropdown ul li.lightedit-tool-h5{
+    font-size: 18px;
+}
+.lightedit .lightedit-dropdown ul li.lightedit-tool-h6{
+    font-size: 16px;
+}
+.lightedit .lightedit-dropdown ul li.lightedit-tool-blockquote a{
+    color: #999999;
+    font-style: italic;
+}
+.lightedit .lightedit-toolbar ul li.lightedit-tool-pre{
+    font-family: monospace;
+}
+.lightedit .lightedit-toolbar ul li.lightedit-floating a{
+    display: none;
+}
+.lightedit .lightedit-toolbar ul li.lightedit-floating ul{
+    
+}
+.lightedit .lightedit-dropdown{
+    display: block;
+    position: absolute;
+    margin-top: 32px;
+    z-index: 100;
+    background: rgba(255,255,255,.9);
+    -moz-box-shadow: 1px 1px 5px black;
+    -webkit-box-shadow: 1px 1px 5px black;
+    box-shadow: 0px 0px 5px rgba(0,0,0,.5);
+}
+.lightedit .lightedit-dropdown ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.lightedit .lightedit-dropdown ul li{
+    display: block;
+    float: none;
+    height: auto;
+    width: auto;
+}
+.lightedit .lightedit-dropdown ul li.lightedit-separator{
+    border: none;
+    border-bottom: 1px solid silver;
+}
+.lightedit .lightedit-dropdown ul li a{
+    display: block;
+    padding: 2px 5px;
+    background: none;
+    height: auto;
+    width: auto;
+    text-decoration: none;
+    color: black;
+}
+.lightedit .lightedit-dropdown ul li a:hover{
+    background: rgba(0,0,0,.1);
+}
+.lightedit .lightedit-toolbar ul li.lightedit-screen-small{
+    display: none;
+}
+
+.lightedit .lightedit-nav .lightedit-saved{
+    float: right;
+    padding: 5px 20px 0 0;
+    font-size: 12px;
+    color: #999999;
+}
+.lightedit .lightedit-nav ul{
+    display: block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.lightedit .lightedit-nav ul li{
+    display: block;
+    float: left;
+}
+.lightedit .lightedit-nav ul li a{
+    display: block;
+    border: 1px solid silver;
+    border-top: none;
+    padding: 2px;
+    margin: 0 2px;
+    color: black;
+    text-decoration: none;
+}
+.lightedit .lightedit-nav ul li.lightedit-current a{
+    background-color: #EEEEEE;
+    border-color: #999999;
+}
+.lightedit-button{
+    display: inline-block;
+    text-align: center;
+    padding: 2px 4px;
+    border: 1px solid #999999;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.lightedit-button:hover{
+    -moz-box-shadow: 0px 0px 5px rgba(0,0,0,.4);
+    -webkit-box-shadow: 0px 0px 5px  rgba(0,0,0,.4);
+    box-shadow: 0px 0px 5px  rgba(0,0,0,.4);
+}
+.lightedit-toolbar-popup{
+    position: absolute;
+    z-index: 1500;
+}
+.lightedit-toolbar-popup-content{
+    background: rgba(255, 255, 255, .9);
+    
+    padding: 4px;
+    
+    -moz-box-shadow: 0px 0px 5px rgba(0,0,0,.4);
+    -webkit-box-shadow: 0px 0px 5px  rgba(0,0,0,.4);
+    box-shadow: 0px 0px 5px  rgba(0,0,0,.4);
+}
+.lightedit-toolbar-popup-tailtop{
+    height: 8px;
+    background: url('../img/popup.png') center 0 no-repeat;
+    position: relative;
+    z-index: 501;
+}
+.lightedit-toolbar-popup-tail{
+    height: 8px;
+    background: url('../img/popup.png') center -8px no-repeat;
+    position: relative;
+    z-index: 501;
+}
+
+/* imgae */
+.lightedit-image{
+    text-align: center;
+}
+.lightedit-image .browse{
+    height: 26px;
+}
+.lightedit-image .images ul{
+    display: block;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    overflow: auto;
+    height: 270px;
+}
+.lightedit-image .images ul li{
+    display: inline-block;
+    padding: 0;
+}
+.lightedit-image .images ul li a{
+    display: block;
+    margin: 5px;
+    padding: 2px;
+    
+    -moz-box-shadow: 0px 0px 5px rgba(0,0,0,.4);
+    -webkit-box-shadow: 0px 0px 5px  rgba(0,0,0,.4);
+    box-shadow: 0px 0px 5px  rgba(0,0,0,.4);
+}
+.lightedit-image .images ul li a:hover{
+    -moz-box-shadow: 0px 0px 5px rgba(0,0,0,1);
+    -webkit-box-shadow: 0px 0px 5px  rgba(0,0,0,1);
+    box-shadow: 0px 0px 5px  rgba(0,0,0,1);
+}
+.lightedit-image .images ul li a img{
+    display: block;
+    height: 100px;
+}
+.lightedit-image .tools{
+    height: 62px;
+    background: #DDDDDD;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.lightedit-image-edit .tools{
+    height: 62px;
+    background: #DDDDDD;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.lightedit-image-edit .buttons{
+    text-align: center;
+    padding: 5px;
+}
+.lightedit-image .tools-left,.lightedit-image-edit .tools-left{
+    float: left;
+    width: 199px;
+    border-right: 1px solid silver;
+}
+.lightedit-image .tools-right,.lightedit-image-edit .tools-right{
+    float: left;
+    width: 200px;
+}
+.lightedit-image .tools .width,.lightedit-image .tools .height, .lightedit-image-edit .tools .width,.lightedit-image-edit .tools .height{
+    background: white;
+    border: 1px solid silver;
+    width: 140px;
+    margin: 3px auto;
+    font-size: 12px;
+    padding: 1px 0;
+    cursor: text;
+}
+.lightedit-image .tools .width label,.lightedit-image .tools .height label,.lightedit-image-edit .tools .width label,.lightedit-image-edit .tools .height label{
+    display: inline-block;
+    width: 80px;
+    text-align: left;
+    cursor: text;
+    padding: 4px;
+}
+.lightedit-image .tools .width input,.lightedit-image .tools .height input, .lightedit-image-edit .tools .width input,.lightedit-image-edit .tools .height input{
+    width: 50px;
+    border: none;
+    text-align: center;
+    outline: none;
+}
+.lightedit-image .tools ul, .lightedit-image-edit .tools ul{
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    display: block;
+    text-align: center;
+}
+.lightedit-image .tools ul li, .lightedit-image-edit .tools ul li{
+    display: inline-block;
+    margin: 0 2px;
+}
+.lightedit-image .tools ul li a, .lightedit-image-edit .tools ul li a{
+    display: block;
+    background: url('../img/icons.png');
+    width: 32px;
+    height: 32px;    
+}
+.lightedit-image .tools ul li a:hover, .lightedit-image-edit .tools ul li a:hover{
+    -moz-box-shadow: 0px 0px 5px rgba(0,0,0,.4);
+    -webkit-box-shadow: 0px 0px 5px  rgba(0,0,0,.4);
+    box-shadow: 0px 0px 5px  rgba(0,0,0,.4);
+}
+.lightedit-image .tools ul li.selected a, .lightedit-image-edit .tools ul li.selected a{
+    background-color: #BBBBBB;
+}
+.lightedit-image .tools ul li.none a, .lightedit-image-edit .tools ul li.none a{
+    background-position: -128px -32px;
+}
+.lightedit-image .tools ul li.left a, .lightedit-image-edit .tools ul li.left a{
+    background-position: -160px -32px;
+}
+.lightedit-image .tools ul li.center a, .lightedit-image-edit .tools ul li.center a{
+    background-position: -192px -32px;
+}
+.lightedit-image .tools ul li.right a, .lightedit-image-edit .tools ul li.right a{
+    background-position: -224px -32px;
+}
+.lightedit-image-edit .tools .title{
+    text-align: center;
+}
+.lightedit-image .tools .title input, .lightedit-image-edit .tools .title input{
+    height: 16px;
+    margin: 3px 0;
+    text-align: center;
+    width: 142px;
+    border: 1px solid silver;
+}
+.lightedit-image #lightedit-image-iframe{
+    border: none;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+/* \imgae */
+
+/* link */
+.lightedit-link .tools{
+    height: 60px;
+    background: #DDDDDD;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.lightedit-link .tools .text, .lightedit-link .tools .url{
+    padding: 18px;
+}
+.lightedit-link .tools .text input, .lightedit-link .tools .url input{
+    display: block;
+    height: 18px;
+    margin: 0 auto;
+    width: 300px;
+    text-align: center;
+}
+.lightedit-link .buttons{
+    text-align: center;
+    padding: 4px;
+}
+/* \link */
+/* video */
+.lightedit-video .tools{
+    height: 200px;
+    background: #DDDDDD;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.lightedit-video .tools .code{
+    padding: 5px;
+}
+.lightedit-video .tools .code textarea{
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    padding: 0;
+    border: 0;
+    height: 190px;
+    max-height: 190px;
+    min-height: 190px;
+}
+.lightedit-video .buttons{
+    text-align: center;
+    padding: 4px;
+}
+/* \video */
+
+/* table */
+.lightedit-table .tools{
+    height: 110px;
+    background: #DDDDDD;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    text-align: center;
+}
+.lightedit-table .tools label{
+    display: inline-block;
+    width: 100px;
+    text-align: left;
+}
+.lightedit-table .tools .code{
+    padding: 5px;
+}
+.lightedit-table .tools .code textarea{
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    padding: 0;
+    border: 0;
+    height: 190px;
+    max-height: 190px;
+    min-height: 190px;
+}
+.lightedit-table .buttons{
+    text-align: center;
+    padding: 4px;
+}
+.lightedit-table .styles{
+    text-align: center;
+}
+.lightedit-table .styles .style{
+    display: inline-block;
+    margin: 5px 10px;
+    cursor: pointer;
+}
+.lightedit-table .styles .style.over{
+    -moz-box-shadow: 0px 0px 5px rgba(0,0,0,.4);
+    -webkit-box-shadow: 0px 0px 5px  rgba(0,0,0,.4);
+    box-shadow: 0px 0px 5px  rgba(0,0,0,.4);
+}
+.lightedit-table .styles .style.active{
+    -moz-box-shadow: 0px 0px 5px rgba(0,0,0,.8);
+    -webkit-box-shadow: 0px 0px 5px  rgba(0,0,0,.8);
+    box-shadow: 0px 0px 5px  rgba(0,0,0,.8);
+}
+/* \table */
+
+/* table-edit */
+.lightedit-table-edit .tools{
+    height: 60px;
+    background: #DDDDDD;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    text-align: center;
+}
+.lightedit-table-edit .buttons{
+    text-align: center;
+    padding: 4px;
+}
+.lightedit-table-edit .styles{
+    text-align: center;
+}
+.lightedit-table-edit .styles .style{
+    display: inline-block;
+    margin: 5px 10px;
+    cursor: pointer;
+}
+.lightedit-table-edit .styles .style.over{
+    -moz-box-shadow: 0px 0px 5px rgba(0,0,0,.4);
+    -webkit-box-shadow: 0px 0px 5px  rgba(0,0,0,.4);
+    box-shadow: 0px 0px 5px  rgba(0,0,0,.4);
+}
+.lightedit-table-edit .styles .style.active{
+    -moz-box-shadow: 0px 0px 5px rgba(0,0,0,.8);
+    -webkit-box-shadow: 0px 0px 5px  rgba(0,0,0,.8);
+    box-shadow: 0px 0px 5px  rgba(0,0,0,.8);
+}
+/* \table-edit */
+
+/* styles */
+.lightedit ul li.important a{
+    color: #DD0000;
+}
+.lightedit ul li.secondary a{
+    color: #999999;
+}
+.lightedit ul li.marked a{
+    background-color: orange;
+}
+.lightedit-table table.bordered, .lightedit-table-edit table.bordered{
+    border-spacing:0;
+    border-collapse:collapse;
+    border-top: 1px solid silver;
+    border-left: 1px solid silver;
+}
+.lightedit-table table.bordered td, .lightedit-table-edit table.bordered td{
+    border-bottom: 1px solid silver;
+    border-right: 1px solid silver;
+}
+.lightedit-table table.lines, .lightedit-table-edit table.lines{
+    border-spacing:0;
+    border-collapse:collapse;
+}
+.lightedit-table table.lines td, .lightedit-table-edit table.lines td{
+    border-bottom: 1px solid silver;
+}
+/* \styles */
+
+/* grid */
+.lightedit-grid .count{
+    text-align: center;
+}
+.lightedit-grid .count span{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    margin: 10px 5px;
+    border: 1px solid silver;
+    font-size: 24px;
+    line-height: 40px;
+    cursor: pointer;
+}
+.lightedit-grid .count span.over{
+    -moz-box-shadow: 0px 0px 5px rgba(0,0,0,.4);
+    -webkit-box-shadow: 0px 0px 5px  rgba(0,0,0,.4);
+    box-shadow: 0px 0px 5px  rgba(0,0,0,.4);
+}
+.lightedit-grid .count span.active{
+    -moz-box-shadow: 0px 0px 5px rgba(0,0,0,.8);
+    -webkit-box-shadow: 0px 0px 5px  rgba(0,0,0,.8);
+    box-shadow: 0px 0px 5px  rgba(0,0,0,.8);
+}
+.lightedit-grid .count-label{
+    text-align: center;
+    padding-top: 10px;
+}
+.lightedit-grid .cols{
+    text-align: center;
+}
+.lightedit-grid .col{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin: 4px 0;
+    background: #999999;
+}
+.lightedit-grid .union{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid silver;
+    margin: 12px 4px;
+    cursor: pointer;
+}
+.lightedit-grid .union.active{
+    width: 30px;
+    height: 40px;
+    margin: 4px 0;
+    border: none;
+    background: #BBBBBB;
+}
+.lightedit-grid .buttons{
+    padding-top: 5px;
+    text-align: center;
+}
+.lightedit-grid .help{
+    font-size: 10px;
+    color: #999999;
+    text-align: center;
+}
+.lightedit-grid-edit .buttons{
+    padding-top: 5px;
+    text-align: center;
+}
+.lightedit-grid-edit .styles{
+    text-align: center;
+}
+.lightedit-grid-edit .styles .style{
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    margin: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+.lightedit-grid-edit .styles .style.over{
+    -moz-box-shadow: 0px 0px 5px rgba(0,0,0,.4);
+    -webkit-box-shadow: 0px 0px 5px  rgba(0,0,0,.4);
+    box-shadow: 0px 0px 5px  rgba(0,0,0,.4);
+}
+.lightedit-grid-edit .styles .style.active{
+    -moz-box-shadow: 0px 0px 5px rgba(0,0,0,.8);
+    -webkit-box-shadow: 0px 0px 5px  rgba(0,0,0,.8);
+    box-shadow: 0px 0px 5px  rgba(0,0,0,.8);
+}
+/* \grid */
+
+/* after */
+.lightedit .lightedit-nav:after,.lightedit .lightedit-input-container:after{
+    content: '.';
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+}
+/* \after*/
+
+@media only screen and (max-width: 600px),
+only screen and (max-device-width: 600px){
+    .lightedit .lightedit-toolbar ul li.screen-large{
+        display: none;
+    }
+    .lightedit .lightedit-toolbar ul li.screen-small{
+        display: block;
+    }
+}

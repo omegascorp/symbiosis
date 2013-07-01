@@ -1,0 +1,16 @@
+{Script}{$conf.symbionts}forms/files/edit.js{/Script}
+{Style}{$conf.symbionts}forms/files/edit.css{/Style}
+
+<div class="symbionts-forms-edit" data-uniq="{&uniq}">
+    <label>{@symbionts.forms.template}</label>
+    <ul class="templates">
+        {each(&templates as &t)}
+        <li class="ui-corner-all admin-hover {if(&t[template] == &template)}admin-selected{/if}" data-name="{&t[template]}">{&t[title]}</li>
+        {/each}
+    </ul>
+    <div class="emails"><label>{@symbionts.forms.emails}</label><input class="ui-corner-all" type="text" value="{&emails}" /></div>
+    <div class="buttons">
+        <div class="admin-button-save">{@symbionts.forms.save}</div>
+        <div class="admin-button-cancel">{@symbionts.forms.cancel}</div>
+    </div>
+</div>

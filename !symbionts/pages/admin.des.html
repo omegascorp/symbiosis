@@ -1,0 +1,23 @@
+{Script}{$conf.symbionts}pages/files/admin.js{/Script}
+{Style}{$conf.symbionts}pages/files/admin.css{/Style}
+
+<div class="symbionts-pages-admin admin-widget-tabs">
+    <div class="admin-widget-top">
+        <ul class="admin-widget-tabs-nav">
+            <div class="admin-widget-icon-holder">
+                <label>{@symbionts.pages}</label>
+            </div>
+            <li class="admin-widget-icon" data-tab="all"><a href="{$link.current}#tab=all" class="admin-link"><span>{@symbionts.pages.all}</a></li>
+        </ul>
+    </div>
+    <div class="admin-widget-tab symbionts-pages-admin-main" data-tab="all">
+        <div class="admin-widget-list">
+        {Pages.pages}
+        </div>
+        <div class="admin-widget-bottom">
+            <span class="admin-widget-icon admin-widget-icon-add"><a href="{$link.current}#add" class="admin-link"><span>{@symbionts.pages.add}</a></span>
+            <span class="admin-widget-icon admin-widget-icon-edit" style="display: none;"><a href="{$link.current}#edit" class="admin-link"><span>{@symbionts.pages.edit}</a></span>
+            <span class="admin-widget-icon admin-widget-icon-remove" style="display: none;"><a href="{$link.current}#remove" class="admin-link"><span>{@symbionts.pages.delete}</a></span>
+        </div>
+    </div>
+</div>

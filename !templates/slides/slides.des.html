@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>{$$title}</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="title" content="{@title}" />
+	<meta name="keywords" content="{@keywords}" />
+	<meta name="description" content="{@description}" />
+	<base href="{$conf.url}" />
+	<link rel="icon" href="{$conf.img}logo.ico" type="image/x-icon" />
+	<link rel="stylesheet" href="{$conf.css}style.css" type="text/css" media="screen" />
+	<!--[if lte IE 6]><link rel="stylesheet" href="{$conf.files}css/style_ie.css" type="text/css" media="screen" /><![endif]-->
+	{$$styles}
+	<script type="text/javascript" src="{$conf.url}!files/js/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="{$conf.url}!files/js/jquery.symbiosis.js"></script>
+	<script type="text/javascript" src="{$conf.url}!files/js/jquery.slides.js"></script>
+	
+	<script type="text/javascript" src="{$conf.url}!files/js/jquery.lavalamp.min.js"></script>
+	<script type="text/javascript" src="{$conf.js}init.js"></script>
+	<script type="text/javascript">
+		$.symbiosis({url:'{$conf.url}', path:'{$conf.path}', mlm:'{$conf.mlm}', language:'{$lang.abbr}', design:'{$conf.design}', link:'{$link.full}', admin:{if(~>0)}true{else}false{/if}, 'init':init});
+	</script>
+	{$$scripts}
+</head>
+
+<body>
+<div id="wrapper">
+	<div id="top" style="display: none;"><img src="{$conf.img}top.png" alt="Top" /></div>
+	<div id="header">
+		<h1><a href="{$conf.base}">{@title}</a></h1>
+		<h2>{@slogan}</h2>
+		{Languages}
+		{Media.main.categoryAlias="slides"}
+		<div class="menu-line"></div>
+		{Menu.main.id=1}
+	</div><!-- #header-->
+
+	<div id="middle">
+		<div id="container">
+			<div id="content">
+				<h1>{$$place}</h1>
+				{&content}
+			</div><!-- #content-->
+		</div><!-- #container-->
+
+		<div id="left">
+			{[left]}
+		</div><!-- #left -->
+		<div id="right">
+			{[right]}
+		</div><!-- #right -->
+
+	</div><!-- #middle-->
+
+	<div id="footer">
+		<img src="{$conf.img}symbiosis.png" alt="Symbiosis {$conf.version} Lucky Ghost"  title="Symbiosis {$conf.version} Simple Magic." />
+	</div><!-- #footer -->
+</div><!-- #wrapper -->
+
+</body>
+</html>

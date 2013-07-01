@@ -1,0 +1,3 @@
+<?
+Data::clearFolder('temp/', 'important');
+?>

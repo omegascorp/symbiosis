@@ -1,0 +1,92 @@
+#simple {
+    height: 1%;
+}
+#simple:after {
+    content: '.';
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+}
+#simple .position, #simple .symbionts{
+    padding: 5px;
+    margin: 5px 0;
+}
+#simple .position legend{
+    color: black;
+    margin-left: 20px;
+}
+#simple .position.static legend{
+    text-shadow: #1C94C4 0px 0px 5px;
+}
+#simple .position.dynamic legend{
+    text-shadow: #FBCB09 0px 0px 5px;
+}
+#simple .symbionts legend{
+    color: black;
+    margin-left: 20px;
+    text-shadow: white 0px 0px 5px;
+}
+#simple .widget{
+    cursor: move;
+    padding: 5px;
+    margin: 2px 0;
+}
+#simple .symbionts .widget{
+    float: left;
+    width: 200px;
+    margin-right: 5px;
+}
+#simple .widget .controls{
+    display: block;
+    float: left;
+    margin: 7px 0 0 -40px;
+}
+#simple .widget .controls span{
+    cursor: pointer;
+    display: block;
+    float: left;
+}
+#simple .widget .header label{
+    display: block;
+    width: 100%;
+    float: left;
+    overflow: hidden;
+    height: 32px;
+}
+#simple .widget .header .icon{
+    display: block;
+    float: left;
+    width: 32px;
+    height: 32px;
+}
+#simple .widget .header .title{
+    display: block;
+    float: left;
+    line-height: 32px;
+    height: 32px;
+    padding: 0 40px 0 10px;
+}
+#simple .widget:after, .widget .header:after{
+    content: '.';
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+}
+#simple .symbionts-pages-admin-delete .ui-widget-shadow{
+    position: absolute;
+    z-index: 2;
+    border: 0px;
+    padding: 15px;
+    margin: -5px;
+}
+#simple .symbionts-pages-admin-delete .ui-widget-content{
+    position: absolute;
+    padding: 10px;
+    z-index: 3;
+    border: 0px;
+}
+#simple .symbionts-pages-admin-delete .ui-widget-content div{
+    text-align: center;
+}

@@ -1,0 +1,20 @@
+{
+    "symbionts.languages": "Языки",
+    "symbionts.languages.sort": "Сортировка",
+    "symbionts.languages.default": "По умолчанию",
+    "symbionts.languages.disableEnable": "Включить/Выключить",
+    "symbionts.languages.add": "Добавить",
+    "symbionts.languages.edit": "Редактировать",
+    "symbionts.languages.delete": "Удалить",
+    "symbionts.languages.newLanguage": "Новый язык",
+    "symbionts.languages.abbr": "Аббревиатура",
+    "symbionts.languages.localTitle": "Название на родном",
+    "symbionts.languages.englishTitle": "Название на Английском",
+    "symbionts.languages.code": "Код",
+    "symbionts.languages.save": "Сохранить",
+    "symbionts.languages.cancel": "Отменить",
+    "symbionts.languages.areYouShure": "Вы уверены?",
+    "symbionts.languages.yes": "Да",
+    "symbionts.languages.no": "Нет",
+    "symbionts.languages.admin": "Язык:"
+}

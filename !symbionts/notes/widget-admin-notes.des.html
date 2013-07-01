@@ -1,0 +1,16 @@
+<ul>
+{each(&notes as &note)}
+    <li data-id="{&note[id]}" data-alias="{&note[alias]}" data-position="{&note[position]}" data-date="{&note[date]}">
+        <div class="admin-item {if(&note[coming]>0)}admin-alternative{/if}">
+            <label class="title">{&note[title]}</label>
+            <div class="text">
+                {Data::p(&note[text])}
+            </div>
+            <div>
+                <a href="{$link.current}#edit={&note[id]}" class="admin-link edit">{@symbionts.notes.edit}</a>
+                <a href="{$link.current}#remove={&note[id]}" class="admin-link remove">{@symbionts.notes.delete}</a>
+            </div>
+        </div>
+    </li>
+{/each}
+</ul>

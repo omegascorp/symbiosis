@@ -1,0 +1,35 @@
+<div class="symbionts-menu-admin-items-change" data-menuid="{&menuId}" data-id="{&id}">
+    <h1 class="admin-block">{if(&title)}{&title}{else}{@symbionts.menu.newItem}{/if}</h1>
+    <div class="admin-tabs">
+        <ul class="admin-tabs-nav">
+        {each(&languages as &language)}
+                <li>{&language[languageTitle]}</li>
+        {/each}
+        </ul>
+        {each(&languages as &language)}
+        <div class="admin-tab" {if(&language[isDefault])}admin-tab-default{/if}" data-id="{&language[id]}" data-abbr="{&language[abbr]}">
+            <div class="admin-block admin-layout">
+                <label class="admin-layout-25">{@symbionts.menu.title}</label>
+                <div class="admin-layout-75"><input class="title" type="text" value="{&language[title]}" /></div>
+            </div>
+            <div class="admin-block admin-layout">
+                <label class="admin-layout-25">{@symbionts.menu.link}</label>
+                <div class="admin-layout-75"><input class="link" type="text" value="{&language[link]}" /></div>
+            </div>
+        </div>
+        {/each}
+    </div>
+    <div class="admin-block admin-layout">
+        <label class="admin-layout-25">{@symbionts.menu.parent}</label>
+        <div class="admin-layout-75">
+            <select class="parent">
+                <option value="0"></option>
+                {#Menu-AdminItems.items.admin-items-item-select[selectId=&parentId,neglectId=&id,&menuId=&menuId]#}
+            </select>
+        </div>
+    </div>
+    <div class="admin-block">
+        <span class="admin-button admin-button-save">{@symbionts.menu.save}</span>
+        <span class="admin-button admin-button-cancel">{@symbionts.menu.cancel}</span>
+    </div>
+</div>

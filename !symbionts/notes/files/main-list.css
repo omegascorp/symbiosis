@@ -1,0 +1,17 @@
+.symbionts-notes-category-list ul{
+    display: block;
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+.symbionts-notes-category-list ul:after {
+    content: '.';
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+}
+.symbionts-notes-category-list ul li{
+    display: block;
+    margin: 5px;
+}

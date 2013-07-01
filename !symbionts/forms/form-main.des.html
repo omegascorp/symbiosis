@@ -1,0 +1,12 @@
+{Script}{$conf.symbionts}forms/files/form.js{/Script}
+{Style}{$conf.symbionts}forms/files/main.css{/Style}
+
+<div class="symbionts-forms" data-uniq="{&uniq}">
+    <form>
+        <div class="data" data-type="text"><label>{@symbionts.forms.name}</label><input type="text" value="{&name}" /></div>
+        <div class="data" data-type="email"><label>{@symbionts.forms.email}</label><input type="text" value="{&email}" /></div>
+        <div class="data" data-type="text"><textarea></textarea></div>
+        <div class="button"><input type="submit" value="{@symbionts.forms.send}"></div>
+    </form>
+    <div class="message" style="display: none;"></div>
+</div>

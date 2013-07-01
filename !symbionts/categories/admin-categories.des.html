@@ -1,0 +1,17 @@
+<ul data-level="{&level}">
+{each(&categories as &category)}
+    <li>
+        <div class="admin-item"  data-id="{&category[id]}">
+            <label class="title"><a href="{$conf.base}admin/{&category[for]}/{&category[alias]}/">{&category[title]}</a></label>
+            <div class="admin-right">
+                <a href="{$link.current}#edit={&category[id]}" class="admin-link edit">{@symbionts.categories.edit}</a>
+                <a href="{$link.current}#remove={&category[id]}" class="admin-link remove">{@symbionts.categories.delete}</a>
+            </div>
+        </div>
+        {if(&category[haveSub])}
+            {* {Categories-Admin.categories.for=&for.settings=&settings.level=&level+1.parentId=&category[id]} *}
+            {#Categories-Admin.categories[for=&for,settings=&settings,level=&level+1,parentId=&category[id]]#}
+        {/if}
+    </li>
+{/each}
+</ul>

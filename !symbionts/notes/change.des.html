@@ -1,0 +1,56 @@
+<div class="symbionts-notes-admin-change admin-widget admin-widget-{&id}" data-id="{&id}">
+    {Translit}
+    <h1>{if(&title)}{&title}{elseif(&id)}{@symbionts.notes.nameless}{else}{@symbionts.notes.new}{/if}</h1>
+    <div class="lightedit">
+        <div class="lightedit-tabs">
+            {each(&languages as &language)}
+            <div class="lightedit-tab {if(&language[isDefault])}lightedit-tab-default{/if}" data-lang="{&language[id]}" data-title="{&language[languageTitle]}" data-id="{&language[id]}">
+                <div class="admin-block"><input name="title" type="text" class="admin-translit-source" data-abbr="{&language[abbr]}" title="{@symbionts.notes.title}" value="{&language[title]}" /></div>
+                {if(!$conf.abbreviations)}
+                <div class="admin-block"><input name="alias" type="text" class="admin-translit-receiver" data-abbr="{&language[abbr]}" title="{@symbionts.notes.alias}" value="{&language[alias]}" /></div>
+                {/if}
+                <textarea name="content" class="text">{&language[text]}</textarea>
+            </div>
+            {/each}
+        </div>
+        {if($conf.abbreviations)}
+        <div class="admin-block"><input name="alias" type="text" class="admin-translit-receiver" data-abbr="{$conf.aliasesLanguage}" title="{@symbionts.notes.alias}" value="{&language[alias]}" /></div>
+        {/if}
+    </div>
+    <div class="admin-block">
+        <div class="date">
+            <label>{@symbionts.notes.publicDate}</label>
+            <div class="date-holder">
+                <span class="date-input">
+                    <input class="day" maxlength="2" name="day" type="text" value="{&day}" />
+                    <select class="month" name="month">
+                        <option value="1" {if(&month==1)}selected="selected"{/if}>{@symbionts.notes.january}</option>
+                        <option value="2" {if(&month==2)}selected="selected"{/if}>{@symbionts.notes.february}</option>
+                        <option value="3" {if(&month==3)}selected="selected"{/if}>{@symbionts.notes.march}</option>
+                        <option value="4" {if(&month==4)}selected="selected"{/if}>{@symbionts.notes.april}</option>
+                        <option value="5" {if(&month==5)}selected="selected"{/if}>{@symbionts.notes.may}</option>
+                        <option value="6" {if(&month==6)}selected="selected"{/if}>{@symbionts.notes.june}</option>
+                        <option value="7" {if(&month==7)}selected="selected"{/if}>{@symbionts.notes.july}</option>
+                        <option value="8" {if(&month==8)}selected="selected"{/if}>{@symbionts.notes.august}</option>
+                        <option value="9" {if(&month==9)}selected="selected"{/if}>{@symbionts.notes.september}</option>
+                        <option value="10" {if(&month==10)}selected="selected"{/if}>{@symbionts.notes.october}</option>
+                        <option value="11" {if(&month==11)}selected="selected"{/if}>{@symbionts.notes.november}</option>
+                        <option value="12" {if(&month==12)}selected="selected"{/if}>{@symbionts.notes.december}</option>
+                    </select>
+                    <input class="year" maxlength="4" name="year" type="text" value="{&year}" />
+                    <input class="hour" maxlength="2" name="hour" type="text" value="{&hour}" />:
+                    <input class="minute" maxlength="2" name="minute" type="text" value="{&minute}" />
+                </span>
+            </div>
+        </div>
+    </div>
+    {*
+    <div class="admin-block">
+        {Tags-Admin.button.symbiont="Notes".itemId=&id}
+    </div>
+    *}
+    <div class="admin-block">
+        <span class="admin-button admin-button-save">{@symbionts.notes.save}</span>
+        <span class="admin-button admin-button-cancel">{@symbionts.notes.cancel}</span>
+    </div>
+</div>

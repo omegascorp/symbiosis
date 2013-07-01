@@ -1,0 +1,11 @@
+.symbionts-comments textarea{
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 100px;
+}
+.symbionts-comments .comment{
+    border-left: 1px solid silver;
+    padding: 5px;
+    margin: 5px;
+}

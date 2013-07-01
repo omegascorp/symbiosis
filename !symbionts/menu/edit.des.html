@@ -1,0 +1,14 @@
+{Script}{$conf.symbionts}menu/files/edit.js{/Script}
+{Style}{$conf.symbionts}menu/files/edit.css{/Style}
+
+<div class="symbionts-menu-edit">
+    <ul>
+    {each(&menus as &menu)}
+        <li data-id="{&menu[id]}" class="ui-corner-all admin-hover {if(&menu[id]==&id)}admin-selected{/if}">{&menu['title']}</li>
+    {/each}
+    </ul>
+    <div class="admin-clear">
+        <span class="admin-button-save">{@symbionts.menu.save}</span>
+        <span class="admin-button-cancel">{@symbionts.menu.cancel}</span>
+    </div>
+</div>

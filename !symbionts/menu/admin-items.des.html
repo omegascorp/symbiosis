@@ -1,0 +1,24 @@
+{Script}{$conf.symbionts}menu/files/admin-items.js{/Script}
+{Style}{$conf.symbionts}menu/files/admin-items.css{/Style}
+
+<div class="symbiosis-menu-admin-items admin-widget-tabs"  data-id="{&id}">
+    <div class="admin-widget-top">
+        <ul class="admin-widget-tabs-nav">
+            <li class="admin-widget-icon-holder"><label>{@symbionts.menu}</label></li>
+            <li class="admin-widget-icon-holder"><label>→</label></li>
+            <li class="admin-widget-icon" data-tab="all"><a href="{$link.current}#tab=all" class="admin-link"><span>{&title}</span></a></li>
+        </ul>
+    </div>
+    
+    <div class="admin-widget-tab symbionts-menu-admin-items-main" data-tab="all">
+        <div class="admin-widget-list">
+            {#Menu-AdminItems.items#}
+        </div>
+        <div class="admin-widget-bottom">
+            <span class="admin-widget-icon admin-widget-icon-add"><a href="{$link.current}#add" class="admin-link"><span>{@symbionts.menu.add}</a></span>
+            <span class="admin-widget-icon admin-widget-icon-edit" style="display: none;"><a href="{$link.current}#edit" class="admin-link"><span>{@symbionts.menu.edit}</a></span>
+            <span class="admin-widget-icon admin-widget-icon-remove" style="display: none;"><a href="{$link.current}#remove" class="admin-link"><span>{@symbionts.menu.delete}</a></span>
+        </div>
+    </div>
+    
+</div>

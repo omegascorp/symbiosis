@@ -1,0 +1,21 @@
+{Script}{$conf.url}!files/lightedit/js/jquery.lightedit.js{/Script}
+{Style}{$conf.url}!files/lightedit/css/lightedit.css{/Style}
+{Script}{$conf.symbionts}text/files/_admin.js{/Script}
+
+<div class="symbionts-text-admin" data-id="{&id}">
+    <div class="lightedit">
+        <div class="lightedit-tabs">
+            {each(&languages as &language)}
+            <div class="lightedit-tab {if(&language[isDefault])}lightedit-tab-default{/if}" data-lang="{&language[abbr]}" data-title="{&language[languageTitle]}" data-id="{&language[id]}">
+                <textarea name="content" class="text">{&language[content]}</textarea>
+            </div>
+            {/each}
+        </div>
+    </div>
+    <div class="admin-block">
+        <span class="admin-button approve">{@symbionts.text.approve}</span>
+        <span class="admin-button saveAsDraft">{@symbionts.text.saveAsDraft}</span>
+        <span class="admin-link-button loadOriginal">{@symbionts.text.loadOriginal}</span>
+        <span class="admin-link-button loadDraft">{@symbionts.text.loadDraft}</span>
+    </div>
+</div>

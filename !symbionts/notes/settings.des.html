@@ -1,0 +1,22 @@
+<div class="symbionts-notes-admin-settings">
+    <div class="admin-block">{@symbionts.notes.order}</div>
+    <div class="admin-selectable">
+        <div class="admin-block admin-radio {if(&order==0)}admin-selected{/if}" data-type="0">
+            <span class="admin-icon"></span><span class="admin-text">{@symbionts.notes.orderPosition}</span>
+        </div>
+        <div class="admin-block admin-radio {if(&order==1)}admin-selected{/if}" data-type="1">
+            <span class="admin-icon"></span><span class="admin-text">{@symbionts.notes.orderDate}</span>
+        </div>
+        <div class="admin-block admin-radio {if(&order==2)}admin-selected{/if}" data-type="2">
+            <span class="admin-icon"></span><span class="admin-text">{@symbionts.notes.orderTitle}</span>
+        </div>
+    </div>
+    <div class="admin-block">
+        <div class="admin-button admin-button-save">
+            {@symbionts.notes.save}
+        </div>
+        <div class="admin-button admin-button-cancel">
+            {@symbionts.notes.cancel}
+        </div>
+    </div>
+</div>

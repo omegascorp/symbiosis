@@ -1,0 +1,13 @@
+.symbionts-tags-admin-change input{
+    border: 1px solid silver;
+}
+.symbionts-tags-admin-change label{
+    display: block;
+    float: left;
+    width: 100px;
+    height: 20px;
+    line-height: 20px;
+}
+.symbionts-tags-admin-change .controls{
+    padding-top: 5px;
+}

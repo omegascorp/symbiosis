@@ -1,0 +1,13 @@
+{if(&level==0)}
+<select>
+    <option value="0"></option>
+{/if}
+    {each(&categories as &category)}
+    {if(&ignoreId!=&category[id])}
+        <option value="{&category[id]}" {if(&selectId==&category[id])}selected="selected"{/if}>{repeat(&level)}&nbsp;&nbsp;{/repeat}{&category[title]}</option>
+        {if(&category[haveSub])}
+            {#Categories-Admin.categories.&template[for=&for,settings=&settings,level=&level+1,parentId=&category[id],selectId=&selectId,ignoreId=&ignoreId]#}
+        {/if}
+    {/if}
+    {/each}
+{if(&level==0)}<select>{/if}

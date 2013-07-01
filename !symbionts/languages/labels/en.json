@@ -1,0 +1,20 @@
+{
+    "symbionts.languages": "Languages",
+    "symbionts.languages.sort": "Sort",
+    "symbionts.languages.default": "Default",
+    "symbionts.languages.disableEnable": "Disable/Enable",
+    "symbionts.languages.add": "Add",
+    "symbionts.languages.edit": "Edit",
+    "symbionts.languages.delete": "Delete",
+    "symbionts.languages.newLanguage": "New language",
+    "symbionts.languages.abbr": "Abbr",
+    "symbionts.languages.localTitle": "Local title",
+    "symbionts.languages.englishTitle": "English title",
+    "symbionts.languages.code": "Code",
+    "symbionts.languages.save": "Save",
+    "symbionts.languages.cancel": "Cancel",
+    "symbionts.languages.areYouShure": "Are you shure?",
+    "symbionts.languages.yes": "Yes",
+    "symbionts.languages.no": "No",
+    "symbionts.languages.admin": "Language:"
+}

@@ -1,0 +1,81 @@
+<div class="symbionts-pages-admin-change" data-id="{&id}" data-position="{&position}">
+        {Translit}
+        <h1>{if(&title)}{&title}{else}{@symbionts.pages.new}{/if}</h1>
+        <div class="admin-layout">
+                <div class="admin-layout-50">
+                        <form>
+                            {if(count(&languages)>1)}
+                            <div class="admin-tabs">
+                                    <ul class="admin-tabs-nav">
+                                    {each(&languages as &language)}
+                                            <li>{&language[languageTitle]}</li>
+                                    {/each}
+                                    </ul>
+                                    {each(&languages as &language)}
+                                    <div class="admin-tab {if(&language[isDefault])}admin-tab-default{/if}" data-id="{&language[id]}" data-abbr="{&language[abbr]}">
+                                            <div class="admin-block title"><label>{@symbionts.pages.title}</label><input type="text" class="admin-translit-source" data-abbr="{&language[abbr]}" value="{&language[title]}" /></div>
+                                            {if(!$conf.abbreviations)}<div class="admin-block alias"><label>{@symbionts.pages.alias}</label><input type="text" class="admin-translit-receiver" data-abbr="{&language[abbr]}" value="{&language[alias]}" /></div>{/if}
+                                            <div class="admin-block keywords"><label>{@symbionts.pages.keywords}</label><input type="text" value="{&language[keywords]}" /></div>
+                                            <div class="admin-block description"><label>{@symbionts.pages.description}</label><input type="text" value="{&language[description]}" /></div>
+                                    </div>
+                                    {/each}
+                            </div>
+                            {/if}
+                            {if(count(&languages)==1)}<div class="admin-block title"><label>{@symbionts.pages.title}</label><input type="text" value="{&title}" /></div>{/if}
+                            {if($conf.abbreviations||count(&languages)==1)}<div class="admin-block alias"><label>{@symbionts.pages.alias}</label><input type="text" class="admin-translit-receiver" data-abbr="{&aliasesLanguage}" value="{&alias}" /></div>{/if}
+                            {if(count(&languages)==1)}
+                            <div class="admin-block keywords"><label>{@symbionts.pages.keywords}</label><input type="text" value="{&keywords}" /></div>
+                            <div class="admin-block description"><label>{@symbionts.pages.description}</label><input type="text" value="{&description}" /></div>
+                            {/if}
+                            <div class="admin-block parent select"><label>{@symbionts.pages.parent}</label><span>{&parent}</span></div>
+                            <div class="admin-block redirect select"><label>{@symbionts.pages.redirect}</label><span>{&redirect}</span></div>
+                            <div class="admin-block accessLevel select"><label>{@symbionts.pages.accessLevel}</label>
+                                    <span>
+                                            <select class="accessLevel">
+                                                    {each(&accessLevels as &al)}
+                                                            <option value="{&al[accessLevel]}" {if(&al[accessLevel]==&accessLevel)}selected="selected"{/if}>{&al[title]}</option>
+                                                    {/each}
+                                            </select>
+                                    </span>
+                            </div>
+                            <div class="admin-clear" style="padding-bottom: 10px;">
+                                    <span class="admin-block isHome admin-checkbox {if(&isHome)}admin-checked{/if}">
+                                        <span class="admin-icon"></span>
+                                        <span class="admin-text">{@symbionts.pages.home}</span>
+                                    </span>
+                                    <span class="admin-block is404 admin-checkbox {if(&is404)}admin-checked{/if}">
+                                        <span class="admin-icon"></span>
+                                        <span class="admin-text">{@symbionts.pages.404}</span>
+                                    </span>
+                                    <span class="admin-block isActive admin-checkbox {if(&isActive)}admin-checked{/if}">
+                                        <span class="admin-icon"></span>
+                                        <span class="admin-text">{@symbionts.pages.active}</span>
+                                    </span>
+                                    <span class="admin-block isHidden admin-checkbox {if(&is404)}admin-checked{/if}">
+                                        <span class="admin-icon"></span>
+                                        <span class="admin-text">{@symbionts.pages.hidden}</span>
+                                    </span>
+                            </div>
+                        </form>
+                </div>
+                <div class="admin-layout-50">
+                        <div class="admin-block title">{@symbionts.pages.template}</div>
+                        <div class="admin-block templates admin-selectable" data-current="{&template}">
+                                {each(&templates as &t)}
+                                    <div class="admin-selectable-item template {if(&t[templateFolder]==&templateFolder)}admin-selected{/if}" data-template="{&t[templateFolder]}">
+                                            <img src="{&t[simple]}" />
+                                    </div>
+                                {/each}
+                        </div>
+                        <div class="subtemplates admin-selectable">
+                        </div>
+                </div>
+        </div>
+        <div class="admin-block admin-clear">
+            <span class="admin-button admin-button-save">{@symbionts.pages.save}</span>
+            <span class="admin-button admin-button-cancel">{@symbionts.pages.cancel}</span>
+        </div>
+        <div class="emptyAlias" style="display: none;">
+                {@symbionts.pages.emptyAlias}
+        </div>
+ </div>

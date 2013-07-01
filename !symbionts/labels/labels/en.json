@@ -1,0 +1,13 @@
+{
+    "symbionts.labels": "Labels",
+    "symbionts.labels.add": "Add",
+    "symbionts.labels.edit": "Edit",
+    "symbionts.labels.delete": "Delete",
+    "symbionts.labels.save": "Save",
+    "symbionts.labels.cancel": "Cancel",
+    "symbionts.labels.areYouShure": "Are you shure?",
+    "symbionts.labels.yes": "Yes",
+    "symbionts.labels.no": "No",
+    "symbionts.labels.main": "Main",
+    "symbionts.labels.symbionts": "Symbionts"
+}

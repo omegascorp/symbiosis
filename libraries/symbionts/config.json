@@ -1,0 +1,9 @@
+{
+    "title": "libraries.symbionts",
+    "version": "0.1.2",
+    "need":{
+        "libraries":{
+            "kernel": "0.4.11"
+        }
+    }
+}

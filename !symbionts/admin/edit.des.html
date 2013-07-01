@@ -1,0 +1,11 @@
+{Script}{$conf.symbionts}admin/files/edit.js{/Script}
+
+<div class="SAdminEdit" style="text-align: center;">
+    {if(&isMain)}
+    <span class="admin-button-save ui-state-highlight">{@symbionts.admin.main}</span>
+    {else}
+    <span class="main admin-button-save">{@symbionts.admin.setAsMain}</span>
+    <div class="label admin-hidden">{@symbionts.admin.main}</div>
+    <div class="id admin-hidden">{&id}</div>
+    {/if}
+</div>

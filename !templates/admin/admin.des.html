@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="{$lang.abbr}">
+<head>
+	<meta charset="utf-8" />
+	<title>{@title} {if($page.title)} | {$page.title}{/if}</title>
+	<meta name="title" content="{@title}" />
+	<meta name="keywords" content="{@keywords}" />
+	<meta name="description" content="{@description}" />
+	<base href="{$conf.url}" />
+	<link rel="icon" href="{$conf.img}symbiosis.ico" type="image/x-icon" />
+	<link rel="stylesheet" href="{$conf.css}admin.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="{$conf.css}admin-ui.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="{$conf.url}!files/css/symbiosis.css" type="text/css" media="screen" />
+	<link type="text/css" href="{$conf.url}!files/css/jquery-ui-1.9.2.custom.css" rel="stylesheet" />
+	<!--[if lte IE 6]><link rel="stylesheet" href="{$conf.css}admin_ie.css" type="text/css" media="screen" /><![endif]-->
+	{$$styles}
+	<script type="text/javascript" src="{$conf.url}!files/js/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="{$conf.url}!files/js/jquery-ui-1.9.2.custom.min.js"></script>
+	<script type="text/javascript" src="{$conf.url}!files/js/jquery.symbiosis.js"></script>
+	<script type="text/javascript" src="{$conf.url}!files/js/jquery.lkey.min.js"></script>
+	<script type="text/javascript" src="{$conf.url}!files/js/jquery.lupload.js"></script>
+	<script type="text/javascript" src="{$conf.js}admin-ui.js"></script>
+	<script type="text/javascript" src="{$conf.js}admin.js"></script>
+	<script type="text/javascript">
+		$.symbiosis({url:'{$conf.url}', path:'{$conf.path}', abbreviations:'{$conf.abbreviations}', language:'{$lang.abbr}', code:'{$lang.code}', design:'{$conf.design}', link:'{$link.full}'});
+	</script>
+	{$$scripts}
+	<!--
+	{$scripts}
+	-->
+</head>
+<body>
+<div id="wrapper">
+	<div style="display: none;">
+		<div class="admin-labels-tabs-count">{@templates.admin.tabs.count}</div>
+	</div>
+	<div id="admin-layers">
+		
+	</div>
+	
+	{if(~<9)}
+	<div id="signin-overlay"></div>
+	<div id="signin-shadow">
+		<div class="spinner" style="display: none;">
+			<div class="mask">
+				<div class="maskedCircle"></div>
+			</div>
+		</div>
+	</div>
+	<div id="signin-content">
+		{User.signin|admin}
+	</div>
+	{/if}
+
+	<div id="top"></div>
+	{if(~>=9)}
+	<header>
+		<div class="header-left">
+			{[admin.top]}
+		</div>
+		<div class="header-right">
+			{User|admin}
+		</div>
+	</header><!-- #header-->
+
+	<div id="middle">
+		<div id="container">
+			<div id="content">
+				<div id="middleside">
+				<div id="admin-overly"></div>
+				{&content}
+				</div>
+			</div><!-- #content-->
+		</div><!-- #container-->
+		<aside id="leftside">
+			{Admin.symbionts}
+		</aside><!-- .sidebar.sl -->
+	</div><!-- #middle-->
+	<footer>
+		Symbiosis {$conf.version} Dark Side
+	</footer><!-- #footer -->
+	<div id="loading" style="display: none;">
+		<div class="spinner">
+			<div class="mask">
+				<div class="maskedCircle"></div>
+			</div>
+		</div>
+	</div>
+	{/if}
+</div><!-- #wrapper -->
+
+</body>
+</html>
+
+<!-- eeca.istok-soyuz.ru -->

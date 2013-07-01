@@ -1,0 +1,14 @@
+.symbionts-notes-edit ul{
+    display: block;
+    float: left;
+    list-style: none;
+    margin: 5px 0;
+}
+.symbionts-notes-edit ul li{
+    padding: 0 4px;
+    margin: 2px;
+    cursor: pointer;
+}
+.symbionts-notes-edit ul.notes{
+    border-left: 1px solid silver;
+}

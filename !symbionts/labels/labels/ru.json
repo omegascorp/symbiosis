@@ -1,0 +1,13 @@
+{
+    "symbionts.labels": "Лейблы",
+    "symbionts.labels.add": "Добавить",
+    "symbionts.labels.edit": "Редактировать",
+    "symbionts.labels.delete": "Удалить",
+    "symbionts.labels.save": "Сохранить",
+    "symbionts.labels.cancel": "Отменить",
+    "symbionts.labels.areYouShure": "Вы уверены?",
+    "symbionts.labels.yes": "Да",
+    "symbionts.labels.no": "Нет",
+    "symbionts.labels.main": "Основные",
+    "symbionts.labels.symbionts": "Симбионты"
+}

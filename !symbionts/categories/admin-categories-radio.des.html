@@ -1,0 +1,21 @@
+{if(&level==0)}
+<ul class="admin-list">
+    <li>
+        <div class="admin-block admin-radio {if(0==&selectId)}admin-selected default{/if}" data-id="0">
+            <span class="admin-icon"></span><span class="admin-text">{@symbionts.categories.root}</span>
+        </div>
+{/if}
+        <ul>
+        {each(&categories as &category)}
+            <li>
+                <div class="admin-block admin-radio {if(&category[id]==&selectId)}admin-selected default{/if}" data-id="{&category[id]}">
+                    <span class="admin-icon"></span><span class="admin-text">{&category[title]}</span>
+                </div>
+                {#Categories-Admin.categories.&template[for=&for,settings=&settings,level=&level+1,parentId=&category[id],selectId=&selectId]#}
+            </li>
+        {/each}
+        </ul>
+{if(&level==0)}
+    </li>
+</ul>
+{/if}

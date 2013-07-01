@@ -1,0 +1,25 @@
+{Script}{$conf.symbionts}categories/files/admin.js{/Script}
+{Style}{$conf.symbionts}categories/files/admin.css{/Style}
+
+<div class="symbionts-categories-admin admin-widget-tabs" data-for="{&for}">
+    <div class="admin-widget-top">
+        <ul class="admin-widget-tabs-nav">
+            <div class="admin-widget-icon-holder">
+                <label>{if(&title)}{&title}{else}{@symbionts.categories}{/if}</label>
+            </div>
+            <li class="admin-widget-icon" data-tab="all"><a href="{$link.current}#tab=all" class="admin-link"><span>{@symbionts.categories.all}</a></li>
+        </ul>
+    </div>
+    <div class="symbionts-categories-admin-main admin-widget-tab"  data-tab="all">
+        <div class="admin-widget-list">
+            {* {Categories-Admin.categories.for=&for.settings=&settings} *}
+            {#Categories-Admin.categories[for=&for,settings=&settings]#}
+        </div>
+        <div class="admin-widget-bottom">
+            <span class="admin-widget-icon admin-widget-icon-add"><a href="{$link.current}#add" class="admin-link"><span>{@symbionts.categories.add}</a></span>
+            <span class="admin-widget-icon admin-widget-icon-edit" style="display: none;"><a href="{$link.current}#edit" class="admin-link"><span>{@symbionts.categories.edit}</a></span>
+            <span class="admin-widget-icon admin-widget-icon-remove" style="display: none;"><a href="{$link.current}#remove" class="admin-link"><span>{@symbionts.categories.delete}</a></span>
+            {if(&settings)}<span class="admin-widget-icon admin-widget-icon-settings"><a href="{$link.current}#remove" class="admin-link"><span>{@symbionts.categories.settings}</a></span>{/if}
+        </div>
+    </div>
+</div>

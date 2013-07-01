@@ -1,0 +1,10 @@
+<div class="symbionts-notes-note">
+    <div class="text">
+    {&text}
+    </div>
+    {* {Tags.show.symbiont="Notes.main".itemId=&id} *}
+    <div class="date">{@symbionts.notes.date} {&date}</div>
+    <div class="category">{@symbionts.notes.category} <a href="{$conf.base}{&path}/category/{&category[alias]}/">{&category[title]}</a></div>
+    <div class="autor">{@symbionts.notes.autor} <a href="{$conf.base}users/{&autor[username]}/">{&autor[middleName]}</a></div>
+    {* {Comments.main.for=&for} *}
+</div>

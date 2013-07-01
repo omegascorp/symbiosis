@@ -1,0 +1,49 @@
+{Script}{$conf.symbionts}pages/files/page.js{/Script}
+{Style}{$conf.symbionts}pages/files/simple.css{/Style}
+{Style}{$conf.symbionts}pages/files/1column.css{/Style}
+
+<h1><a href="{$conf.base}{$link.page}/{$link.param1}{$conf.postfix}">{@symbionts.pages}</a> → {&title}</h1>
+<div class="id symbiosis-hidden">{&id}</div>
+<div id="simple">
+    <div class="simple-middle">
+        <div class="simple-container">
+            <div class="simple-content">
+                <fieldset class="position dynamic ui-corner-all ui-state-default" position="page.{&id}">
+                    <legend>{@symbionts.pages.content}</legend>
+                </fieldset><!-- #simple-content-->
+            </div><!-- #content-->
+        </div><!-- #container-->
+    </div>
+    
+    <fieldset class="symbionts ui-corner-all ui-state-default">
+        <legend>{@symbionts.pages.symbionts}</legend>
+        {each(&widgets as &widget)}
+        <div class="widget new ui-corner-all ui-state-default symbiosis-hover">
+            <div class="header">
+                <label><img class="icon" src="{&widget[icon]}" /><span class="title">{&widget[title]}</span></label>
+                <span class="controls" style="display: none;">
+                    <span class="edit ui-icon ui-icon-triangle-1-s"></span>
+                    <span class="close ui-icon ui-icon-closethick"></span>
+                </span>
+            </div>
+            <div class="editing" style="display: none;"></div>
+            <div class="symbiont" style="display: none;">{&widget[symbiont]}</div>
+            <div class="accessLevel" style="display: none;">0</div>
+        </div>
+        {/each}
+    </fieldset><!-- #simple-content-->
+    <div class="examples" style="display: none;">
+        <div class="widget ui-corner-all ui-state-default symbiosis-hover">
+            <div class="header">
+                <label><img class="icon" /><span class="title"></span></label>
+                <span class="controls">
+                    <span class="edit ui-icon ui-icon-triangle-1-s"></span>
+                    <span class="close ui-icon ui-icon-closethick"></span>
+                </span>
+            </div>
+            <div class="editing" style="display: none;"></div>
+            <div class="symbiont" style="display: none;"></div>
+            <div class="accessLevel" style="display: none;"></div>
+        </div>
+    </div>
+</div><!-- #simple -->

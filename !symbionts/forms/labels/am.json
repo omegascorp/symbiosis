@@ -1,0 +1,17 @@
+{
+    "symbionts.forms": "Forms",
+    "symbionts.forms.widget": "Forms",
+    "symbionts.forms.sendingMessage": "Sending messages to: {&emails}",
+    "symbionts.forms.template": "Template",
+    "symbionts.forms.emails": "E-mails",
+    "symbionts.forms.save": "Save",
+    "symbionts.forms.cancel": "Cancel",
+    "symbionts.forms.name": "Ձեր անունը",
+    "symbionts.forms.email": "E-mail",
+    "symbionts.forms.send": "Ուղարկել",
+    "symbionts.forms.sending": "Ուղարկվում է",
+    "symbionts.forms.sent": "Նամակը ուղարկված է:",
+    "symbionts.forms.error": "Տեղի է ունեցել սխալ: Փոռցեք մի պոքր ուշ:",
+    "symbionts.forms.incorrectUniq": "Form data is incorrent.",
+    "symbionts.forms.incorrect": "The value of «{&label}» is incorrect"
+}

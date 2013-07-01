@@ -1,0 +1,39 @@
+{Script}{$conf.url}!files/lightedit/js/jquery.lightedit.js{/Script}
+{Style}{$conf.url}!files/lightedit/css/lightedit.css{/Style}
+
+{Script}{$conf.symbionts}notes/files/admin.js{/Script}
+{Style}{$conf.symbionts}notes/files/admin.css{/Style}
+
+<div class="symbionts-notes-admin admin-widget-tabs" data-id="{&id}">
+    <div class="admin-widget-top">
+        <ul class="admin-widget-tabs-nav">
+            {if(&title)}
+            <div class="admin-widget-icon">
+                <a href="{$conf.base}{$link.page}/{$link.param1}{$conf.postfix}">{@symbionts.notes}</a>
+            </div>
+            <div class="admin-widget-icon-holder">
+                <label>→</label>
+            </div>
+            <div class="admin-widget-icon-holder">
+                <label>{&title}</label>
+            </div>
+            {else}
+            <div class="admin-widget-icon-holder">
+                <label>{@symbionts.notes}</label>
+            </div>
+            {/if}
+            <li class="admin-widget-icon" data-tab="all"><a href="{$link.current}#tab=all" class="admin-link"><span>{@symbionts.notes.all}</a></li>
+        </ul>
+    </div>
+    <div class="symbionts-notes-admin-main admin-widget-tab" data-tab="all" data-order="{&order}">
+        <div class="admin-widget-list" {if(!&sortable)}data-sortable="false"{/if}>
+                {Notes-Admin.notes.id=&id.order=&order}
+        </div>
+        <div class="admin-widget-bottom">
+            <span class="admin-widget-icon admin-widget-icon-add"><a href="{$link.current}#add" class="admin-link"><span>{@symbionts.notes.add}</a></span>
+            <span class="admin-widget-icon admin-widget-icon-edit" style="display: none;"><a href="{$link.current}#edit" class="admin-link"><span>{@symbionts.notes.edit}</a></span>
+            <span class="admin-widget-icon admin-widget-icon-remove" style="display: none;"><a href="{$link.current}#remove" class="admin-link"><span>{@symbionts.notes.delete}</a></span>
+            <span class="admin-widget-icon admin-widget-icon-settings"><a href="{$link.current}#action=settings" class="admin-link"><span>{@symbionts.notes.settings}</a></span>
+        </div>
+    </div>
+</div>

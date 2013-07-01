@@ -1,0 +1,277 @@
+[
+    {
+        "title": "formatblock",
+        "dropdown": [
+            {
+                "title": "paragraph",
+                "exec": "formatblock",
+		"param": "<p>"
+            },
+            {
+                "title": "h1",
+                "exec": "formatblock",
+		"param": "<h1>"
+            },
+            {
+                "title": "h2",
+                "exec": "formatblock",
+		"param": "<h2>"
+            },
+            {
+                "title": "h3",
+                "exec": "formatblock",
+		"param": "<h3>"
+            },
+            {
+                "title": "h4",
+                "exec": "formatblock",
+		"param": "<h4>"
+            },
+            {
+                "title": "h5",
+                "exec": "formatblock",
+		"param": "<h5>"
+            },
+            {
+                "title": "h6",
+                "exec": "formatblock",
+		"param": "<h6>"
+            },
+            {
+                "title": "blockquote",
+                "exec": "formatblock",
+		"param": "<blockquote>"
+            },
+            {
+                "title": "pre",
+                "exec": "formatblock",
+		"param": "<pre>"
+            }
+        ]
+    },
+    {
+        "title":"class",
+        "separator": true
+    },
+    {
+        "title":"text",
+        "dropdown":[
+            {
+                "title":"bold",
+                "exec":"bold",
+                "param": false
+            },
+            {
+                "title":"italic",
+                "exec":"italic",
+                "param": null
+            },
+            {
+                "title":"deleted",
+                "exec":"strikethrough",
+                "param": null
+            },
+            {
+                "title":"clear",
+                "exec":"removeformat",
+                "param": null
+            }
+        ],
+        "screen": "small",
+        "separator": true
+    },
+    {
+        "title":"bold",
+        "exec":"bold",
+        "param": false,
+        "screen": "large"
+    },
+    {
+        "title":"italic",
+        "exec":"italic",
+        "param": null,
+        "screen": "large"
+    },
+    {
+        "title":"deleted",
+        "exec":"strikethrough",
+        "param": null,
+        "screen": "large"
+    },
+    {
+        "title":"clear",
+        "exec":"removeformat",
+        "param": null,
+        "screen": "large",
+        "separator": true
+    },
+    {
+        "title":"justify",
+        "dropdown":[
+            {
+                "title":"justifyleft",
+                "exec":"justifyleft",
+                "param": null
+            },
+            {
+                "title":"justifycenter",
+                "exec":"justifycenter",
+                "param": null
+            },
+            {
+                "title":"justifyright",
+                "exec":"justifyright",
+                "param": null
+            },
+            {
+                "title":"justifyfull",
+                "exec":"justifyfull",
+                "param": null,
+                "separator": true
+            }
+        ],
+        "screen": "small",
+        "separator": true
+    },
+    {
+        "title":"justifyleft",
+        "exec":"justifyleft",
+        "screen": "large",
+        "param": null
+    },
+    {
+        "title":"justifycenter",
+        "exec":"justifycenter",
+        "screen": "large",
+        "param": null
+    },
+    {
+        "title":"justifyright",
+        "exec":"justifyright",
+        "screen": "large",
+        "param": null
+    },
+    {
+        "title":"justifyfull",
+        "exec":"justifyfull",
+        "screen": "large",
+        "param": null,
+        "separator": true
+    },
+    {
+        "title":"unorderedlist",
+        "exec":"insertunorderedlist",
+        "param": null
+    },
+    {
+        "title":"orderedlist",
+        "exec":"insertorderedlist",
+        "param": null
+    },
+    {
+        "title":"table",
+        "dropdown":[
+            {
+                "title":"table-insert",
+                "plugin":"table"
+            },
+            {
+                "title":"table-edit",
+                "plugin":"table-edit",
+                "separator": true
+            },
+            {
+                "title":"table-insert-row-top",
+                "func":"table-insert-row-top"
+            },
+            {
+                "title":"table-insert-row-bottom",
+                "func":"table-insert-row-bottom"
+            },
+            {
+                "title":"table-insert-col-left",
+                "func":"table-insert-col-left"
+            },
+            {
+                "title":"table-insert-col-right",
+                "func":"table-insert-col-right",
+                "separator": true
+            },
+            {
+                "title":"table-delete-row",
+                "func":"table-delete-row"
+            },
+            {
+                "title":"table-delete-col",
+                "func":"table-delete-col"
+            },
+            {
+                "title":"table-delete",
+                "func":"table-delete"
+            }
+        ]
+    },
+    {
+        "title":"grid",
+        "dropdown":[
+            {
+                "title":"grid-insert",
+                "plugin":"grid"
+            },
+            {
+                "title":"grid-edit",
+                "plugin":"grid-edit"
+            }
+        ],
+	"separator": true
+    },
+    {
+        "title":"insert",
+        "dropdown":[
+            {
+                "title":"link",
+                "plugin":"link"
+            },
+            {
+                "title":"image",
+                "plugin":"image"
+            },
+            {
+                "title":"video",
+                "plugin":"video"
+            },
+            {
+                "title":"hr",
+                "exec":"inserthorizontalrule",
+                "param": null
+            }
+        ],
+        "screen": "small"
+    },
+    {
+        "title":"link",
+        "plugin":"link",
+        "screen": "large"
+    },
+    {
+        "title":"image",
+        "plugin":"image",
+        "screen": "large"
+    },
+    {
+        "title":"video",
+        "plugin":"video",
+        "screen": "large"
+    },
+    {
+        "title":"hr",
+        "exec":"inserthorizontalrule",
+        "param": null,
+        "screen": "large",
+        "separator": true
+    },
+    {
+        "title":"html",
+        "func": "html"
+    }
+]

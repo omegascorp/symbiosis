@@ -1,0 +1,19 @@
+{Script}{$conf.url}!files/js/md5ie.js{/Script}
+{Script}{$conf.symbionts}user/files/admin.signin.js{/Script}
+
+<div class="symbionts-user-signin" data-invalid="{@symbionts.user.invalid}">
+    <form>
+        <img src="{$conf.url}!templates/admin/files/img/symbiosis.png" alt="" />
+        <div class="message"></div>
+        <div class="row"><input type="hidden" class="key" value="{&key}" /></div>
+        <div class="row">
+            <input type="text" class="username" placeholder="{@symbionts.user.username}" autofocus="autofocus" />
+        </div>
+        <div class="row">
+            <input type="password" class="password" placeholder="{@symbionts.user.password}" />
+        </div>
+        <div class="row submit">
+            <input class="admin-button" type="submit" value="{@symbionts.user.enter}" />
+        </div>
+    </form>
+</div>

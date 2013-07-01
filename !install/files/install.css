@@ -1,0 +1,89 @@
+body{
+    padding: 0px;
+    margin: 0px;
+}
+#shadow{
+    width: 402px;
+    height: 352px;
+    position: absolute;
+    z-index: 2;
+}
+#content{
+    position: absolute;
+    width: 360px;
+    height: 310px;
+    padding: 20px;
+    z-index: 3;
+}
+#middle{
+    height: 280px;
+}
+#middle h2{
+    padding: 0px;
+    margin: 0px;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+#middle ul{
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+#middle li{
+    text-align: center;
+    padding: 2px;
+    display: block;
+}
+#middle li a{
+    padding: 5px;
+    display: inline-block;
+    cursor: pointer;
+}
+#middle .rights .ui-widget{
+    display: inline-block;
+}
+#middle .rights label{
+    display: inline-block;
+    width: 65px;
+    text-align: left;
+}
+#middle .buttons{
+    padding-top: 20px;
+    text-align: center;
+}
+#middle input{
+    border: 1px solid silver;
+}
+#middle .db label, #middle .data label{
+    display: inline-block;
+    width: 170px;
+    text-align: left;
+}
+#middle .db input, #middle .data input{
+    width: 180px;
+}
+#middle .message{
+    padding: 10px;
+}
+#footer{
+    text-align: center;
+}
+#footer .back{
+    float: left;
+}
+#footer .next{
+    float: right;
+}
+.selected{
+    background-color: rgba(255, 200, 92, 0.5);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#50C8E45C,endColorstr=#50C8E45C);
+}
+.over{
+    background-color: rgba(255, 228, 92, 0.5);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#50FFE45C,endColorstr=#50FFE45C);
+}
+.selected.over{
+    background-color: rgba(255, 180, 92, 0.5);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#50FFD05C,endColorstr=#50FFD05C);
+}

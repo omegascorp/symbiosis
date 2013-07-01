@@ -1,0 +1,17 @@
+{
+    "symbionts.forms": "Forms",
+    "symbionts.forms.widget": "Forms",
+    "symbionts.forms.sendingMessage": "Sending messages to: {&emails}",
+    "symbionts.forms.template": "Template",
+    "symbionts.forms.emails": "E-mails",
+    "symbionts.forms.save": "Save",
+    "symbionts.forms.cancel": "Cancel",
+    "symbionts.forms.name": "Your name",
+    "symbionts.forms.email": "E-mail",
+    "symbionts.forms.send": "Send",
+    "symbionts.forms.sending": "Seding...",
+    "symbionts.forms.sent": "The mail was sent.",
+    "symbionts.forms.error": "Sending error. Try later.",
+    "symbionts.forms.incorrectUniq": "Form data is incorrent.",
+    "symbionts.forms.incorrect": "The value of «{&label}» is incorrect"
+}

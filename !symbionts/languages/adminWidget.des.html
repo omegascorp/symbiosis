@@ -1,0 +1,14 @@
+<div class="admin-widget-icon">
+    <div class="min">
+        <label>{@symbionts.languages.admin}</label>
+    </div>
+    {each(&languages as &language)}
+    <div class="{if(&language[current])}min{else}max{/if}">
+    {if(&language[exists])}
+        <a href="{&language[url]}">{&language[title]}</a>
+    {else}
+        {&language[title]}
+    {/if}
+    </div>
+    {/each}
+</div>

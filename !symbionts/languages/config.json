@@ -1,0 +1,19 @@
+{
+    "title": "symbionts.languages",
+    "version": "0.0.13",
+    "admin":true,
+    "need":{
+        "libraries":{
+            "kernel": "0.4.13",
+            "design": "0.3.1",
+            "data": "0.2.5",
+            "controller": "0.0.2",
+            "labels": "0.0.2",
+            "mysql": "0.2.5",
+            "positions": "0.1.4",
+            "symbiont": "0.1.12",
+            "symbionts": "0.1.2",
+            "user": "0.0.6"
+        }
+    }
+}

@@ -1,0 +1,22 @@
+<ul>
+    {each(&languages as &language)}
+        <li>
+            <div class="admin-item"  data-id="{&language[id]}">
+                <label class="abbr admin-label">{&language[abbr]}</label>
+                <label class="title admin-label">{&language[title]}</label>
+                <label class="titleEn admin-label">{&language[titleEn]}</label>
+                <span class="default admin-choose {if(&language[isDefault])}admin-selected{/if}">{@symbionts.languages.default}</span>
+                <span class="enabled admin-switch {if(&language[isEnabled])}admin-checked{/if}">
+                    <span class="admin-switch-on">On</span>
+                    <span class="admin-switch-er"></span>
+                    <span class="admin-switch-off">Off</span>
+                    &nbsp;
+                </span>
+                <div class="admin-right">
+                    <a href="{$link.current}#edit={&language[id]}" class="admin-link edit">{@symbionts.languages.edit}</a>
+                    <a href="{$link.current}#remove={&language[id]}" class="admin-link remove">{@symbionts.languages.delete}</a>
+                </div>
+            </div>
+        </li>
+    {/each}
+</ul>

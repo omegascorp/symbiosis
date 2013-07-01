@@ -1,0 +1,23 @@
+{
+    "symbionts.menu": "Menu",
+    "symbionts.menu.widget": "Menu",
+    "symbionts.menu.add": "Add",
+    "symbionts.menu.edit": "Edit",
+    "symbionts.menu.delete": "Delete",
+    "symbionts.menu.new": "New menu",
+    "symbionts.menu.newItem": "New menu item",
+    "symbionts.menu.title": "Title",
+    "symbionts.menu.alias": "Alias",
+    "symbionts.menu.save": "Save",
+    "symbionts.menu.cancel": "Cancel",
+    "symbionts.menu.areYouShure": "Are you shure?",
+    "symbionts.menu.yes": "Yes",
+    "symbionts.menu.no": "No",
+    "symbionts.menu.link": "Link",
+    "symbionts.menu.parent": "Parent",
+    "symbionts.menu.synchronize": "Synchronize",
+    "symbionts.menu.label": "Label",
+    "symbionts.menu.levels": "Levels",
+    "symbionts.menu.synchTitle": "Synchronize title",
+    "symbionts.menu.synchLink": "Synchronize link"
+}

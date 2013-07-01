@@ -1,0 +1,14 @@
+{Script}{$conf.symbionts}user/files/edit.js{/Script}
+{Style}{$conf.symbionts}user/files/edit.css{/Style}
+
+<div class="symbionts-user-edit">
+    <div class="type">
+        <span class="admin-button sign-in {if(&function=='main')}ui-state-highlight{/if}">{@symbionts.user.signin}</span>
+        <span class="admin-button sign-up {if(&function=='signUp')}ui-state-highlight{/if}">{@symbionts.user.signup}</span>
+        <span class="admin-button profile {if(&function=='profile')}ui-state-highlight{/if}">{@symbionts.user.profile}</span>
+    </div>
+    <div class="buttons">
+        <div class="admin-button-save">{@symbionts.user.save}</div>
+        <div class="admin-button-cancel">{@symbionts.user.cancel}</div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+.symbionts-forms{
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+}
+.symbionts-forms .data{
+    margin: 4px 0;
+}
+.symbionts-forms label{
+    display: inline-block;
+    width: 100px;
+    text-align: left;
+}
+.symbionts-forms input{
+    width: 198px;
+}
+.symbionts-forms textarea{
+    width: 294px;
+    min-width: 294px;
+    max-width: 294px;    
+    height: 100px;
+    min-height: 100px;
+    max-height: 400px;
+}
+.symbionts-forms .success{
+    color: #009900;
+}
+.symbionts-forms .error{
+    color: #990000;
+}
