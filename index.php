@@ -1,4 +1,9 @@
 <?
+/*
+Symbiosis Dark Side
+https://github.com/omegascorp/symbiosis/
+*/
+
 session_start();
 header('Content-Type: text/html; charset=utf-8');
 //$t1 = microtime(true);
