@@ -23,7 +23,8 @@ class SFilemanager extends Symbiont{
     public function mini($template=null, $attributes=null, $content=null){
         global $design;
         $attributes=Data::extend(array(
-            'path'=>'media'
+            'path'=>'media',
+            'createFolder'=>false
         ),$attributes);
         $path=Data::filesystem($attributes['path']);
         if(substr($path, 0, 1)!='/') $path='/'.$path;
@@ -32,6 +33,7 @@ class SFilemanager extends Symbiont{
         $vars=array();
         $vars['path']=$path;
         $vars['files']=$read["files"];
+        $vars['createFolder']=Data::bool($attributes['createFolder']);
         $template=$this->_check($template, 'mini');
         $design->show($template, $vars);
     }
@@ -126,10 +128,17 @@ class SFilemanager extends Symbiont{
     }
     public function createFolder($template=null, $attributes=null, $content=null){
         global $kernel, $user;
-        if(isset($_POST['path'])) $path=Data::filesystem($_POST['path']);
+        $attributes=Data::extend(array(
+            'path'=>'',
+            'name'=>''
+        ), $attributes);
+        
+        if($attributes['path']) $path=Data::filesystem($attributes['path']);
+        elseif(isset($_POST['path'])) $path=Data::filesystem($_POST['path']);
         else $path='/';
         
-        if(isset($_POST['name'])) $name=Data::filesystem($_POST['name']);
+        if($attributes['name']) $name=Data::filesystem($attributes['name']);
+        elseif(isset($_POST['name'])) $name=Data::filesystem($_POST['name']);
         else return;
         
         $path=str_replace('..', '', $path);
@@ -344,6 +353,10 @@ class SFilemanager extends Symbiont{
         if(isset($_POST['overwrite'])) $overwrite=Data::bool($_POST['overwrite']);
         else if(isset($_GET['overwrite'])) $overwrite=Data::bool($_GET['overwrite']);
         
+        $createFolder=false;
+        if(isset($_POST['createFolder'])) $createFolder=Data::bool($_POST['createFolder']);
+        else if(isset($_GET['createFolder'])) $createFolder=Data::bool($_GET['createFolder']);
+        
         $name=Data::fileName($_FILES[$input]['name']);
         $size=@filesize($_FILES[$input]['tmp_name']);
         $type=Data::getFileType($name);
@@ -352,6 +365,7 @@ class SFilemanager extends Symbiont{
         $path=str_replace('..', '', $path);
         if(!isset($path[0])||$path[0]!='/') $path='/'.$path;
         $path='!uploads'.$path;
+        if($path[strlen($path)-1]!='/') $path.='/';
         
         $nameNew='';
         if(isset($_POST['name'])) $nameNew=Data::fileName($_POST['name']);
@@ -362,6 +376,14 @@ class SFilemanager extends Symbiont{
         $return='json';
         if(isset($_POST['return'])) $return=Data::safe($_POST['return']);
         if(isset($_GET['return'])) $return=Data::safe($_GET['return']);
+        
+        if($createFolder&&!file_exists($path)){
+            $lastSlashPosition=strrpos($path, '/');
+            $penultSlashPosition=strrpos($path, '/', -2);
+            $parentFolder=substr($path, 8, $penultSlashPosition-7); //Whithout !uploads
+            $newFolder=substr($path, $penultSlashPosition+1, $lastSlashPosition-$penultSlashPosition-1);
+            $this->createFolder('', array('path'=>$parentFolder, 'name'=>$newFolder));
+        }
         
         if(isset($_FILES[$input]['error'])&&$_FILES[$input]['error']!=0){
             $eid=$_FILES[$input]['error'];

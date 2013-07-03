@@ -198,7 +198,7 @@ var Admin={
 		    'top': Math.min($('#middle').height()-$(this).height(), $(window).scrollTop()+$(window).height()-$(this).height()-$('#middle').offset().top)+'px'
 		});
 		if($(this).next().hasClass('admin-widget-bottom-holder')){
-		    $(this).next().animate({
+		    $(this).next().css({
 			'height': $(this).height()+'px'
 		    }, {'queue':false, 'duration': duration});
 		}
@@ -339,7 +339,7 @@ var Admin={
 	location.hash='tab='+name;
 	$('.admin-widget-tabs-nav li').removeClass('current');
 	$('.admin-widget-tabs-nav li[data-tab='+name+']').addClass('current');
-	$('.admin-widget-tab').hide();
+	$('.admin-widget-tab,.admin-widget-tab').hide();
 	$('.admin-widget-tab[data-tab='+name+']').show();
 	Admin.step();
     },

@@ -42,7 +42,7 @@ class SLabels extends Symbiont{
         global $user, $db, $kernel, $design, $labels;
         
         $labels->import('db/labels/errors/');
-        if($user->accessLevel<9){
+        if($user->accessLevel<8){
             return $labels->get('errors.prerogatives');
         }
         if(!isset($_POST['path'])){
@@ -68,7 +68,7 @@ class SLabels extends Symbiont{
         global $user, $db, $kernel, $design, $labels;
         
         $labels->import('db/labels/errors/');
-        if($user->accessLevel<9){
+        if($user->accessLevel<8){
             return '{"error":"'.$labels->get('errors.prerogatives').'"}';
         }
         if(!isset($_POST['path'])||!isset($_POST['labels'])){

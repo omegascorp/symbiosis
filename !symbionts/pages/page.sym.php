@@ -8,7 +8,8 @@ class SPages_Page extends Symbiont{
         
     }
     public function admin($template=null, $attributes=null, $content=null){
-        global $db, $kernel, $design, $labels, $symbionts;
+        global $db, $kernel, $design, $labels, $symbionts, $user;
+        if($user->accessLevel<9) return;
         $alias=$kernel->link->param2;
         $page=$db->select('pages', array('id', 'template', 'title', 'symbiont'), array('alias'=>$alias, 'languageId'=>$kernel->lang->id), '', 1);
         

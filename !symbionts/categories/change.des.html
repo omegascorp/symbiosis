@@ -18,10 +18,10 @@
         {/each}
     </div>
     {else}
-    <div class="admin-block title"><label>{@symbionts.categories.title}</label><input type="text" class="admin-translit-source" data-abbr="{&language[abbr]}" value="{&title}" /></div>
+    <div class="admin-block title"><label>{@symbionts.categories.title}</label><input type="text" class="admin-translit-source" data-abbr="{$conf.aliasesLanguage}" value="{&title}" /></div>
     {/if}
     {if($conf.abbreviations||count(&languages)==1)}
-    <div class="admin-block alias"><label>{@symbionts.categories.alias}</label><input type="text" class="admin-translit-receiver" data-abbr="{&language[abbr]}" value="{&alias}" /></div>
+    <div class="admin-block alias"><label>{@symbionts.categories.alias}</label><input type="text" class="admin-translit-receiver" data-abbr="{$conf.aliasesLanguage}" value="{&alias}" /></div>
     {/if}
     <div class="admin-block parent">
         <label>{@symbionts.categories.parent}</label>

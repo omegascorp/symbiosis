@@ -7,7 +7,8 @@ class SPages extends Symbiont{
         
     }
     public function admin($template=null, $attributes=null, $content=null){
-        global $db, $kernel, $design, $symbionts;
+        global $db, $kernel, $design, $symbionts,$user;
+        if($user->accessLevel<9) return;
         if($kernel->link->param2){
             $kernel->addSymbiont('Pages-Page');
             $symbionts->PagesPage->admin();
@@ -19,12 +20,14 @@ class SPages extends Symbiont{
         }
     }
     public function pages($template=null, $attributes=null, $content=null){
-        global $design;
+        global $design, $user;
+        if($user->accessLevel<9) return;
         $template=$this->_check($template, 'pages');
         $design->show($template, array());
     }
     public function getPages($template=null, $attributes=null, $content=null){
-        global $db, $kernel, $design;
+        global $db, $kernel, $design, $user;
+        if($user->accessLevel<9) return;
         $attributes=Data::extend(array(
             'parentId'=>0,
             'level'=>0,
@@ -85,96 +88,6 @@ class SPages extends Symbiont{
     }
     public function setTitle($template=null, $attributes=null, $content=null){
         $this->templateTitle=$content;
-    }
-    public function addText($template=null, $attributes=null, $content=null){
-        global $user, $db, $kernel, $design, $labels;
-        $template=$this->_check($template, 'addText');
-        
-        $vars=array(
-            'alias'=>'',
-            'title'=>''
-        );
-        $vars['languages']=$db->query('
-            SELECT
-                l.id,
-                l.abbr,
-                l.isDefault,
-                "" AS alias,
-                "" AS title
-            FROM `languages` as l
-            WHERE l.isEnabled=1
-            ORDER BY l.position
-        ');
-        
-        $config=json_decode(file_get_contents('db/pages.json'));
-        $vars['template']=$config->template;
-        
-        $vars['aliasesInTranslit']=$kernel->conf->aliasesInTranslit;
-        $vars['aliasesLanguage']=$kernel->conf->aliasesLanguage;
-        $vars['abbreviations']=$kernel->conf->abbreviations;
-        if($kernel->conf->aliasesInTranslit){
-            if(count($vars['languages'])>1){
-                foreach($vars['languages'] as $key=>$language){
-                    $translit='db/translit/'.$language['abbr'].'.json';
-                    if(file_exists($translit)){
-                        $vars['languages'][$key]['translit']=file_get_contents($translit);
-                    }
-                    else{
-                        $vars['languages'][$key]['translit']="{}";
-                    }
-                }
-            }
-            else{
-                $translit='db/translit/'.$kernel->lang->abbr.'.json';
-                $vars['translit']=file_get_contents($translit);
-            }
-        }
-        $design->show($template, $vars);
-    }
-    public function addBlog($template=null, $attributes=null, $content=null){
-        global $user, $db, $kernel, $design, $labels;
-        $template=$this->_check($template, 'addBlog');
-        
-        $vars=array(
-            'alias'=>'',
-            'title'=>''
-        );
-        $vars['languages']=$db->query('
-            SELECT
-                l.id,
-                l.abbr,
-                l.isDefault,
-                "" AS alias,
-                "" AS title
-            FROM `languages` as l
-            WHERE l.isEnabled=1
-            ORDER BY l.position
-        ');
-        
-        $config=json_decode(file_get_contents('db/pages.json'));
-        $vars['template']=$config->template;
-        
-        $vars['aliasesInTranslit']=$kernel->conf->aliasesInTranslit;
-        $vars['aliasesLanguage']=$kernel->conf->aliasesLanguage;
-        $vars['abbreviations']=$kernel->conf->abbreviations;
-        if($kernel->conf->aliasesInTranslit){
-            if(count($vars['languages'])>1){
-                foreach($vars['languages'] as $key=>$language){
-                    $translit='db/translit/'.$language['abbr'].'.json';
-                    if(file_exists($translit)){
-                        $vars['languages'][$key]['translit']=file_get_contents($translit);
-                    }
-                    else{
-                        $vars['languages'][$key]['translit']="{}";
-                    }
-                }
-            }
-            else{
-                $translit='db/translit/'.$kernel->lang->abbr.'.json';
-                $vars['translit']=file_get_contents($translit);
-            }
-        }
-        $design->show($template, $vars);
     }
     public function change($template=null, $attributes=null, $content=null){
         global $user, $db, $kernel, $design, $labels;
@@ -286,163 +199,10 @@ class SPages extends Symbiont{
         print json_encode($ret);
     }
     public function delete($template=null, $attributes=null, $content=null){
-        global $db, $kernel, $design;
+        global $db, $kernel, $design, $user;
+        if($user->accessLevel<9) return;
         $template=$this->_check($template, 'delete');
         $design->show($template);
-    }
-    public function dbAddText($template=null, $attributes=null, $content=null){
-        global $user, $db, $kernel, $labels;
-        
-        if($user->accessLevel<9){
-            return ('{"error":"'.$labels->get('errors.prerogatives').'"}');
-        }
-        if(!isset($_POST['languages'])||!isset($_POST['template'])){
-            return ('{"error":"'.$labels->get('errors.parametrs').'"}');
-        }
-        $values=array();
-        $where=array();
-        
-        $values['template']=Data::safe($_POST['template']);
-        $alias='';
-        if(isset($_POST['alias'])) $alias=$values['alias']=Data::safe($_POST['alias']);
-        if(isset($_POST['title'])) $values['title']=Data::safe($_POST['title']);
-        if(isset($_POST['languages'])){
-            foreach($_POST['languages'] as $key=>$val){
-                $where['languageId']=Data::number($key);
-                $values['title']=Data::safe($val['title']);
-                if(isset($val['alias'])) $values['alias']=Data::safe($val['alias']);
-                $r=0;
-                $r=$db->insert('pages', array_merge($values, $where));
-                if(!$r){
-                    $r=$db->update('pages', $values, $where);
-                }
-                else{
-                    $where['id']=$r;
-                }
-            }
-        }
-        else{
-            $where['languageId']=$kernel->lang->id;
-            $r=0;
-            $r=$db->insert('pages', array_merge($values, $where));
-            if(!$r){
-                $r=$db->update('pages', $values, $where);
-            }
-        }
-        if($r){
-            $position=new Position(null, 'Page.'.$r, 1);
-            
-            $db->update('pages', array('position'=>$r), array('id'=>$r));
-            
-            $values=array('categoryId'=>1);
-            foreach($_POST['languages'] as $key=>$language){
-                $where=array();
-                $where['languageId']=Data::number($key);
-                
-                $values['title']=Data::safe($language['title']);
-                $values['alias']=isset($language['alias'])?Data::safe($language['alias']):$alias;
-                $values['languageId']=$where['languageId'];
-                $values['text']=Data::safe($language['content']);
-                
-                if($values['alias']==='') continue;
-                $r=$db->insert('snotes', $values);
-                if(!$r){
-                    $db->update('snotes', $values, $where);
-                }
-                else{
-                    $values['id']=$r;
-                }
-            }
-            
-            if($r){
-                $position->symbiont='Notes.main.categoryId=1.noteId='.$r;
-                $position->save();
-                $db->update('snotes', array('position'=>$values['id']), array('id'=>$values['id']));
-            }
-            
-            return '{"success":""}';
-        }
-        else{
-            return '{"errror":""}';
-        }
-    }
-    public function dbAddBlog($template=null, $attributes=null, $content=null){
-        global $user, $db, $kernel, $labels;
-        
-        if($user->accessLevel<9){
-            return ('{"error":"'.$labels->get('errors.prerogatives').'"}');
-        }
-        if(!isset($_POST['languages'])||!isset($_POST['template'])){
-            return ('{"error":"'.$labels->get('errors.parametrs').'"}');
-        }
-        $values=array();
-        $where=array();
-        
-        
-        $values['template']=Data::safe($_POST['template']);
-        if(isset($_POST['alias'])) $values['alias']=Data::safe($_POST['alias']);
-        if(isset($_POST['title'])) $values['title']=Data::safe($_POST['title']);
-        
-        if(isset($_POST['languages'])){
-            foreach($_POST['languages'] as $key=>$val){
-                $where['languageId']=Data::number($key);
-                $values['title']=Data::safe($val['title']);
-                if(isset($val['alias'])) $values['alias']=Data::safe($val['alias']);
-                $r=0;
-                $r=$db->insert('pages', array_merge($values, $where));
-                if(!$r){
-                    $r=$db->update('pages', $values, $where);
-                }
-                else{
-                    $where['id']=$r;
-                }
-            }
-        }
-        else{
-            $where['languageId']=$kernel->lang->id;
-            $r=0;
-            $r=$db->insert('pages', array_merge($values, $where));
-            if(!$r){
-                $r=$db->update('pages', $values, $where);
-            }
-        }
-        if($r){
-            $position=new Position(null, 'Page.'.$r, 1);
-            
-            $db->update('pages', array('position'=>$r), array('id'=>$r));
-            
-            $values=array('for'=>'notes', 'settings'=>'{"order":"0"}');
-            if(isset($_POST['alias'])) $values['alias']=Data::safe($_POST['alias']);
-            if(isset($_POST['title'])) $values['title']=Data::safe($_POST['title']);
-            foreach($_POST['languages'] as $key=>$language){
-                $where=array();
-                $where['languageId']=Data::number($key);
-                
-                $values['title']=Data::safe($language['title']);
-                if(isset($language['alias'])) $values['alias']=Data::safe($language['alias']);
-                $values['languageId']=$where['languageId'];
-                
-                if($values['alias']==='') continue;
-                $r=$db->insert('scategories', $values);
-                if(!$r){
-                    $db->update('scategories', $values, $where);
-                }
-                else{
-                    $values['id']=$r;
-                }
-            }
-            
-            if($r){
-                $position->symbiont='Notes.main.categoryId='.$r;
-                $position->save();
-                $db->update('scategories', array('position'=>$values['id']), array('id'=>$values['id']));
-            }
-            
-            return '{"success":""}';
-        }
-        else{
-            return '{"errror":""}';
-        }
     }
     public function dbChange($template=null, $attributes=null, $content=null){
         global $user, $db, $kernel, $labels;
@@ -531,7 +291,8 @@ class SPages extends Symbiont{
         }
     }
     public function deleteItem($id){
-        global $db;
+        global $db, $user;
+        if($user->accessLevel<9) return false;
         $subs=$db->select('pages', 'id', array('parentId'=>$id));
         if(is_array($subs))
         foreach($subs as $sub){
@@ -540,8 +301,8 @@ class SPages extends Symbiont{
         return $db->delete('pages', array('id'=>$id));
     }
     public function dbHome($template=null, $attributes=null, $content=null){
-        global $user, $db, $kernel, $labels;
-        
+        global $user, $db, $kernel, $labels, $user;
+        if($user->accessLevel<9) return;
         $labels->import('db/labels/errors/');
         if($user->accessLevel<9){
             print('{"error":"'.$labels->get('errors.prerogatives').'"}');
@@ -557,7 +318,7 @@ class SPages extends Symbiont{
     }
     public function db404($template=null, $attributes=null, $content=null){
         global $user, $db, $kernel, $design, $labels;
-        
+        if($user->accessLevel<9) return;
         $labels->import('db/labels/errors/');
         if($user->accessLevel<9){
             print('{"error":"'.$labels->get('errors.prerogatives').'"}');
@@ -638,137 +399,6 @@ class SPages extends Symbiont{
         $id=Data::number($_POST['id']);
         $main=Data::symbiont($_POST['main']);
         $db->update('pages', array('symbiont'=>$main), array('id'=>$id));
-    }
-    public function _pages($link=null){
-        global $db, $kernel, $symbionts;
-        $id=0;
-        $add=array();
-        $pages=array();
-        if($link){
-            $ids=explode('/', $link);
-            if(isset($ids[0])){
-                $id=$ids[0];
-                $symbiont=$db->select('pages', 'symbiont', array('id'=>$id, 'languageId'=>$kernel->lang->id), '', 1);
-                if($symbiont){
-                    $info=Design::symbiontExplode($symbiont);
-                    $kernel->addSymbiont($info['symbiont']);
-                    $add=$symbionts->$info['symbiont']->_pages($link);
-                }
-            }
-        }
-        
-        if(!isset($ids[1])){
-            $pages=$db->query('
-                SELECT title, (
-                    SELECT 1
-                    FROM pages as p
-                    WHERE parentId=pages.id
-                    LIMIT 1
-                ) OR symbiont!="" as sub,
-                symbiont,
-                id as synch
-                FROM pages
-                WHERE parentId='.$id.' AND languageId='.$kernel->lang->id.'
-                ORDER BY position
-            ');
-        }
-        
-        if(is_array($add)&&is_array($pages)) $pages=array_merge($pages, $add);
-        else if(is_array($add)) $pages=$add;
-        return $pages;
-    }
-    public function _synch($link, $id, $menuId){
-        global $db, $kernel, $symbionts;
-        if(!$link) return array();
-        $array=array();
-        $ids=explode('/', $link);
-        $pageId=$ids[0];
-        $info=$db->query('
-            SELECT (
-                SELECT 1
-                FROM pages as s
-                WHERE s.parentId=p.id
-                LIMIT 1
-            ) AS sub,
-            p.symbiont
-            FROM pages as p
-            WHERE p.id='.$pageId.'
-            LIMIT 1
-        ', 1);
-        $page=$db->query('
-            SELECT p.title,
-            p.id as itemId,
-            "'.$id.'" AS id,
-            CONCAT(l.abbr, "/", p.alias, "'.$kernel->conf->postfix.'") as link,
-            l.id as languageId
-            FROM pages as p
-            LEFT JOIN languages AS l ON l.id=p.languageId
-            WHERE p.id='.$pageId.'
-        ');
-        //$kernel->addSymbiont('Menu-AdminItems');
-        $symbionts->MenuAdminItems->synchronize($page);
-        if($info['sub']){
-            $this->synch($pageId, $id, $menuId);
-        }
-            /*
-            if($page) $array=array_merge($array, $page);
-            if($info['sub']){
-                $pages=$db->query('
-                    SELECT p.title, (
-                        SELECT 1
-                        FROM pages as s
-                        WHERE s.parentId=p.id
-                        LIMIT 1
-                    ) AS sub,
-                    CONCAT(p.alias, "/", l.abbr, "'.$kernel->conf->postfix.'") as link
-                    FROM pages as p
-                    LEFT JOIN languages AS l ON l.id=p.languageId
-                    WHERE p.parentId='.$id.'
-                ');
-                if($pages) $array=array_merge($array, $pages);
-            };
-            */
-        
-        return $array;
-    }
-    public function synch($pageParentId, $parentId, $menuId){
-        global $symbionts, $db, $kernel;
-        $infos=$db->query('
-            SELECT (
-                SELECT 1
-                FROM pages as s
-                WHERE s.parentId=p.id
-                LIMIT 1
-            ) AS sub,
-            p.id
-            FROM pages as p
-            WHERE p.parentId='.$pageParentId.'
-            GROUP BY p.id
-            ORDER BY p.id
-        ');
-        
-        $page=$db->query('
-            SELECT p.title,
-            p.id as itemId,
-            "'.$menuId.'" as menuId,
-            "'.$parentId.'" as parentId,
-            1 AS synched,
-            CONCAT(l.abbr, "/", p.alias, "'.$kernel->conf->postfix.'") as link,
-            l.id as languageId
-            FROM pages as p
-            LEFT JOIN languages AS l ON l.id=p.languageId
-            WHERE p.parentId='.$pageParentId.'
-            ORDER BY p.id, p.languageId
-        ');
-        
-        $ids=$symbionts->MenuAdminItems->synchronize($page, $parentId);
-        foreach($infos as $key=>$info){
-            if($info['sub']){
-                $this->synch($info['id'], $ids[$key], $menuId);
-            }
-        }
-        
-        //return $ids;
     }
 }
 ?>

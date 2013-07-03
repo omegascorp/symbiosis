@@ -477,6 +477,9 @@ span.admin-checkbox,span.admin-radio{
         inset 0 1px 0 rgba(255,255,255,.3),
         0 0px 1px rgba(0,0,0,.3);
 }
+.admin-button.admin-pressed{
+    background: #007FFF;
+}
 .admin-link{
     color: #007fff;
     cursor: pointer;

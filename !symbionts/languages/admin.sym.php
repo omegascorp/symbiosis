@@ -4,7 +4,8 @@ class SLanguages_Admin extends Symbiont{
         parent::__construct('Languages');
     }
     public function main($template=null, $attributes=null, $content=null){
-        global $db, $design;
+        global $db, $design, $user;
+        if($user->accessLevel<9) return;
         $attributes=Data::extend(array(
             
         ),$attributes);
@@ -14,7 +15,8 @@ class SLanguages_Admin extends Symbiont{
         $design->show($template, $vars);
     }
     public function items($template=null, $attributes=null, $content=null){
-        global $db, $design;
+        global $db, $design, $user;
+        if($user->accessLevel<9) return;
         $attributes=Data::extend(array(
             
         ),$attributes);
@@ -156,7 +158,7 @@ class SLanguages_Admin extends Symbiont{
         global $user, $db, $kernel, $design, $labels;
         
         $labels->import('db/labels/errors/');
-       if($user->accessLevel<9){
+        if($user->accessLevel<9){
             print('{"error":"'.$labels->get('errors.prerogatives').'"}');
             return;
         }

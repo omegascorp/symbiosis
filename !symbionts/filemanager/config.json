@@ -1,6 +1,6 @@
 {
-    "title": "symbionts.filemanager",
-    "version": "0.0.11",
+    "symbiont": "Filemanager",
+    "version": "0.0.12",
     "admin":true,
     "mobile": true,
     "need":{

@@ -5,7 +5,8 @@ class SSymbionts extends Symbiont{
         global $kernel, $design, $db;
     }
     public function admin($template=null, $attributes=null, $content=null){
-        global $kernel, $design, $db;
+        global $kernel, $design, $db, $user;
+        if($user->accessLevel<9) return;
         $template=$this->_check($template, 'admin');
         
         $vars=array();
@@ -114,7 +115,8 @@ class SSymbionts extends Symbiont{
         if(file_exists($positions_temp)) unlink($positions_temp);
     }
     public function upload($template=null, $attributes=null, $content=null){
-        global $kernel, $symbionts;
+        global $kernel, $symbionts, $user;
+        if($user->accessLevel<9) return;
         $kernel->addSymbiont('Filemanager');
         $file=json_decode($symbionts->Filemanager->upload($template, $attributes, $content));
         $kernel->addLibrary('Zip');

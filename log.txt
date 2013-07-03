@@ -22,3 +22,9 @@ Fixed bug in symbiont Menu.
 Added symbiont Captcha.
 Updated symbiont Forms.
 Fixed bug in symbiont pages.
+Updated LightEdit.
+
+03.07.13 Symbiosis 0.14.6 Dark Side [OmegaScorp]
+Added user type moderator.
+Minifilemanager can create not exsisted folder before file upload.
+Fix bug in Admin UI.

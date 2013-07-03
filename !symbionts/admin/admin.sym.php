@@ -3,7 +3,7 @@
 class SAdmin extends Symbiont{
     public function main($template=null, $attributes=null, $content=null){
         global $kernel, $symbionts, $design, $labels, $user;
-        if($user->accessLevel<9) return;
+        if($user->accessLevel<8) return;
         if($kernel->link->param1!=''){
             $symbiont=ucfirst($kernel->link->param1);
             $kernel->addSymbiont($symbiont);

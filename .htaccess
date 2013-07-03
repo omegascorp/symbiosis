@@ -1,6 +1,7 @@
 Options +FollowSymlinks
 
 RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} -f
 RewriteRule   ^!(.*)?$ - [L]
 RewriteRule   ^ajax.php(.*)$ - [L]
 RewriteRule   ^error.php(.*)$ - [L]

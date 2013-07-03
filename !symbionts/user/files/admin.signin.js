@@ -14,7 +14,7 @@ $(document).ready(function(){
                 'password': password
             },
 	    'success':function(r){
-		if(r.accessLevel!=undefined&&r.accessLevel>=9){
+		if(r.accessLevel!=undefined&&r.accessLevel>=8){
 		    location.reload();
 		}
 		else{

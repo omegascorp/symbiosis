@@ -8,6 +8,7 @@ $(document).ready(function(){
         filename=filename.substr(index+1);
         index=filename.lastIndexOf('.');
         type=filename.substr(index+1);
+        var createFolder=$(this).closest('.symbionts-filemanager-mini').attr('data-create-folder');
         $.lupload({
             url: $.symbiosis.ajax,            
             element: '.symbionts-filemanager-mini input[type=file]',
@@ -16,7 +17,8 @@ $(document).ready(function(){
                 'input': 'file',
                 'path':$('.symbionts-filemanager-mini .files').attr('data-path'),
                 'name':filename,
-                'overwrite': false
+                'overwrite': false,
+                'createFolder': createFolder
             },
             success: function (r, status){
                 var first=$('.symbionts-filemanager-mini .files .file:first');

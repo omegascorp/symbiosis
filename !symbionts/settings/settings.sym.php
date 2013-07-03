@@ -1,7 +1,8 @@
 <?
 class SSettings extends Symbiont{
     public function main($template=null, $attributes=null, $content=null){
-        global $design, $kernel, $db;
+        global $design, $kernel, $db, $user;
+        if($user->accessLevel<9) return;
         $template=$this->_check($template, 'main');
         $vars=array();
         $vars["languages"]=$db->select('languages', array('title', 'abbr'), '', 'position');

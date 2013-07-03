@@ -35,7 +35,7 @@ $(document).ready(function(){
             });
         }
         else{
-            AdminPageSave(symbiont);
+            SPageSave(symbiont);
         }
         $('.symbionts-notes-admin .default').removeClass('default');
         $('.symbionts-notes-admin .admin-selected').addClass('default');
