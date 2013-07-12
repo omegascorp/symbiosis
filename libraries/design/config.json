@@ -1,6 +1,6 @@
 {
     "title": "libraries.design",
-    "version": "0.4.7",
+    "version": "0.4.8",
     "need":{
         "libraries":{
             "kernel": "0.4.14",

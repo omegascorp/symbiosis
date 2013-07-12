@@ -1,5 +1,4 @@
 <?
-//Labels 0.0.3
 class Labels extends Dictionary{
     private $loaded;
     public function __construct(){
@@ -22,6 +21,7 @@ class Labels extends Dictionary{
     public function grab($key, $vars=null){
         $text=parent::get($key);
         if(is_array($vars)){
+            
             preg_match_all("/\{\&([a-zA-Z0-9_]*)((\[[a-zA-Z0-9_]*\])*)\}/", $text, $matches);
             $i=0;
             foreach($matches[0] as $old){
@@ -32,15 +32,16 @@ class Labels extends Dictionary{
                 else{
                     continue;
                 }
-                $indexes=explode('][', substr($matches[2][$i], 1, -1));
+                $indexes=explode('[', substr($matches[2][$i], 1, -1));
                 foreach($indexes as $index){
-                    if(isset($vars[$index])){
-                        $var=$vars[$index];
+                    if(isset($var[$index])){
+                        $var=$var[$index];
                     }
                     else{
                         break;
                     }
                 }
+                
                 $text=str_replace($old, $var, $text);
                 ++$i;
             }

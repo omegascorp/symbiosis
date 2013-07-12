@@ -86,6 +86,27 @@ class Controller{
 	}
         return $db->select("languages", "*", array("isDefault"=>1), "", 1);
     }
+    //Apply short links
+    private function shortlinks($path){
+	$elements=explode("/", $path);
+	$shortlinks=json_decode(file_get_contents('db/shortlinks.json'), true);
+	$i=0;
+	$newPath='';
+	while(true){
+	    if(!isset($elements[$i])) break;
+	    $key=$elements[$i];
+	    $i++;
+	    if(!isset($shortlinks[$key])){
+		if($i==1) return $path;
+		$newPath.='/'.$key;
+	    }
+	    else{
+		$newPath=$shortlinks[$key];
+	    }
+	}
+	
+	return $newPath;
+    }
     //Collect current url
     private function url($path, $normalize=true){
         global $db, $kernel;
@@ -103,9 +124,15 @@ class Controller{
 		    $page=substr($page, 0, -$postfixLen);
 		}
 	    }
-            //Set full link
+	    
+	    //Set full link
             $kernel->link->full=$page;
 	    $kernel->link->current=$kernel->conf->url.$page.$kernel->conf->postfix;
+	    
+	    //Apply short links if it need
+	    if($kernel->conf->shortlinks){
+		$page=$this->shortlinks($page);
+	    }
             
 	    //Seporate the url by the slashes
 	    $elements=explode("/", $page);

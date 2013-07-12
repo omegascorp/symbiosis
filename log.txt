@@ -28,3 +28,33 @@ Updated LightEdit.
 Added user type moderator.
 Minifilemanager can create not exsisted folder before file upload.
 Fix bug in Admin UI.
+
+
+10.07.13 Symbiosis 0.14.7 Dark Side [OmegaScorp]
+
+New: with reference by the short link (like http://site/123/)
+shows real page which it is associated (like http://site/ru/blog/post/123/).
+Associations are in db/shortlinks.json. Associacions have cascade construction. Example:
+{
+    "test":":"en/news/posts/test",
+    "en": {
+        "test1":"en/news/posts/test1",
+        "test2":"en/news/posts/test2"
+    }
+}
+It convert
+http://site/test/ to http://site/en/news/posts/test/,
+http://site/en/test1/ to http://site/en/news/posts/test1/
+http://site/en/test2/ to http://site/en/news/posts/test2/
+Short links turned off in db/config.json by default.
+
+Fix: worning in Design library.
+
+
+11.07.13 Symbiosis 0.14.8 Dark Side [OmegaScorp]
+
+New: attribute for working with shortlinks.
+
+Fix: working with arrays in library Labels.
+Fix: bottom panel disappearance after element removing in Admin UI.
+Fix: default errors catching in Filemanager.

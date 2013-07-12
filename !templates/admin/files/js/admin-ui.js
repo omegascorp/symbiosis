@@ -641,6 +641,7 @@ var AdminEditable=Class.extend({
 		var tooltip=new AdminLayerTooltip({
 		    'x': x,
 		    'y': y,
+		    'z-index': 1010,
 		    'class': 'remove',
 		    'content': content,
 		    'type': type,
@@ -676,6 +677,7 @@ var AdminEditable=Class.extend({
 			this[0].element.find('li .admin-item[data-id='+ids+']').closest('li').remove();
 			this[0].element.find('tr[data-id="'+id+'"]').remove();
 		    }
+		    Admin.step();
 		    $('.admin-layer-remove').data('adminlayer').remove();
 		}, [this[0], this[1]]));
 	    }, [this, id])

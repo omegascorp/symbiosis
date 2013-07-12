@@ -443,10 +443,13 @@ class Design{
 	Design::symbiontInclude($symbiont);
 	return ob_get_clean();
     }
-    public static function symbiontEval($symbiont){
+    public static function symbiontEval($symbiont, $version=1){
 	global $kernel, $symbionts;
 	if(substr($symbiont, 0, 1)=="#"){
 	    $s=Design::symbiont(substr($symbiont, 1), 2);
+	}
+	elseif($version==2){
+	    $s=Design::symbiont($symbiont, 2);
 	}
 	else{
 	    $s=Design::symbiont($symbiont);

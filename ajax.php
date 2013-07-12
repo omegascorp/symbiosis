@@ -5,8 +5,12 @@ header('Content-Type: text/html; charset=utf-8');
 $symbiont='';
 if(isset($_POST['symbiont'])) $symbiont=$_POST['symbiont'];
 else if(isset($_GET['symbiont'])) $symbiont=$_GET['symbiont'];
+$symbiontVersion=null;
+if(isset($_POST['symbiontVersion'])) $symbiontVersion=$_POST['symbiontVersion'];
+else if(isset($_GET['symbiontVersion'])) $symbiontVersion=$_GET['symbiontVersion'];
 
 if($symbiont){
+    $symbiont=stripcslashes($symbiont);
     include('libraries/kernel/kernel.lib.php');
     $kernel=new Kernel();
     $language=isset($_GET['language'])?$_GET['language']:'';
@@ -15,7 +19,7 @@ if($symbiont){
     $kernel->addSymbiont('Script');
     $symbionts->Script->ajax();
     
-    Design::symbiontEval($symbiont);
+    Design::symbiontEval($symbiont, $symbiontVersion);
     print $kernel->vars->scripts;
     print $kernel->vars->styles;
     

@@ -62,7 +62,7 @@ class SFilemanager extends Symbiont{
             return '{"name":"'.$name.'"}';
         }
         
-        if(file_exists($path.'.config')){
+        if(file_exists($path)&&file_exists($path.'.config')){
             $config=json_decode(file_get_contents($path.'.config'));
             if(isset($config->view)){
                 if(isset($config->view->users)){
@@ -518,8 +518,12 @@ class SFilemanager extends Symbiont{
                 return '<img src="!uploads/redactor/'.$nameNew.'" />';
             }
         }
-        else{
-            
+        if($return=="json"){
+            $ret= '{'."\n";
+            $ret.= '"errorId": "'.$eid.'",'."\n";
+            $ret.= '"error": "'.$errors[$eid].'",'."\n";
+            $ret.= '}'."\n";
+            return $ret;
         }
     }
 }
