@@ -58,3 +58,16 @@ New: attribute for working with shortlinks.
 Fix: working with arrays in library Labels.
 Fix: bottom panel disappearance after element removing in Admin UI.
 Fix: default errors catching in Filemanager.
+
+
+13.07.13 Symbiosis 0.14.9 Dark Side [OmegaScorp]
+
+Upd: LightEdit: removed tag p by pasting single row.
+
+
+16.07.13 Symbiosis 0.14.10 Dark Side [OmegaScprp]
+
+Add: Symbiont Init for including initial scripts in templates.
+
+Fix: Symbiont Menu: Working with one language.
+Fix: Removed attribute $kernel->conf->home, you can user $kernel->page->isHome.

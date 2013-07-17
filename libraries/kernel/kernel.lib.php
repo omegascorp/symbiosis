@@ -41,7 +41,6 @@ class Kernel{
         $config=json_decode(file_get_contents('db/config.json'));
         $this->conf->add($config);
 	$this->conf->url='http://'.$_SERVER['HTTP_HOST'].$this->conf->path;
-        $this->conf->home=$db->select("pages", "alias", array("isHome"=>1, "languageId"=>$this->lang->id), "", 1);
 	$this->conf->symbionts=$this->conf->url.'!symbionts/';
 	
 	//User

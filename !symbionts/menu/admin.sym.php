@@ -91,9 +91,10 @@ class SMenu_Admin extends Symbiont{
         global $kernel, $db;
         $alias=isset($_POST['alias'])?Data::safe($_POST['alias']):'';
         $id=isset($_POST['id'])?Data::number($_POST['id']):'';
+        $values=array();
+        $where=array();
         if(isset($_POST['languages'])){
             foreach($_POST['languages'] as $key=>$language){
-                $where=array();
                 $where['languageId']=Data::number($key);
                 $where['id']=$id;
                 
@@ -117,6 +118,20 @@ class SMenu_Admin extends Symbiont{
             return '{"success":""}';
         }
         elseif(isset($_POST['title'])&&isset($_POST['alias'])){
+            $where['languageId']=$kernel->lang->id;
+            $where['id']=$id;
+            
+            $values['title']=Data::safe($_POST['title']);
+            $values['alias']=Data::safe($_POST['alias']);
+            $values['languageId']=$kernel->lang->id;
+            
+            $r=$db->insert('smenu', $values);
+            if(!$r){
+                $db->update('smenu', $values, $where);
+            }
+            else{
+                $db->update('smenu', array('position'=>$r), array('id'=>$r));
+            }
             
             return '{"success":""}';
         }

@@ -1,6 +1,6 @@
 {each(&items as &item)}
 {if(&neglectId!=&item[id])}
-<option value="{&item[id]}" {if(&selectId==&item[id])}selected="selected"{/if}>{&item[title]}</option>
+<option value="{&item[id]}" {if(&selectId==&item[id])}selected="selected"{/if}>{repeat(&level)}&nbsp;&nbsp;{/repeat}{&item[title]}</option>
     {if(&item[sub])}
         {#Menu-AdminItems.items.&template[selectId=&selectId,neglectId=&neglectId,parentId=&item[id],level=&lavel+1]#}
     {/if}

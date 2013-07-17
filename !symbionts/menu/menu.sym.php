@@ -66,6 +66,13 @@ class SMenu extends Symbiont{
             if(substr($item['link'], 0, 7)=='http://'||substr($item['link'], 0, 8)=='https://'){
                 $vars['items'][$itemIndex]['external']=true;
             }
+            $vars['items'][$itemIndex]['current']=false;
+            if($item['link']==$kernel->link->full||
+               $item['link']==$kernel->lang->abbr."/".$kernel->page->alias."/"||
+               $item['link']==$kernel->page->alias."/"||
+               ($item['link']=="/"||$item['link']==$kernel->lang->abbr."/")&&$kernel->page->isHome){
+                $vars['items'][$itemIndex]['current']=true;
+            }
         }
         
         $template=$this->_check($template, 'items');

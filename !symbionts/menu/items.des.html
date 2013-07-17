@@ -1,6 +1,6 @@
 <ul style="list-style: none;">
     {each(&items as &item)}
-    <li {if(&item[link]==$link.full . "/" OR &item[link] == $lang.abbr ."/". $page.alias ."/")}class="current"{/if}>
+    <li {if(&item[current])}class="current"{/if}>
         <a href="{&item[link]}" class="{if(&item[external])}external{/if}">{&item[title]}</a>
         {if(&item[sub])}{#Menu.items.&template[id=&id,selectId=&selectId,ignoreId=&ignoreId,level=&level+1,parentId=&item[id]]#}{/if}
     </li>
