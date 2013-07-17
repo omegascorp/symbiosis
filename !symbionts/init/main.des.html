@@ -1,0 +1,15 @@
+{$$styles}
+<script type="text/javascript" src="{$conf.url}!files/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="{$conf.url}!files/js/jquery.symbiosis.js"></script>
+<script type="text/javascript">
+    $.symbiosis(\{
+        url: '{$conf.url}',
+        path: '{$conf.path}',
+        mlm: '{$conf.mlm}',
+        language: '{$lang.abbr}',
+        design:  '{$conf.design}',
+        link: '{$link.full}',
+        admin: {if(~>0)}true{else}false{/if}
+    \});
+</script>
+{$$scripts}
