@@ -421,7 +421,16 @@ class Design{
     }
     public static function symbiontInclude($symbiont){
 	global $design, $kernel, $symbionts;
-	if(is_string($symbiont)) $symbiont=new SymbiontInfo($symbiont);
+	if(is_string($symbiont)){
+	    if(substr($symbiont,0,1)=="#"){
+		$symbiont=substr($symbiont,1);
+		$version=2;
+	    }
+	    else{
+		$version=1;
+	    }
+	    $symbiont=new SymbiontInfo($symbiont, $version);
+	}
 	if($symbiont->symbiont=='') return;
 	
 	if(!$symbiont->class){

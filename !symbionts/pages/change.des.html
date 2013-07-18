@@ -21,7 +21,7 @@
                                     {/each}
                             </div>
                             {/if}
-                            {if(count(&languages)==1)}<div class="admin-block title"><label>{@symbionts.pages.title}</label><input type="text" value="{&title}" /></div>{/if}
+                            {if(count(&languages)==1)}<div class="admin-block title"><label>{@symbionts.pages.title}</label><input type="text" value="{&title}" class="admin-translit-source" data-abbr="{$lang.abbr}" /></div>{/if}
                             {if($conf.abbreviations||count(&languages)==1)}<div class="admin-block alias"><label>{@symbionts.pages.alias}</label><input type="text" class="admin-translit-receiver" data-abbr="{&aliasesLanguage}" value="{&alias}" /></div>{/if}
                             {if(count(&languages)==1)}
                             <div class="admin-block keywords"><label>{@symbionts.pages.keywords}</label><input type="text" value="{&keywords}" /></div>

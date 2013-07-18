@@ -69,5 +69,12 @@ Upd: LightEdit: removed tag p by pasting single row.
 
 Add: Symbiont Init for including initial scripts in templates.
 
-Fix: Symbiont Menu: Working with one language.
-Fix: Removed attribute $kernel->conf->home, you can user $kernel->page->isHome.
+Fix: Symbiont Menu: Working with single language.
+Rmv: Removed attribute $kernel->conf->home, you can use $kernel->page->isHome.
+
+
+17.07.13 Symbiosis 0.14.11 Dark Side [OmegaScorp]
+
+Fix: Symbiont Category: Working with single language.
+Fix: Symbiont Page: Working with single language.
+Fix: Library Desing: Symbiont string version detection.

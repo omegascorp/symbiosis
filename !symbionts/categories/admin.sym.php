@@ -18,9 +18,6 @@ class SCategories_Admin extends Symbiont{
         $template=$this->_check($template, 'admin');
         $design->show($template, $vars);
     }
-    public function test($template=null, $attributes=null, $content=null){
-        print 'ok';
-    }
     public function categories($template=null, $attributes=null, $content=null){
         global $kernel, $design, $db;
         $attributes=Data::extend(array(
@@ -177,6 +174,20 @@ class SCategories_Admin extends Symbiont{
             else return '{"error":"'.$labels->get('symbionts.categories.error').'"}';
         }
         elseif(isset($_POST['title'])&&isset($_POST['alias'])){
+            $where['languageId']=$kernel->lang->id;
+            $where['id']=$id;
+            
+            $values['title']=Data::safe($_POST['title']);
+            $values['alias']=Data::safe($_POST['alias']);
+            $values['languageId']=$kernel->lang->id;
+            
+            $r=$db->insert('scategories', $values);
+            if(!$r){
+                $db->update('scategories', $values, $where);
+            }
+            else{
+                $db->update('scategories', array('position'=>$r), array('id'=>$r));
+            }
             
             return '{"success":""}';
         }
