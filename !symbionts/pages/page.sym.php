@@ -17,7 +17,12 @@ class SPages_Page extends Symbiont{
         
         $content='';
         if($page['symbiont']){
-            $info=new SymbiontInfo($page['symbiont']);
+            if(substr($page['symbiont'], 0, 1)=="#"){
+                $info=new SymbiontInfo(substr($page['symbiont'], 1), 2);
+            }
+            else{
+                $info=new SymbiontInfo($page['symbiont']);
+            }
             $name=$info->symbiont;
             if($kernel->isExistsSymbiont($name)){
                 $kernel->addSymbiont($name);

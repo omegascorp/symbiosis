@@ -54,5 +54,6 @@
     "symbionts.notes.type-category": "Заметки одной категории",
     "symbionts.notes.type-categories": "Список категорий",
     "symbionts.notes.selectCategory": "Выберете категорию",
-    "symbionts.notes.reset": "Сбросить"
+    "symbionts.notes.reset": "Сбросить",
+    "symbionts.notes.browse": "Обзор"
 }

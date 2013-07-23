@@ -1,6 +1,6 @@
 {each(&notes as &note)}
     <li class="note" data-position="{&note[position]}" data-date="{&note[dateOriginal]}">
-        <h2><a href="{$conf.base}{&path}/note/{&note[alias]}/" class="title">{&note[title]}</a></h2>
+        <img src="{&note[cover]}" alt="" /><h2><a href="{$conf.base}{&path}/note/{&note[alias]}/" class="title">{&note[title]}</a></h2>
         <div class="text">
         {&note[text]}
         </div>

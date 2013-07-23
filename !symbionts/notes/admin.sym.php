@@ -113,6 +113,7 @@ class SNotes_Admin extends Symbiont{
                 FROM `snotes`
                 WHERE id="'.$id.'" AND languageId="'.$kernel->lang->id.'"
             ', true);
+            
             $vars['languages']=$db->query('
                 SELECT
                     l.id,
@@ -127,6 +128,8 @@ class SNotes_Admin extends Symbiont{
                 WHERE l.isEnabled=1
                 ORDER BY l.position
             ');
+            $name=basename($vars['image']);
+            $vars['icon']=$name?'!uploads/notes/.32/'.$name:'';
         }
         else{
             $vars=$db->query('SELECT DAY(NOW()) as day, MONTH(NOW()) as month, YEAR(NOW()) as year,  DATE_FORMAT(NOW(), "%H") as hour, DATE_FORMAT(NOW(), "%i") as minute', true);
@@ -135,7 +138,8 @@ class SNotes_Admin extends Symbiont{
                 'title'=>'',
                 'alias'=>'',
                 'cover'=> '',
-                'image'=> ''
+                'image'=> '',
+                'icon'=>''
             ));
             $vars['languages']=$db->query('
                 SELECT
@@ -152,26 +156,6 @@ class SNotes_Admin extends Symbiont{
             ');
         }
         
-        $vars['aliasesInTranslit']=$kernel->conf->aliasesInTranslit;
-        $vars['aliasesLanguage']=$kernel->conf->aliasesLanguage;
-        $vars['abbreviations']=$kernel->conf->abbreviations;
-        if($kernel->conf->aliasesInTranslit){
-            if(count($vars['languages'])>1){
-                foreach($vars['languages'] as $key=>$language){
-                    $translit='db/translit/'.$language['abbr'].'.json';
-                    if(file_exists($translit)){
-                        $vars['languages'][$key]['translit']=file_get_contents($translit);
-                    }
-                    else{
-                        $vars['languages'][$key]['translit']="{}";
-                    }
-                }
-            }
-            else{
-                $translit='db/translit/'.$kernel->lang->abbr.'.json';
-                $vars['translit']=file_get_contents($translit);
-            }
-        }
         $design->show($template, $vars);
     }
     public function delete($template=null, $attributes=null, $content=null){
@@ -290,18 +274,16 @@ class SNotes_Admin extends Symbiont{
         
         
         $values=array('categoryId'=>$categoryId);
-        /*
         if(isset($_POST['image'])){
             if(file_exists($cover)) unlink($cover);
             $kernel->addLibrary('Image');
-            $path='uploads'.Data::fileSystem($_POST['image']);
+            $path='!uploads/'.Data::fileSystem($_POST['image']);
             $image=new Image($path);
             
             $values['cover']=$image->resize('.notes/{name}.'.$categoryId.'.{type}', $json->cover->width, $json->cover->height, false, true);
             $values['image']=$path;
             
         }
-        */
         if(isset($_POST['languages'])){
             foreach($_POST['languages'] as $key=>$language){
                 $where=array();
@@ -434,6 +416,8 @@ class SNotes_Admin extends Symbiont{
             $vars['default']='';
         }
         
+        $vars['templates']=Data::read('!symbionts/notes/', '/^-(.*)$/');
+        $vars['template']=$info->template?$info->template:'-main';
         
         $design->show('symbionts/notes/_admin', $vars);
     }

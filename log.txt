@@ -78,3 +78,9 @@ Rmv: Removed attribute $kernel->conf->home, you can use $kernel->page->isHome.
 Fix: Symbiont Category: Working with single language.
 Fix: Symbiont Page: Working with single language.
 Fix: Library Desing: Symbiont string version detection.
+
+20.07.13 Symbiosis 0.14.12 Dark Side [OmegaScorp]
+Fix: Symbiont Page: Working with symbionts second version.
+
+22.07.13 Symbiosis 0.14.13 Dark Side [OmegaScorp]
+Add: Symbiont Notes: template changing.

@@ -11,31 +11,38 @@ $(document).ready(function(){
         }
     });
     $('.admin-button-save').click(function(){
-        var symbiont='Notes';
+        var symbiont='#Notes';
+        var attrs='';
         var list=false;
+        var main=false;
         if($('.symbionts-notes-admin .main').hasClass('admin-selected')){
-            symbiont+='';
+            symbiont+='.main';
+            main=true;
         }
         if($('.symbionts-notes-admin .category').hasClass('admin-selected')){
-            symbiont+='.category';
+            symbiont+='.pageCategory';
             list=true;
         }
         if($('.symbionts-notes-admin .categories').hasClass('admin-selected')){
-            symbiont+='.categories';
+            symbiont+='.pageCategories';
             list=true;
         }
+        
         if(list){
-            symbiont+='.id='+$('.symbionts-notes-admin .list .admin-selected').attr('data-id');
+            attrs+='id='+$('.symbionts-notes-admin .list .admin-selected').attr('data-id');
         }
-        if(symbiont=='Notes'){
+        
+        if($('.symbionts-notes-admin .templates .admin-selected').length) symbiont+='.'+$('.symbionts-notes-admin .templates .admin-selected').text();
+        
+        if(attrs) symbiont+='['+attrs+']';
+        
+        SPageSave(symbiont);
+        if(main){
             $.ajax({
                 'data': {
                     'symbiont': 'Notes-Admin.dbDefault.id='+$('.symbiosis-page').attr('data-id')
                 }
             });
-        }
-        else{
-            SPageSave(symbiont);
         }
         $('.symbionts-notes-admin .default').removeClass('default');
         $('.symbionts-notes-admin .admin-selected').addClass('default');

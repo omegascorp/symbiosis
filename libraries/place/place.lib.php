@@ -7,9 +7,9 @@ class Place{
         $kernel->vars->title=$labels->get('title');
         Place::push($kernel->page->title, $kernel->page->alias);
     }
-    static public function push($title, $alias=null){
+    static public function push($title, $alias=null, $shortlink=null){
         global $kernel;
-        array_push(Place::$places, array('title'=>$title, 'alias'=>$alias));
+        array_push(Place::$places, array('title'=>$title, 'alias'=>$alias, 'shortlink'=>$shortlink));
         
         if($kernel->vars->title) $kernel->vars->title.=' | ';
         $kernel->vars->title.=$title;
@@ -19,6 +19,9 @@ class Place{
         $path=$kernel->conf->base;
         foreach(Place::$places as $key=>$place){
             if($kernel->vars->place) $kernel->vars->place.=' → ';
+            if($place['shortlink']){
+                $path=''; 
+            }
             if($place["alias"]){
                 $path.=$place["alias"].'/';
             }

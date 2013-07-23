@@ -54,5 +54,6 @@
     "symbionts.notes.type-category": "One category notes",
     "symbionts.notes.type-categories": "List of categories",
     "symbionts.notes.selectCategory": "Select category",
-    "symbionts.notes.reset": "Reset"
+    "symbionts.notes.reset": "Reset",
+    "symbionts.notes.browse": "Browse"
 }

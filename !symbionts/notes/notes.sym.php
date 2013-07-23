@@ -24,7 +24,8 @@ class SNotes extends Symbiont{
         $attributes=Data::extend(array(
             'id'=>0,
             'alias'=>'',
-            'place'=>false
+            'place'=>false,
+            'relative'=>false
         ), $attributes);
         
         $id=$attributes['id'];
@@ -34,7 +35,7 @@ class SNotes extends Symbiont{
         if($id) $values['id']=$attributes['id'];
         elseif($alias) $values['alias']=$attributes['alias'];
         
-        $vars=$db->select('snotes', array('title', 'text', 'alias', 'id', 'date', 'userId', 'categoryId'), $values, '', 1);
+        $vars=$db->select('snotes', array('title', 'text', 'alias', 'id', 'date', 'userId', 'categoryId', 'image'), $values, '', 1);
         if(!is_array($vars)){
             $template=$this->_check('nofound');
             $design->show($template, array('message'=>$labels->get('symbionts.notes.noteNoFound')));
@@ -54,11 +55,11 @@ class SNotes extends Symbiont{
         }
         
         if($attributes['place']){
-            Place::push($vars['category']['title'], 'category/'.$vars['category']['alias']);
+            if(!$attributes['relative']) Place::push($vars['category']['title'], 'category/'.$vars['category']['alias']);
             Place::push($vars['title']);
         }
         
-        $template=$this->_check($template, 'note');
+        $template=$this->_check('-'.$template.'/note', '-main/note');
         
         $design->show($template, $vars);
     }
@@ -67,14 +68,14 @@ class SNotes extends Symbiont{
         
         $attributes=Data::extend(array(
             'id'=>0,
-            'start'=>0,
+            'page'=>0,
             'limit'=>10,
             'order'=>0,
             'place'=>false
         ), $attributes);
         
         $id=Data::number($attributes['id']);
-        $start=Data::safe($attributes['start']);
+        $page=Data::safe($attributes['page']);
         $limit=Data::number($attributes['limit']);
         
         /*
@@ -93,9 +94,9 @@ class SNotes extends Symbiont{
         $vars['notes']=$db->query('
             SELECT id, alias, title, date, text, cover, position
             FROM `snotes`
-            WHERE languageId='.$kernel->lang->id.' AND date<=NOW() '.$startQuery.'
+            WHERE languageId='.$kernel->lang->id.' AND date<=NOW()
             ORDER BY '.$orderQuery.'
-            LIMIT '.$limit.'
+            LIMIT '.$page*$limit.', '.$limit.'
         ');
         
         if(file_exists('db/symbiont-notes/defaults.json')){
@@ -115,8 +116,8 @@ class SNotes extends Symbiont{
                 $vars['notes'][$key]['date']=$date;
             }
         }
-        $template.='/notes';
-        $template=$this->_check($template, 'main/category');
+        
+        $template=$this->_check('-'.$template.'/notes', '-main/notes');
         $design->show($template, $vars);
     }
     public function category($template=null, $attributes=null, $content=null){
@@ -141,7 +142,7 @@ class SNotes extends Symbiont{
         if($id||$alias){
             $category=$db->select('scategories', array('title', 'settings', 'id'), $values, '', 1);
             if(!is_array($category)){
-                $template=$this->_check($template.'/nofound', 'main/nofound');
+                $template=$this->_check('-'.$template.'/nofound', '-main/nofound');
                 $design->show($template, array('message'=>$labels->get('symbionts.notes.categoryNoFound')));
                 return;
             }
@@ -163,9 +164,25 @@ class SNotes extends Symbiont{
         $vars['order']=isset($settings->order)?$settings->order:1;
         $vars['id']=$id;
         
-        
-        $template=$this->_check($template, 'category');
+        $template=$this->_check('-'.$template.'/category', '-main/category');
         $design->show($template, $vars);
+    }
+    public function pageCategory($template=null, $attributes=null, $content=null){
+        global $kernel;
+        $attributes=Data::extend(array(
+            'id'=>0,
+            'alias'=>'',
+            'place'=>false,
+            'start'=>0,
+            'limit'=>20
+        ), $attributes);
+        
+        if($kernel->link->param1!=''){
+            $this->note($template, array('alias'=>$kernel->link->param1, 'place'=>true, 'relative'=>true), $content);
+        }
+        else{
+            $this->category($template, $attributes, $content);
+        }
     }
     public function categories($template=null, $attributes=null, $content=null){
         global $db, $kernel, $design;
@@ -203,7 +220,7 @@ class SNotes extends Symbiont{
             $vars['path']='';
         }
         
-        $template=$this->_check($template, 'categories');
+        $template=$this->_check($template.'/categories', 'main/categories');
         $design->show($template, $vars);
     }
     public function admin($template=null, $attributes=null, $content=null){

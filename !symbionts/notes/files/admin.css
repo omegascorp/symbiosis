@@ -67,3 +67,24 @@
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFFFE5,endColorstr=#FFFFFFE5);
     z-index: 2;
 }
+.symbionts-notes-admin-change .browse .image{
+    display: block;
+    float: left;
+    width: 32px;
+    height: 32px;
+    background-size: 32px 32px;
+    border: 1px solid silver;
+}
+.symbionts-notes-admin-change .browse .text{
+    display: block;
+    float: left;
+    height: 16px;
+    padding-top: 18px;
+    padding-left: 16px;
+}
+.symbionts-notes-admin-change .browse{
+    cursor: pointer;
+}
+.symbionts-notes-admin-change .browse:hover{
+    background: #EEEEEE;
+}

@@ -8,6 +8,26 @@ $(document).ready(function(){
 		'top-var':'Admin.top',
 		'language': $.symbiosis.language
 	    });
+	    $(this).find('.browse').click($.proxy(function(){
+		$.ajax({
+		    'data': {
+			'symbiont': '#Filemanager.mini[path="notes/",createFolder=true]',
+		    },
+		    'dataType': 'html',
+		    'success': $.proxy(function(result){
+			var html=$(result);
+			var browse=new AdminLayerPopup({'height':400, 'width': 600,'class':'notes-browse'});
+			html.find('.file').click($.proxy(function(e){
+			    var file=$(e.currentTarget);
+			    $(this).find('.browse .image').css('background-image', 'url('+file.find('img').attr('src')+')');
+			    $(this).find('.browse').attr('data-path', 'notes/'+file.attr('data-name'));
+			    browse.remove();
+			    return false;
+			},this));
+			$('.admin-layer-notes-browse').append(html);
+		    }, this)
+		});
+	    },this));
 	},
 	'changeSave': function(tab){
 	    var data={};
@@ -16,16 +36,7 @@ $(document).ready(function(){
 	    data['id']=$(this).find('.symbionts-notes-admin-change').attr('data-id');
 	    data['categoryId']=$(this).closest('.symbionts-notes-admin').attr('data-id');
 	    data['date']=$(this).find('.date-input .year').val()+'-'+$(this).find('.date-input .month').val()+'-'+$(this).find('.date-input .day').val()+' '+$(this).find('.date-input .hour').val()+':'+$(this).find('.date-input .minute').val();
-	    /*
-	    data['tags']=[];
-	    widget.find('.symbionts-tags-admin-button .tag').each(function(){
-		data['tags'].push($(this).attr('data-id'));
-	    });
-	    if(data['tags'].length==0) data['tags']='';
-	    if(widget.find('.image').attr('data-changed')=='true'){
-		data['image']=widget.find('.image').attr('data-image');
-	    }
-	    */
+	    if($(this).find('.browse').attr('data-path')) data['image']=$(this).find('.browse').attr('data-path');
 	    
 	    $.ajax({
 		'data': data,

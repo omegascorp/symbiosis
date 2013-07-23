@@ -5,7 +5,7 @@
         <div class="admin-layout-auto">
             <div class="admin-selectable type">
                 <div class="admin-block admin-radio main {if(&function=='main')}admin-selected default{/if}"><span class="admin-icon"></span><span class="admin-text">{@symbionts.notes.type-main} (<a href="{$conf.url}{$link.page}/pages/{&default}/">/{&default}/</a>)</span></div>
-                <div class="admin-block admin-radio category {if(&function=='category')}admin-selected default{/if}"><span class="admin-icon"></span><span class="admin-text">{@symbionts.notes.type-category}</span></div>
+                <div class="admin-block admin-radio category {if(&function=='pageCategory')}admin-selected default{/if}"><span class="admin-icon"></span><span class="admin-text">{@symbionts.notes.type-category}</span></div>
                 <div class="admin-block admin-radio categories {if(&function=='categories')}admin-selected default{/if}"><span class="admin-icon"></span><span class="admin-text">{@symbionts.notes.type-categories}</span></div>
             </div>
         </div>
@@ -13,6 +13,14 @@
             <div class="admin-selectable list">
                 <div class="admin-block">{@symbionts.notes.selectCategory}</div>
                 {#Categories-Admin.categories.admin-categories-radio[for="notes",selectId=&id]#}
+            </div>
+        </div>
+        <div class="admin-layout-auto">
+            <div class="admin-selectable templates">
+                <div class="admin-block">{@symbionts.notes.template}</div>
+                {each(&templates as &t)}
+                <div class="admin-block admin-radio {if(&template == substr(&t,1))}admin-selected default{/if}"><span class="admin-icon"></span><span class="admin-text">{substr(&t,1)}</span></div>
+                {/each}
             </div>
         </div>
     </div>
