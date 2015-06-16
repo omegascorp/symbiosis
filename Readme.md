@@ -5,9 +5,12 @@ Apache, mode rewrite
 PHP5, php-json
 MySQL5
 
-For the run automaticly instollation remove the content of config.php. (Size of config.php must be 0 bytes).
+## Automaticly instollation
 
-Manual installation:
+Remove the content of config.php. (Size of config.php must be 0 bytes).
+On unix-like systems privileges should be 666.
+
+## Manual installation:
 
 Write in the config.php:
 
