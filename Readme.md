@@ -9,7 +9,8 @@ For the run automaticly instollation remove the content of config.php. (Size of 
 
 Manual installation:
 
-1. Write in the config.php:
+Write in the config.php:
+
     <?
     $host='localhost';
     $user='[mysql_username]';
@@ -17,11 +18,11 @@ Manual installation:
     $database='[database_name]';
     ?>
 
-2. If your script location is http://localhost/symbiosis/ path is /symbiosis/.
+If your script location is http://localhost/symbiosis/ path is /symbiosis/.
 Find in the file db/config.json row with title path and put here your path value.
 Ex:
 "path"=>"/symbiosis/"
 
-3. If you use unix-like operating system change privileges of the folders !uploads, db, temp to 666.
+If you use unix-like operating system change privileges of the folders !uploads, db, temp to 666.
 
-4. MySql database locates in file db.sql. Import it into the [database_name].
+MySql database locates in file db.sql. Import it into the [database_name].
