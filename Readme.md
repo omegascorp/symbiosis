@@ -1,9 +1,7 @@
 # Symbiosis CMS
 
 Requirements:
-Apache, mode rewrite
-PHP5, php-json
-MySQL5
+Apache with mode rewrite, PHP5, php-json, MySQL5
 
 ## Automaticly instollation
 
