@@ -1,0 +1,5 @@
+{
+    "classes": ["important", "secondary", "marked"],
+    "tables": ["clean", "bordered", "lines"],
+    "blocks": ["silver"]
+}

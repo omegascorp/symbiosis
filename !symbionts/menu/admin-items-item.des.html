@@ -1,0 +1,16 @@
+<ul>
+    {each(&items as &item)}
+    <li>
+        <div class="admin-item"  data-id="{&item[id]}">
+            <label>{&item[title]}</label>
+            <div class="admin-right">
+                <a href="{$link.current}#edit={&item[id]}" class="admin-link edit">{@symbionts.menu.edit}</a>
+                <a href="{$link.current}#remove={&item[id]}" class="admin-link remove">{@symbionts.menu.delete}</a>
+            </div>
+        </div>
+        {if(&item[sub])}
+            {#Menu-AdminItems.items.&template[selectId=&selectId,neglectId=&neglectId,parentId=&item[id],level=&level+1]#}
+        {/if}
+    </li>
+    {/each}
+</ul>

@@ -1,0 +1,19 @@
+{
+    "symbionts.tags": "Теги",
+    "symbionts.tags.widget": "Теги",
+    "symbionts.tags.add": "Добавить",
+    "symbionts.tags.edit": "Редактировать",
+    "symbionts.tags.delete": "Удалить",
+    "symbionts.tags.new": "Новый тег",
+    "symbionts.tags.title": "Заголовок",
+    "symbionts.tags.alias": "Псевдоним",
+    "symbionts.tags.save": "Сохранить",
+    "symbionts.tags.cancel": "Отменить",
+    "symbionts.tags.areYouShure": "Вы уверены?",
+    "symbionts.tags.yes": "Да",
+    "symbionts.tags.no": "Нет",
+    "symbionts.tags.addTags": "Добавить теги",
+    "symbionts.tags.tags": "Теги: ",
+    "symbionts.tags.main": "Основной",
+    "symbionts.tags.mainDescription": "сслки из всех облаков тегов будут вести на эту страницу"
+}

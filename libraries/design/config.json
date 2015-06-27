@@ -1,0 +1,15 @@
+{
+    "title": "libraries.design",
+    "version": "0.4.8",
+    "need":{
+        "libraries":{
+            "kernel": "0.4.14",
+            "data": "0.2.5",
+            "labels": "0.0.1",
+            "positions": "0.1.4",
+            "symbiont": "0.1.11",
+            "symbionts": "0.1.2",
+            "user": "0.0.6"
+        }
+    }
+}

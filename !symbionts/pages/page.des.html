@@ -1,0 +1,33 @@
+{Script}{$conf.symbionts}pages/files/page.js{/Script}
+
+<div class="symbiosis-page admin-tabs" data-id="{&id}" data-symbiont="{&symbiont}">
+    <div class="admin-widget-top">
+        <ul class="admin-widget-tabs-nav">
+            <li class="admin-widget-icon">
+                <a href="{$conf.base}{$link.page}/{$link.param1}{$conf.postfix}"><span>{@symbionts.pages}</span></a>
+            </li>
+            <li class="admin-widget-icon-holder">
+                <label>→</label>
+            </li>
+            <li class="admin-widget-icon-holder">
+                <label>{&title}</label>
+            </li>
+            <li class="admin-widget-icon" data-tab="content"><a class="admin-link" href="{$conf.url}{$link.full}{$conf.postfix}#tab=content"><span>{@symbionts.pages.content}</span></a></li>
+            <li class="admin-widget-icon" data-tab="plugin"><a class="admin-link" href="{$conf.url}{$link.full}{$conf.postfix}#tab=plugin"><span>{@symbionts.pages.plugin}</span></a></li>
+        </ul>
+    </div>
+    <div class="admin-widget-tab" data-tab="content">
+        {&content}
+    </div>
+    <div class="admin-widget-tab" data-tab="plugin">
+        <div class="admin-selectable">
+            {each(&plugins as &plugin=>&title)}
+            <div class="admin-block admin-radio {if(&symbiontName==&plugin)}admin-selected default{/if}" data-plugin="{&plugin}"><span class="admin-icon"></span><span class="admin-text">{&title}</span></div>
+            {/each}
+        </div>
+        <div class="admin-block">
+            <span class="admin-button admin-button-save">{@symbionts.pages.save}</span>
+            <span class="admin-button admin-button-reset">{@symbionts.pages.reset}</span>
+        </div>
+    </div>
+</div>

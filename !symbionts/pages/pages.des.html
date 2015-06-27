@@ -1,0 +1,30 @@
+{Pages.setPage}
+<li>
+    <div class="admin-item" data-id="{&id}">
+        {if(&redirectId==0)}
+        <span class="name"><a href="{$conf.url}{$link.full}/{&alias}/">{&title}</a></span>
+        {else}
+        <span class="name">{&title}</span><span title="{@symbionts.pages.redirect}">→</span>{&redirect}
+        {/if}
+        
+        <div class="admin-right">
+            <a href="{$link.current}#edit={&id}" class="admin-link edit">{@symbionts.pages.edit}</a>
+            <a href="{$link.current}#remove={&id}" class="admin-link remove">{@symbionts.pages.delete}</a>
+        </div>
+    </div>
+    {&subpages}
+</li>
+{/Pages}
+{Pages.setTitle}
+    {if(&redirectId==0)}
+    <span class="name"><a href="{$conf.url}{$link.full}/{&alias}/">{&title}</a></span>
+    {else}
+    <span class="name">{&title}</span><span title="{@symbionts.pages.redirect}">→</span>{&redirect}
+    {/if}
+{/Pages}
+
+{Pages.getPages}
+<ul data-level={&level}>
+    {&pages}
+</ul>
+{/Pages}

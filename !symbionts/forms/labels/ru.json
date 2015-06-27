@@ -1,0 +1,17 @@
+{
+    "symbionts.forms": "Формы",
+    "symbionts.forms.widget": "Формы",
+    "symbionts.forms.sendingMessage": "Отправка писем на: {&emails}",
+    "symbionts.forms.template": "Шаблон",
+    "symbionts.forms.emails": "Адреса: ",
+    "symbionts.forms.save": "Сохранить",
+    "symbionts.forms.cancel": "Отменить",
+    "symbionts.forms.name": "Ваше имя",
+    "symbionts.forms.email": "E-mail",
+    "symbionts.forms.send": "Отправить",
+    "symbionts.forms.sending": "Отправляется...",
+    "symbionts.forms.sent": "Письмо отправлено.",
+    "symbionts.forms.error": "Произошла ошибка. Попробуйте позже.",
+    "symbionts.forms.incorrectUniq": "Форма составленна неправильно.",
+    "symbionts.forms.incorrect": "Значение поля «{&label}» заполнено некорректно"
+}

@@ -1,0 +1,9 @@
+{Style}{$conf.symbionts}tags/files/main.css{/Style}
+
+<div class="symbionts-tags">
+    <ul>
+    {each(&tags as &tag)}
+       <li><a href="{$conf.base}tags/{&tag[alias]}/" style="font-size: {&tag[popularity]/&max*20+10}px; line-height: 30px;">{&tag[title]}</a></li>
+    {/each}
+    </ul>
+</div>

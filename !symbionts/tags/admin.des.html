@@ -1,0 +1,31 @@
+{Script}{$conf.symbionts}tags/files/admin.js{/Script}
+{Style}{$conf.symbionts}tags/files/admin.css{/Style}
+
+{if(&isGlobal)}
+<div class="symbionts-tags-admin">
+{/if}
+    <div class="symbionts-tags-admin-main admin-widget admin-widget-main">
+        <h1 class="admin-widget-header">{@symbionts.tags}</h1>
+        <div class="admin-widget-absconder admin-list">
+            <ul>
+            {each(&tags as &tag)}
+                <li class="item-{&tag[id]}" data-id="{&tag[id]}">
+                    <span class="id" style="display: none;">{&tag[id]}</span>
+                    <label class="title">{&tag[title]}</label> (<label class="popularity">{&tag[popularity]}</label>)
+                    <div class="admin-right">
+                        <span class="edit admin-button" title="{@symbionts.tags.edit}"><span class="ui-icon ui-icon-pencil">&nbsp;</span></span>
+                        <span class="delete admin-button" title="{@symbionts.tags.delete}"><span class="ui-icon ui-icon-trash">&nbsp;</span></span>
+                    </div>
+                </li>
+            {/each}
+            </ul>
+            <div class="controls admin-clear">
+                <span class="admin-button-add">{@symbionts.tags.add}</span>
+                <span class="admin-button-edit">{@symbionts.tags.edit}</span>
+                <span class="admin-button-delete">{@symbionts.tags.delete}</span>
+            </div>
+        </div>
+    </div>
+{if(&isGlobal)}
+</div>
+{/if}

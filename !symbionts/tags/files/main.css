@@ -1,0 +1,17 @@
+.symbionts-tags:after {
+    content: '.';
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+}
+.symbionts-tags ul{
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+.symbionts-tags ul li{
+    display: block;
+    float: left;
+    padding: 4px;
+}

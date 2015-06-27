@@ -1,0 +1,83 @@
+<div class="symbionts-users-admin-change" data-id="{&id}">
+    <h1 class="admin-block">{if(&username)}{&username}{else}{@symbionts.users.new}{/if}</h1>
+    
+    <div class="admin-block">
+        <label class="admin-layout-25">{@symbionts.users.username}</label>
+        <div class="admin-layout-75">
+            <input class="username" type="text" value="{&username}" />
+        </div>
+    </div>
+    <div class="admin-block">
+        <label class="admin-layout-25">{@symbionts.users.email}</label>
+        <div class="admin-layout-75">
+            <input class="email" type="text" value="{&email}" />
+        </div>
+    </div>
+    <div class="admin-block">
+        <label class="admin-layout-25">{@symbionts.users.password}</label>
+        <div class="admin-layout-75">
+            <input class="password" type="password" value="" />
+        </div>
+    </div>
+    <div class="admin-block">
+        <label class="admin-layout-25">{@symbionts.users.repeatPassword}</label>
+        <div class="admin-layout-75">
+            <input class="repeatPassword" type="password" value="" />
+        </div>
+    </div>
+    <div class="admin-block">
+        <label class="admin-layout-25">{@symbionts.users.firstName}</label>
+        <div class="admin-layout-75">
+            <input class="firstName" type="text" value="{&firstName}" />
+        </div>
+    </div>
+    <div class="admin-block">
+        <label class="admin-layout-25">{@symbionts.users.lastName}</label>
+        <div class="admin-layout-75">
+            <input class="lastName" type="text" value="{&lastName}" />
+        </div>
+    </div>
+    <div class="admin-block">
+        <label class="admin-layout-25">{@symbionts.users.country}</label>
+        <div class="admin-layout-75">
+            <input class="country" type="text" value="{&country}" />
+        </div>
+    </div>
+    <div class="admin-block">
+        <label class="admin-layout-25">{@symbionts.users.city}</label>
+        <div class="admin-layout-75">
+            <input class="city" type="text" value="{&city}" />
+        </div>
+    </div>
+    <div class="admin-block">
+        <label class="admin-layout-25">{@symbionts.users.sex}</label>
+        <div class="admin-layout-75">
+            <span class="sex admin-selectable">
+                <span class="admin-choose {if(&sex==1)}admin-selected{/if}">{@symbionts.users.male}</span>
+                <span class="admin-choose {if(&sex==0)}admin-selected{/if}">{@symbionts.users.female}</span>
+            </span>
+        </div>
+    </div>
+    <div class="admin-block">
+        <label class="admin-layout-25">{@symbionts.users.timezone}</label>
+        <div class="admin-layout-75">
+            <input class="timezone" type="text" value="{&timezone}" />
+        </div>
+    </div>
+    <div class="admin-block">
+        <label class="admin-layout-25">{@symbionts.users.accessLevel}</label>
+        <div class="admin-layout-75">
+            <select class="accessLevel">
+                {each(&accessLevels as &al)}
+                        <option value="{&al[accessLevel]}" {if(&al[accessLevel]==&accessLevel)}selected="selected"{/if}>{&al[title]}</option>
+                {/each}
+            </select>
+        </div>
+    </div>
+    
+    
+    <div class="admin-block">
+        <span class="admin-button admin-button-save">{@symbionts.users.save}</span>
+        <span class="admin-button admin-button-cancel">{@symbionts.users.cancel}</span>
+    </div>
+</div>

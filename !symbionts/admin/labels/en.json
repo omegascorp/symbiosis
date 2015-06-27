@@ -1,0 +1,14 @@
+{
+    "symbionts.admin": "Admin Panel",
+    "symbionts.admin.plugin": "Admin Panel",
+    "symbionts.admin.home": "Home",
+    "symbionts.admin.homeFull": "Admin panel home page",
+    "symbionts.admin.clean": "Clean",
+    "symbionts.admin.cleanFull": "Clean temporary files",
+    "symbionts.admin.setAsMain": "Set as main symbiont",
+    "symbionts.admin.main": "Main symbiont",
+    "symbionts.admin.notinstalled": "The symbiont «{&symbiont}» do not installed.",
+    "symbionts.admin.site": "Site",
+    "symbionts.admin.admin": "Administrate",
+    "symbionts.admin.noSettings": "There is no settings"
+}

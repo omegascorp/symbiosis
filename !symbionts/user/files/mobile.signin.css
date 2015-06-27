@@ -1,0 +1,10 @@
+.symbionts-user-signin .username, .symbionts-user-signin .password{
+    padding: 0.4em;
+}
+.symbionts-user-signin .username input, .symbionts-user-signin .password input{
+    margin: 0px;
+    width: 100%;
+    padding: 0.4em 0px;
+    text-align: center;
+    outline: none;
+}

@@ -1,0 +1,8 @@
+.symbionts-menu-edit ul{
+    list-style: none;
+}
+.symbionts-menu-edit li{
+    display: block;
+    padding: 5px;
+    margin: 2px;
+}

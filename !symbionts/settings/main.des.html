@@ -1,0 +1,120 @@
+{Script}{$conf.symbionts}settings/files/main.js{/Script}
+
+<div class="symbionts-settings admin-widget-tabs">
+    <h1 class="admin-block">{@symbionts.settings}</h1>
+    <div class="admin-block admin-layout">
+        <div class="admin-layout-25">
+            {@symbionts.settings.version}
+        </div>
+        <div class="admin-layout-75">
+            {$conf.version}
+        </div>
+    </div>
+    <div class="admin-block admin-layout">
+        <div class="admin-layout-25">
+            {@symbionts.settings.path}
+        </div>
+        <div class="admin-layout-75">
+            {$conf.path}
+        </div>
+    </div>
+    <div class="admin-block admin-layout">
+        <div class="admin-layout-25">
+            {@symbionts.settings.regenerate}
+        </div>
+        <div class="admin-layout-75">
+            <span data-alias="regenerate" data-type="choose" class="admin-switch {if($conf.regenerate)}admin-checked{/if}">
+                <span class="admin-switch-on">On</span>
+                <span class="admin-switch-er"></span>
+                <span class="admin-switch-off">Off</span>
+            </span>
+            <div class="help">
+            {@symbionts.settings.regenerateHelp}
+            </div>
+        </div>
+    </div>
+    <div class="admin-block admin-layout">
+        <div class="admin-layout-25">
+            {@symbionts.settings.abbreviations}
+        </div>
+        <div class="admin-layout-75">
+            <span data-alias="abbreviations" class="admin-switch {if($conf.abbreviations)}admin-checked{/if}">
+                <span class="admin-switch-on">On</span>
+                <span class="admin-switch-er"></span>
+                <span class="admin-switch-off">Off</span>
+            </span>
+            <div class="help">
+                {@symbionts.settings.abbreviationsHelp}
+            </div>
+        </div>
+    </div>
+    <div class="admin-block admin-layout">
+        <div class="admin-layout-25">
+            {@symbionts.settings.browserLanguage}
+        </div>
+        <div class="admin-layout-75">
+            <span data-alias="browserLanguage" class="admin-switch {if($conf.browserLanguage)}admin-checked{/if}">
+                <span class="admin-switch-on">On</span>
+                <span class="admin-switch-er"></span>
+                <span class="admin-switch-off">Off</span>
+            </span>
+            <div class="help">
+                {@symbionts.settings.browserLanguageHelp}
+            </div>
+        </div>
+    </div>
+    <div class="admin-block admin-layout">
+        <div class="admin-layout-25">
+            {@symbionts.settings.aliasesInTranslit}
+        </div>
+        <div class="admin-layout-75">
+            <span data-alias="aliasesInTranslit" class="admin-switch {if($conf.aliasesInTranslit)}admin-checked{/if}">
+                <span class="admin-switch-on">On</span>
+                <span class="admin-switch-er"></span>
+                <span class="admin-switch-off">Off</span>
+            </span>
+            <div class="help">
+                {@symbionts.settings.aliasesInTranslitHelp}
+            </div>
+        </div>
+    </div>
+    <div class="admin-block admin-layout">
+        <div class="admin-layout-25">
+            {@symbionts.settings.aliasesLanguage}
+        </div>
+        <div data-alias="aliasesLanguage" class="admin-layout-75 admin-selectable">
+            {each(&languages as &language)}
+            <span class="admin-choose {if($conf.aliasesLanguage==&language[abbr])}admin-selected{/if}" data-value="{&language[abbr]}">{&language[title]}</span>
+            {/each}
+        </div>
+    </div>
+    <div class="admin-block admin-layout">
+        <div class="admin-layout-25">
+            {@symbionts.settings.postfix}
+        </div>
+        <div class="admin-layout-75">
+            <input data-alias="postfix" type="text" value="{$conf.postfix}" />
+        </div>
+    </div>
+    <div class="admin-block admin-layout">
+        <div class="admin-layout-25">
+            {@symbionts.settings.sessionPrefix}
+        </div>
+        <div class="admin-layout-75">
+            <input data-alias="sessionPrefix" type="text" value="{$conf.sessionPrefix}" />
+        </div>
+    </div>
+    <div class="admin-block admin-layout">
+        <div class="admin-layout-25">
+            {@symbionts.settings.autorisationType}
+        </div>
+        <div data-alias="autorisationType" class="admin-layout-75 admin-selectable">
+            <span data-value="session" class="admin-choose {if($conf.autorisationType=='session')}admin-selected{/if}">{@symbionts.settings.autorisationTypeSession}</span>
+            <span data-value="cookie" class="admin-choose {if($conf.autorisationType=='cookie')}admin-selected{/if}">{@symbionts.settings.autorisationTypeCookie}</span>
+        </div>
+    </div>
+    <div class="admin-block">
+        <span class="admin-button admin-button-save">{@symbionts.settings.save}</span>
+        <span class="admin-button admin-button-refresh">{@symbionts.settings.refresh}</span>
+    </div>
+</div>

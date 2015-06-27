@@ -1,0 +1,9 @@
+<span data-role="controlgroup" data-type="horizontal">
+    {each(&languages as &language)}
+        {if(&language[exists])}
+            <a href="{&language[url]}" data-role="button" {if(&language[current])}class="ui-btn-active"{/if}>{&language[title]}</a>
+        {else}
+            <a data-role="button">{&language[title]}</a>
+        {/if}
+    {/each}
+</span>

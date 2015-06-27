@@ -1,0 +1,7 @@
+{
+    "symbionts.symbionts": "Плагины",
+    "symbionts.symbionts.description": "Инсталирует и удаляет симбионты",
+    "symbionts.symbionts.install": "Инсталировать",
+    "symbionts.symbionts.cancel": "Отменить",
+    "symbionts.symbionts.browse": "Обзор"
+}

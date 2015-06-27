@@ -1,0 +1,6 @@
+<div class="symbionts-tags-show">
+    {if(is_array(&tags))}{@symbionts.tags.tags}{/if}
+    {each(&tags as &tag)}
+    <a href="tags/{&tag[alias]}/" class="tag" data-id="{&tag[id]}">{&tag[title]}</a>
+    {/each}
+</div>

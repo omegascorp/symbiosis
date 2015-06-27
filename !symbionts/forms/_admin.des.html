@@ -1,0 +1,25 @@
+{Script}{$conf.symbionts}forms/files/_admin.js{/Script}
+{Style}{$conf.symbionts}forms/files/_admin.css{/Style}
+
+<div class="symbionts-forms-edit" data-uniq="{&uniq}">
+    <div class="admin-layout">
+        <div class="admin-layout-auto">
+            <div class="admin-block">{@symbionts.forms.template}</div>
+            <ul class="admin-selectable templates">
+                {each(&templates as &t)}
+                <li class="admin-block admin-radio {if(&t[template] == &template)}admin-selected{/if}" data-name="{&t[template]}">
+                    <span class="admin-icon"></span>
+                    <span class="admin-text">{&t[title]}</span>
+                </li>
+                {/each}
+            </ul>
+        </div>
+        <div class="admin-layout-auto">
+            <div class="admin-block">{@symbionts.forms.emails}</div>
+            <div class="admin-block"><input name="email" type="text" value="{&emails}" /></div>
+        </div>
+    </div>
+    <div class="admin-block">
+        <div class="admin-button admin-button-save">{@symbionts.forms.save}</div>
+    </div>
+</div>

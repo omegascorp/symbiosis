@@ -1,0 +1,16 @@
+{Script}{$conf.symbionts}admin/files/admin.js{/Script}
+<div class="symbionts-admin">
+    <div class="symbionts">
+        {each(&symbionts as &symbiont)}
+        <a href="{$conf.base}{$link.page}/{&symbiont[name]}/" class="admin-widget-square symbiosis-hover ui-corner-all ui-state-default">
+           <div class="name symbiosis-hidden">{&symbiont[name]}</div>
+           <img src="{$conf.symbionts}{&symbiont[icon]}128.png" alt="{&symbiont[title]}" />
+           <div class="title">
+               <div class="label">
+                   <label>{&symbiont[title]}</label>
+               </div>
+           </div>
+        </a>
+        {/each}
+    </div>
+</div>

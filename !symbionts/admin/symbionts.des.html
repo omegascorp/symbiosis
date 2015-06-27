@@ -1,0 +1,16 @@
+{Script}{$conf.symbionts}admin/files/symbionts.js{/Script}
+{Style}{$conf.symbionts}admin/files/symbionts.css{/Style}
+
+<div class="symbionts-admin-symbionts">
+    <div id="admin-symbiont-popup" style="display: none;"><div id="admin-symbiont-title"></div></div>
+    <ul class="symbionts">
+        {each(&symbionts as &symbiont)}
+        <li class="admin-widget-block {if($link.param1==&symbiont[name])}highlight{else}default{/if}" data-title="{&symbiont[title]}">
+            <a href="{$conf.base}{$link.page}/{&symbiont[name]}/">
+               <div class="name symbiosis-hidden">{&symbiont[name]}</div>
+               <img src="{$conf.symbionts}{&symbiont[icon]}32.png" alt="{&symbiont[title]}" />
+            </a>
+        </li>
+        {/each}
+    </ul>
+</div>

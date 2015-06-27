@@ -1,0 +1,17 @@
+{Script}{$conf.symbionts}forms/files/form.js{/Script}
+{Style}{$conf.symbionts}forms/files/main.css{/Style}
+
+{Script}{$conf.url}!files/js/jquery.validate.js{/Script}
+
+<div class="symbionts-forms" data-uniq="{&uniq}">
+    <form>
+        <div><input name="firstName" type="text" placeholder="{@symbionts.forms.firstName}" data-validate="require" /></div>
+        <div><input name="lastName" type="text" placeholder="{@symbionts.forms.lastName}" data-validate="require" /></div>
+        <div><input type="text" placeholder="{@symbionts.forms.email}" data-validate="require" /></div>
+        <div><input type="text" placeholder="{@symbionts.forms.phone}" data-validate="require" /></div>
+        <div><textarea placeholder="{@symbionts.forms.text}" data-validate="require"></textarea></div>
+        {#Captcha#}
+        <div><input class="button" type="submit" value="{@symbionts.forms.send}"></div>
+    </form>
+    <div class="message" style="display: none;"></div>
+</div>

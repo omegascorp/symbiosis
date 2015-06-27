@@ -1,0 +1,13 @@
+<div class="symbionts-languages">
+    <ul>
+    {each(&languages as &language)}
+        <li {if(&language[current])}class="current"{/if}>
+        {if(&language[exists]&&!&language[current])}
+            <a href="{&language[url]}">{&language[title]}</a>
+        {else}
+            {&language[title]}
+        {/if}
+        </li>
+    {/each}
+    </ul>
+</div>

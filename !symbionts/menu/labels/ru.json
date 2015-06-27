@@ -1,0 +1,23 @@
+{
+    "symbionts.menu": "Меню",
+    "symbionts.menu.widget": "Меню",
+    "symbionts.menu.add": "Добавить",
+    "symbionts.menu.edit": "Редактировать",
+    "symbionts.menu.delete": "Удалить",
+    "symbionts.menu.new": "Новое меню",
+    "symbionts.menu.newItem": "Новый пункт меню",
+    "symbionts.menu.title": "Заголовок",
+    "symbionts.menu.alias": "Псевдоним",
+    "symbionts.menu.save": "Сохранить",
+    "symbionts.menu.cancel": "Отменить",
+    "symbionts.menu.areYouShure": "Вы уверены?",
+    "symbionts.menu.yes": "Да",
+    "symbionts.menu.no": "Нет",
+    "symbionts.menu.link": "Ссылка",
+    "symbionts.menu.parent": "Родитель",
+    "symbionts.menu.synchronize": "Синхронизация",
+    "symbionts.menu.label": "Наклейка",
+    "symbionts.menu.levels": "Уровни",
+    "symbionts.menu.synchTitle": "Синхронизировать заголовок",
+    "symbionts.menu.synchLink": "Синхронизировать ссылку"
+}

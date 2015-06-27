@@ -1,0 +1,50 @@
+<div class="symbionts-menu-admin-change" data-id="{&id}">
+    {Translit}
+    <h1 class="admin-block">{if(&title)}{&title}{else}{@symbionts.menu.new}{/if}</h1>
+    {if(count(&languages)>1)}
+    <div class="admin-tabs">
+        <ul class="admin-tabs-nav">
+        {each(&languages as &language)}
+                <li>{&language[languageTitle]}</li>
+        {/each}
+        </ul>
+        {each(&languages as &language)}
+        <div class="admin-tab {if(&language[isDefault])}admin-tab-default{/if}" data-id="{&language[id]}" data-abbr="{&language[abbr]}">
+                <div class="admin-block admin-layout">
+                    <label class="admin-layout-25">{@symbionts.menu.title}</label>
+                    <div class="admin-layout-75">
+                        <input type="text" class="admin-translit-source title" data-abbr="{&language[abbr]}" value="{&language[title]}" />
+                    </div>
+                </div>
+                {if(!$conf.abbreviations)}
+                <div class="admin-block admin-layout">
+                    <label class="admin-layout-25">{@symbionts.menu.alias}</label>
+                    <div class="admin-layout-75">
+                        <input type="text" class="admin-translit-receiver alias" data-abbr="{&language[abbr]}" value="{&language[alias]}" />
+                    </div>
+                </div>
+                {/if}
+        </div>
+        {/each}
+    </div>
+    {else}
+    <div class="admin-block admin-layout">
+        <label class="admin-layout-25">{@symbionts.menu.title}</label>
+        <div class="admin-layout-75">
+            <input type="text" class="admin-translit-source title" data-abbr="{&languages[0][abbr]}" value="{&title}" />
+        </div>
+    </div>
+    {/if}
+    {if($conf.abbreviations||count(&languages)==1)}
+    <div class="admin-block admin-layout">
+        <label class="admin-layout-25">{@symbionts.menu.alias}</label>
+        <div class="admin-layout-75">
+            <input type="text" class="admin-translit-receiver alias" data-abbr="{&languages[0][abbr]}" value="{&alias}" />
+        </div>
+    </div>
+    {/if}
+    <div class="admin-block">
+        <span class="admin-button admin-button-save">{@symbionts.menu.save}</span>
+        <span class="admin-button admin-button-cancel">{@symbionts.menu.cancel}</span>
+    </div>
+</div>

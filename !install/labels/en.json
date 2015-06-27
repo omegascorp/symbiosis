@@ -1,0 +1,17 @@
+{
+    "language": "English",
+    "step1": "Select the installation language",
+    "step2": "Check the rights",
+    "step3": "DB connection data",
+    "step4": "Site data",
+    "next": "Next",
+    "back": "Back",
+    "refresh": "Refresh",
+    "host": "Host",
+    "username": "Username",
+    "password": "Password",
+    "database": "Database",
+    "title": "Title",
+    "email": "Email",
+    "siteTitle": "Symbiosis"
+}

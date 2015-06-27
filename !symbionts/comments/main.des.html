@@ -1,0 +1,51 @@
+{Script}{$conf.symbionts}comments/files/main.js{/Script}
+{Style}{$conf.symbionts}comments/files/main.css{/Style}
+
+{Comments.setComment}
+<div class="comment">
+    <input class="id" type="hidden" value="{&id}" />
+    <div class="text">{&text}</div>
+    <div class="foot">
+        <a class="autor" href="">{&autor}</a>
+        <span class="date">{&date}</span>
+        {if(~>1)}
+        <a href="" class="answer">{@symbionts.comments.answer}</a>
+        {/if}
+    </div>
+    <div class="answers">
+        {&answers}
+    </div>
+</div>
+{/Comments}
+
+<div class="symbionts-comments">
+    <h2>{@symbionts.comments}</h2>
+    <div class="comments">
+        {Comments.getComments.for=&for/}
+    </div>
+    {if(~>=1)}
+    <div class="commentForm">
+        <form action="">
+            <input class="id" type="hidden" value="0" />
+            <input class="parentId" type="hidden" value="0" />
+            <input class="for" type="hidden" value="{&for}" />
+            <div><textarea></textarea></div>
+            <div><input type="submit" value="{@symbionts.comments.send}" /></div>
+        </form>
+    </div>
+    {/if}
+    
+    <div class="commentTemplate comment" style="display: none;">
+        <input class="id" type="hidden" value="{&id}" />
+        <div class="text"></div>
+        <div class="foot">
+            <a class="autor" href="">{&autor}</a>
+            <span class="date"></span>
+            {if(~>=1)}
+            <a href="" class="answer">{@symbionts.comments.answer}</a>
+            {/if}
+        </div>
+        <div class="answers">
+        </div>
+    </div>
+</div>

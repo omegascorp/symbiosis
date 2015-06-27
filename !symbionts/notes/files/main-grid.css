@@ -1,0 +1,22 @@
+.symbionts-notes-category-grid ul{
+    display: block;
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+.symbionts-notes-category-grid ul:after {
+    content: '.';
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+}
+.symbionts-notes-category-grid ul li{
+    display: block;
+    float: left;
+    text-align: center;
+    margin: 10px;
+}
+.symbionts-notes-category-grid ul li .title{
+    height: 40px;
+}

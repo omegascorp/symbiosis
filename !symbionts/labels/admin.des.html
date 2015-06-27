@@ -1,0 +1,24 @@
+{Script}{$conf.symbionts}labels/files/admin.js{/Script}
+{Style}{$conf.symbionts}labels/files/admin.css{/Style}
+
+<div class="symbionts-labels-admin admin-widget-tabs">
+    <div class="admin-widget-top">
+        <ul class="admin-widget-tabs-nav">
+            <li class="admin-widget-icon" data-tab="all"><a href="{$link.current}#tab=all" class="admin-link"><span>{@symbionts.labels}</a></li>
+        </ul>
+    </div>
+    <div class="admin-widget-tab symbionts-labels-admin-main" data-tab="all">
+        <h2 class="admin-block">Main</h2>
+        <ul>
+            {each(&main as &label)}
+            <li><a class="js" data-alias="main-{&label[alias]}" data-path="{&label[path]}">{&label[title]}</a></li>
+            {/each}
+        </ul>
+        <h2 class="admin-block">Symbionts</h2>
+        <ul>
+            {each(&symbionts as &label)}
+            <li><a class="js" data-alias="symbiont-{&label[alias]}" data-path="{&label[path]}">{&label[title]}</a></li>
+            {/each}
+        </ul>
+    </div>
+</div>

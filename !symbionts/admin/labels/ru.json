@@ -1,0 +1,14 @@
+{
+    "symbionts.admin": "Панель администрирования",
+    "symbionts.admin.plugin": "Панель администрирования",
+    "symbionts.admin.home": "Главная",
+    "symbionts.admin.homeFull": "Главная страница панели администрирования",
+    "symbionts.admin.clean": "Очистить",
+    "symbionts.admin.cleanFull": "Очистить временные файлы",
+    "symbionts.admin.setAsMain": "Сделать основным симбионтом",
+    "symbionts.admin.main": "Основной симбионт",
+    "symbionts.admin.notinstalled": "Симбионт «{&symbiont}» не установлен.",
+    "symbionts.admin.site": "Сайт",
+    "symbionts.admin.admin": "Администрирование",
+    "symbionts.admin.noSettings": "Настройки отсутствуют"
+}

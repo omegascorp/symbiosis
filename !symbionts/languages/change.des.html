@@ -1,0 +1,19 @@
+<div class="symbionts-languages-admin-change" data-id="{&id}">
+        <h1 class="admin-widget-header">
+                {if(&title)}
+                {&title}
+                {else}
+                {@symbionts.languages.newLanguage}
+                {/if}
+        </h1>
+        <form>
+        <div class="admin-block"><label>{@symbionts.languages.abbr}</label><input type="text" class="abbr" value="{&abbr}" /></div>
+        <div class="admin-block"><label>{@symbionts.languages.localTitle}</label><input type="text" class="title" value="{&title}" /></div>
+        <div class="admin-block"><label>{@symbionts.languages.englishTitle}</label><input type="text" class="titleEn" value="{&titleEn}" /></div>
+        <div class="admin-block"><label>{@symbionts.languages.code}</label><input type="text" class="code" value="{&code}" /></div>
+        </form>
+        <div class="admin-block">
+                <div class="admin-button admin-button-save">{@symbionts.languages.save}</div>
+                <div class="admin-button admin-button-cancel">{@symbionts.languages.cancel}</div>
+        </div>
+ </div>

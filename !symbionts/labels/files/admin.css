@@ -1,0 +1,12 @@
+.symbionts-labels-admin-main ul{
+    list-style: none;
+}
+.symbionts-labels-admin-main ul li{
+    padding: 5px 10px;
+}
+.symbionts-labels-admin-change ul{
+    list-style: none;
+}
+.symbionts-labels-admin-change ul li input{
+    width: 99%;
+}

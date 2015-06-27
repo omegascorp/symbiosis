@@ -1,0 +1,25 @@
+<table>
+    <thead>
+        <tr>
+            <td>{@symbionts.users.username}</td>
+            <td>{@symbionts.users.firstName}</td>
+            <td>{@symbionts.users.lastName}</td>
+            <td>{@symbionts.users.email}</td>
+            <td>{@symbionts.users.accessLevel}</td>
+            <td>{@symbionts.users.date}</td>
+            
+        </tr>
+    </thead>
+    <tbody>
+        {each(&users as &user)}
+        <tr data-id="{&user[id]}">
+            <td>{&user[username]}</td>
+            <td>{&user[firstName]}</td>
+            <td>{&user[lastName]}</td>
+            <td>{&user[email]}</td>
+            <td>{&user[title]}</td>
+            <td>{&user[date]}</td>
+        </tr>
+        {/each}
+    </tbody>
+</table>

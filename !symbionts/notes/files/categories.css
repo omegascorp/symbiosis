@@ -1,0 +1,11 @@
+.symbionts-notes-categories ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.symbionts-notes-categories ul ul{
+    margin-left: 20px;
+}
+.symbionts-notes-categories ul li{
+    margin: 5px;
+}

@@ -1,0 +1,9 @@
+{
+    "title": "libraries.labels",
+    "version": "0.0.4",
+    "need":{
+        "libraries":{
+            "kernel": "0.4.13"
+        }
+    }
+}

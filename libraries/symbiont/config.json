@@ -1,0 +1,10 @@
+{
+    "title": "libraries.symbiont",
+    "version": "0.1.15",
+    "need":{
+        "libraries":{
+            "kernel": "0.4.13",
+            "labels": "0.0.2"
+        }
+    }
+}

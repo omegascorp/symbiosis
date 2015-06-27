@@ -1,0 +1,9 @@
+{Script}{$conf.symbionts}tags/files/admin-button.js{/Script}
+{Style}{$conf.symbionts}tags/files/admin-button.css{/Style}
+
+<div class="symbionts-tags-admin-button admin-button" data-itemId="{&itemId}" data-symbiont="{&symbiont}">
+    {if(is_array(&tags))}{@symbionts.tags.tags}{else}{@symbionts.tags.addTags}{/if}
+    {each(&tags as &tag)}
+    <a href="admin/tags/{&tag[alias]}/" class="tag" data-id="{&tag[id]}">{&tag[title]}</a>
+    {/each}
+</div>

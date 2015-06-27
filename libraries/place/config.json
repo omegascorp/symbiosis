@@ -1,0 +1,15 @@
+{
+    "version": "0.0.2",
+    "need":{
+        "libraries":{
+            "Design": "0.3.1",
+            "Data": "0.2.5",
+            "Labels": "0.0.2",
+            "MySQL": "0.2.5",
+            "Positions": "0.1.4",
+            "Symbiont": "0.1.11",
+            "Symbionts": "0.1.2",
+            "User": "0.0.6"
+        }
+    }
+}

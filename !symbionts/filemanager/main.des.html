@@ -1,0 +1,97 @@
+{Script}{$conf.symbionts}filemanager/files/admin.js{/Script}
+{Style}{$conf.symbionts}filemanager/files/admin.css{/Style}
+
+<div class="symbionts-filemanager">
+    <div class="admin-widget-top">
+        <div class="admin-widget-icon upload"><a>{@symbionts.filemanager.upload}</a></div>
+        <div class="admin-widget-icon create"><a>{@symbionts.filemanager.createFolder}</a></div>
+        <div class="admin-widget-icon refresh"><a>{@symbionts.filemanager.refresh}</a></div>
+        <div class="admin-widget-icon top"><a>{@symbionts.filemanager.top}</a></div>
+        <div class="admin-widget-icon settings"><a>{@symbionts.filemanager.settings}</a></div>
+    </div>
+    <div class="path"><input type="text" value="{&path}" /></div>
+    <div class="files">
+        
+    </div>
+    <div class="admin-widget-bottom">
+        <div class="admin-widget-icon selection"><a>{@symbionts.filemanager.selection}</a></div>
+        <div class="admin-widget-icon selection-remove" style="display: none;"><a>{@symbionts.filemanager.selection-remove}</a></div>
+        <div class="admin-widget-icon selection-all" style="display: none;"><a>{@symbionts.filemanager.selection-all}</a></div>
+        <div class="admin-widget-icon delete" style="display: none;"><a>{@symbionts.filemanager.delete}</a></div>
+    </div>
+    
+    <div class="templates" style="display: none;">
+        <div class="symbionts-filemanager-settings">
+            <div class="admin-block"><input class="name" type="text" placeholder="{@symbionts.filemanager.folderName}" /></div>
+            <div class="admin-block">
+                <label>{@symbionts.filemanager.view}</label>
+                <select class="view">
+                {each(&accessLevels as &accessLevel)}
+                <option value="{&accessLevel[accessLevel]}">{&accessLevel[title]}</option>
+                {/each}
+                </select>
+            </div>
+            <div class="admin-block">
+                <label>{@symbionts.filemanager.change}</label>
+                <select class="change">
+                {each(&accessLevels as &accessLevel)}
+                <option value="{&accessLevel[accessLevel]}">{&accessLevel[title]}</option>
+                {/each}
+                </select>
+            </div>
+            <div class="admin-block">
+                <label>{@symbionts.filemanager.max}</label>
+                <input class="maxsize" type="text" />
+            </div>
+            <div class="admin-block">
+                <label>{@symbionts.filemanager.allowed}</label>
+                <input class="types" type="text" />
+            </div>
+            <div class="admin-block">
+                <div class="icons admin-selectable-multiselect">
+                    <span class="images admin-selectable-item">
+                        <div class="icon"></div>
+                        <div>{@symbionts.filemanager.typeImages}</div>
+                    </span>
+                    <span class="video admin-selectable-item">
+                        <div class="icon"></div>
+                        <div>{@symbionts.filemanager.typeVideo}</div>
+                    </span>
+                    <span class="archives admin-selectable-item">
+                        <div class="icon"></div>
+                        <div>{@symbionts.filemanager.typeArchives}</div>
+                    </span>
+                    <span class="sounds admin-selectable-item">
+                        <div class="icon"></div>
+                        <div>{@symbionts.filemanager.typeSounds}</div>
+                    </span>
+                    <span class="documents admin-selectable-item">
+                        <div class="icon"></div>
+                        <div>{@symbionts.filemanager.typeDocuments}</div>
+                    </span>
+                </div>
+            </div>
+            <div class="admin-block buttons">
+                <span class="admin-button admin-button-save">{@symbionts.filemanager.save}</span>
+                <span class="admin-button admin-button-cancel">{@symbionts.filemanager.cancel}</span>
+            </div>
+        </div>
+        <div class="symbionts-filemanager-create">
+            <div class="admin-block"><input class="name" type="text" placeholder="{@symbionts.filemanager.folderName}" /></div>
+            <div class="admin-block buttons">
+                <span class="admin-button admin-button-save">{@symbionts.filemanager.create}</span>
+                <span class="admin-button admin-button-cancel">{@symbionts.filemanager.cancel}</span>
+            </div>
+        </div>
+        <div class="symbionts-filemanager-upload">
+            {@symbionts.filemanager.dropOrClick}
+        </div>
+        <div class="symbionts-filemanager-delete">
+            <div class="admin-block"><h1>{@symbionts.filemanager.areYouShure}</h1></div>
+            <div class="admin-block buttons">
+                <span class="admin-button admin-button-yes">{@symbionts.filemanager.yes}</span>
+                <span class="admin-button admin-button-no">{@symbionts.filemanager.no}</span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+.symbionts-user-signup form label{
+    display: inline-block;
+    width: 140px;
+}
+.symbionts-user-signup form input.error{
+    border: 1px solid #ff0080;
+}
+.symbionts-user-signup .message.error{
+    border: 1px dashed #ff0080;
+    padding: 5px;
+    margin: 5px 0;
+    
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+.symbionts-user-signup .message.success{
+    border: 1px dashed #800080;
+    padding: 5px;
+    margin: 5px 0;
+    
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}

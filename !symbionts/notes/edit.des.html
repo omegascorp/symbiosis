@@ -1,0 +1,22 @@
+{Script}{$conf.symbionts}notes/files/edit.js{/Script}
+{Style}{$conf.symbionts}notes/files/edit.css{/Style}
+
+<div class="symbionts-notes-edit">
+    <div class="admin-clear">
+        <ul class="categories">
+            <li category="0" class="ui-corner-all {if(&categoryId==0)}admin-selected{/if} admin-hover">{@symbionts.notes.allCategories}</li>
+            {each(&categories as &category)}
+            <li category="{&category[id]}" class="ui-corner-all {if(&categoryId==&category[id])}admin-selected{/if} admin-hover">{&category[title]}</li>
+            {/each}
+        </ul>
+        <ul class="notes" note="{&noteId}">
+            <li page="0" class="ui-corner-all admin-hover">
+                {@symbionts.notes.allNotes}
+            </li>
+        </ul>
+    </div>
+    <div class="buttons">
+        <div class="admin-button-save">{@symbionts.notes.save}</div>
+        <div class="admin-button-cancel">{@symbionts.notes.cancel}</div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+.symbionts-notes-widget-admin{
+    width: 100%;
+    height: 220px;
+}
+.symbionts-notes-widget-admin ul{
+    display: block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 300px;
+}
+.symbionts-notes-widget-admin ul li{
+    width: 300px;
+    float: left;
+    padding: 10px;
+    height: 200px;
+}
+.symbionts-notes-widget-admin ul li .text{
+    height: 160px;
+    overflow: hidden;
+}
+.symbionts-notes-widget-admin ul:after{
+    content: '.';
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+}

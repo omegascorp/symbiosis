@@ -1,0 +1,16 @@
+{Script}{$conf.url}!files/js/md5ie.js{/Script}
+{Script}{$conf.symbionts}user/files/signin.js{/Script}
+
+<div class="symbionts-user-signin">
+    <h1>{@symbionts.user.signin}</h1>
+    <form>
+        <div class="message"></div>
+        <input type="hidden" class="key" value="{&key}" />
+        <div><input type="text" class="username" placeholder="{@symbionts.user.username}" /></div>
+        <div><input type="password" class="password" placeholder="{@symbionts.user.password}" /></div>
+        <div><input type="submit" value="{@symbionts.user.enter}" /></div>
+        <div class="signup" style="clear: both;">
+            <a href="{$page.base}sign_up/">{@symbionts.user.signup}</a>
+        </div>
+    </form>
+</div>

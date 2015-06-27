@@ -1,0 +1,86 @@
+12.06.13 Symbiosis 0.13.15 Dark Side [OmegaScorp]
+Fixed bugs in installer.
+
+13.06.13 Symbiosis 0.14.0 Dark Side [OmegaScorp]
+Fixed bugs in symbionts Notes and Filemanager.
+
+15.06.13 Symbiosis 0.14.1 Dark Side [OmegaScorp]
+Updated administrator panel included in site pages.
+
+18.06.13 Symbiosis 0.14.2 Dark Side [OmegaScorp]
+Fixed bugs in symbionts Menu, Languages and Filemanager.
+Fixed bug in Admin panel.
+
+24.06.13 Symbiosis 0.14.3 Dark Side [OmegaScorp]
+Fixed bugs in libraries Design and Kernel.
+Updated LightEdit. Added select tag support.
+
+25.06.13 Symbiosis 0.14.4 Dark Side [OmegaScorp]
+Fixed bug in symbiont Menu.
+
+01.07.13 Symbiosis 0.14.5 Dark Side [OmegaScrop]
+Added symbiont Captcha.
+Updated symbiont Forms.
+Fixed bug in symbiont pages.
+Updated LightEdit.
+
+03.07.13 Symbiosis 0.14.6 Dark Side [OmegaScorp]
+Added user type moderator.
+Minifilemanager can create not exsisted folder before file upload.
+Fix bug in Admin UI.
+
+
+10.07.13 Symbiosis 0.14.7 Dark Side [OmegaScorp]
+
+New: with reference by the short link (like http://site/123/)
+shows real page which it is associated (like http://site/ru/blog/post/123/).
+Associations are in db/shortlinks.json. Associacions have cascade construction. Example:
+{
+    "test":":"en/news/posts/test",
+    "en": {
+        "test1":"en/news/posts/test1",
+        "test2":"en/news/posts/test2"
+    }
+}
+It convert
+http://site/test/ to http://site/en/news/posts/test/,
+http://site/en/test1/ to http://site/en/news/posts/test1/
+http://site/en/test2/ to http://site/en/news/posts/test2/
+Short links turned off in db/config.json by default.
+
+Fix: worning in Design library.
+
+
+11.07.13 Symbiosis 0.14.8 Dark Side [OmegaScorp]
+
+New: attribute for working with shortlinks.
+
+Fix: working with arrays in library Labels.
+Fix: bottom panel disappearance after element removing in Admin UI.
+Fix: default errors catching in Filemanager.
+
+
+13.07.13 Symbiosis 0.14.9 Dark Side [OmegaScorp]
+
+Upd: LightEdit: removed tag p by pasting single row.
+
+
+16.07.13 Symbiosis 0.14.10 Dark Side [OmegaScprp]
+
+Add: Symbiont Init for including initial scripts in templates.
+
+Fix: Symbiont Menu: Working with single language.
+Rmv: Removed attribute $kernel->conf->home, you can use $kernel->page->isHome.
+
+
+17.07.13 Symbiosis 0.14.11 Dark Side [OmegaScorp]
+
+Fix: Symbiont Category: Working with single language.
+Fix: Symbiont Page: Working with single language.
+Fix: Library Desing: Symbiont string version detection.
+
+20.07.13 Symbiosis 0.14.12 Dark Side [OmegaScorp]
+Fix: Symbiont Page: Working with symbionts second version.
+
+22.07.13 Symbiosis 0.14.13 Dark Side [OmegaScorp]
+Add: Symbiont Notes: template changing.

@@ -1,0 +1,46 @@
+.symbionts-symbionts .item{
+    display: block;
+    float: left;
+    height: 40px;
+    width: 196px;
+    margin: 2px;
+    padding-left: 4px;
+    
+    background-repeat: no-repeat;
+    background-position: 4px 50%;
+    line-height: 40px;
+}
+.symbionts-symbionts .item.selectable{
+    background-color: #777777;
+    color: white;
+    padding-left: 40px;
+    width: 160px;
+    cursor: pointer;
+}
+.symbionts-symbionts .item.selectable.admin-selected{
+    background-color: #444444;
+}
+.symbionts-symbionts .item .title{
+    display: block;
+    float: left;
+    width: 146px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.symbionts-symbionts .item.selectable .title{
+    width: 110px;
+}
+.symbionts-symbionts .item .version{
+    display: block;
+    float: left;
+    width: 50px;
+    text-align: center;
+}
+
+.symbionts-symbionts .items:after, .symbionts-symbionts .item:after{
+    content: '.';
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+}

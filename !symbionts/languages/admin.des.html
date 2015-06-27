@@ -1,0 +1,20 @@
+{Script}{$conf.symbionts}languages/files/admin.js{/Script}
+{Style}{$conf.symbionts}languages/files/admin.css{/Style}
+
+<div class="symbionts-languages-admin admin-widget-tabs">
+    <div class="admin-widget-top">
+        <ul class="admin-widget-tabs-nav">
+            <li class="admin-widget-icon" data-tab="all"><a href="{$link.current}#tab=all" class="admin-link"><span>{@symbionts.languages}</a></li>
+        </ul>
+    </div>
+    <div class="admin-widget-tab symbionts-languages-admin-main" data-tab="all">
+        <div class="admin-widget-list">
+            {#Languages-Admin.items#}
+        </div>
+        <div class="admin-widget-bottom">
+            <span class="admin-widget-icon admin-widget-icon-add"><a href="{$link.current}#add" class="admin-link"><span>{@symbionts.languages.add}</a></span>
+            <span class="admin-widget-icon admin-widget-icon-edit" style="display: none;"><a href="{$link.current}#edit" class="admin-link"><span>{@symbionts.languages.edit}</a></span>
+            <span class="admin-widget-icon admin-widget-icon-remove" style="display: none;"><a href="{$link.current}#remove" class="admin-link"><span>{@symbionts.languages.delete}</a></span>
+        </div>
+    </div>
+</div>

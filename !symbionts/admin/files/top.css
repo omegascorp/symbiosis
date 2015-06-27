@@ -1,0 +1,45 @@
+body{
+    padding-top: 40px;
+}
+.admin-top{
+    top: 0;
+    position: absolute;
+    background: rgba(44,44,44,1);
+    width: 100%;
+    height: 40px;
+}
+.admin-top-right{
+    float: right;
+}
+.admin-widget-icon{
+    display: block;
+    float: left;
+    height: 32px;
+    padding: 4px;
+    cursor: pointer;
+}
+.admin-widget-icon:hover{
+    background: rgba(255,255,255,.1);
+}
+.admin-widget-icon label, .admin-widget-icon a, .admin-widget-icon span{
+    display: block;
+    padding: 7px 5px 0 5px;
+    color: white;
+    cursor: pointer;
+}
+.admin-widget-icon .min{
+    font-weight: bold;
+}
+.admin-widget-icon .min, .admin-widget-icon .max{
+    float: left;
+    height: 32px;
+}
+.admin-widget-icon .max{
+    display: none;
+}
+.admin-widget-icon:hover .max{
+    display: block;
+}
+.admin-widget-icon a{
+    color: white;
+}

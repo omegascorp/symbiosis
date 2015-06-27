@@ -1,0 +1,20 @@
+{
+    "symbionts.categories": "Categories",
+    "symbionts.categories.add": "Add",
+    "symbionts.categories.edit": "Edit",
+    "symbionts.categories.delete": "Delete",
+    "symbionts.categories.new": "New category",
+    "symbionts.categories.nameless": "The nameless category",
+    "symbionts.categories.title": "Title",
+    "symbionts.categories.alias": "Alias",
+    "symbionts.categories.save": "Save",
+    "symbionts.categories.cancel": "Cancel",
+    "symbionts.categories.areYouShure": "Are you shure?",
+    "symbionts.categories.yes": "Yes",
+    "symbionts.categories.no": "No",
+    "symbionts.categories.settings": "Settings",
+    "symbionts.categories.all": "All",
+    "symbionts.categories.error": "Category with this alias already exists.",
+    "symbionts.categories.parent": "Parent",
+    "symbionts.categories.root": "Root"
+}

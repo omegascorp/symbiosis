@@ -1,0 +1,35 @@
+<div class="symbionts-pages-admin-addText admin-widget admin-widget-addText">
+    <h1 class="admin-widget-header">{@symbionts.pages.newTextPage}</h1>
+    <div class="admin-widget-absconder">
+        <input class="template" type="hidden" value="{&template}" />
+        <div class="tabs">
+            <ul>
+            {each(&languages as &language)}
+                    <li><a href="#symbionts-pages-admin-change-{&language[abbr]}">{&language[abbr]}</a></li>
+            {/each}
+            </ul>
+            {each(&languages as &language)}
+            <div id="symbionts-pages-admin-change-{&language[abbr]}" class="tab {if(&language[isDefault])}default{/if} {&language[abbr]}" data-id="{&language[id]}">
+                <div><label>{@symbionts.pages.title}</label><input class="title admin-source" type="input" admin-translit="{&language[abbr]}" value="{&language[title]}" /></div>
+                {if(!$conf.abbreviations)}
+                <div><label>{@symbionts.pages.alias}</label><input class="alias admin-receiver-{&language[abbr]}" type="input" value="{&language[alias]}" /></div>
+                {/if}
+                {if(&aliasesInTranslit)}
+                <script>
+                $.adminTranslit['{&language[abbr]}']={&language[translit]};
+                </script>
+                {/if}
+                <textarea class="text admin-wysiwyg"></textarea>
+            </div>
+            {/each}
+        </div>
+        {if($conf.abbreviations)}
+        <div class="wysiwyn-input"><label>{@symbionts.pages.alias}</label><input class="alias admin-receiver-{&aliasesLanguage}" type="input" value="{&alias}" /></div>
+        {/if}
+        
+        <div class="controls">
+            <span class="admin-button-save">{@symbionts.pages.save}</span>
+            <span class="admin-button-cancel">{@symbionts.pages.cancel}</span>
+        </div>
+    </div>
+</div>

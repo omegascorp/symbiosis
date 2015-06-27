@@ -1,0 +1,90 @@
+.symbionts-notes-admin-change .date label{
+    display: block;
+    float: left;
+    width: 20%;
+}
+.symbionts-notes-admin-change .date .date-input{
+    display: inline-block;    
+    border: 1px solid silver;
+}
+.symbionts-notes-admin-change .date .date-holder{
+    display: block;
+    float: right;
+    width: 79%;
+    border: 1px solid transparent;
+}
+.symbionts-notes-admin-change .date:after {
+    content: '.';
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+}
+.symbionts-notes-admin-change .date-input .day,.symbionts-notes-admin-change .date-input .hour,.symbionts-notes-admin-change .date-input .minute{
+    width: 20px;
+    text-align: center;
+    border: none;
+}
+.symbionts-notes-admin-change .date-input .month{
+    border: none;
+}
+.symbionts-notes-admin-change .date-input .year{
+    width: 40px;
+    text-align: center;
+    border: none;
+}
+
+.symbionts-notes-admin-settings{
+    text-align: left;
+}
+.symbionts-notes-admin-settings .template ul, .symbionts-notes-admin-settings .order ul{
+    list-style: none;
+    display: inline;
+}
+.symbionts-notes-admin-settings .template li, .symbionts-notes-admin-settings .order li{
+    display: inline;
+    padding: 0 2px;
+    cursor: pointer;
+}
+.symbionts-notes-admin-settings .cover .width input, .symbionts-notes-admin-settings .cover .height input{
+    width: 50px;
+}
+.symbionts-notes-admin-change .tags-add span{
+    padding: 0px;
+    margin: 0px;
+}
+.symbionts-notes-admin-change .image{
+    margin: 10px 0;
+}
+.symbionts-notes-admin-change .symbionts-tags-admin-button{
+    margin-bottom: 5px;
+}
+.symbionts-notes-admin-change input.error{
+    border: 1px solid red;
+}
+.symbionts-notes-admin-main .controls{
+    background-color: rgba(255, 255, 255, 0.9);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFFFE5,endColorstr=#FFFFFFE5);
+    z-index: 2;
+}
+.symbionts-notes-admin-change .browse .image{
+    display: block;
+    float: left;
+    width: 32px;
+    height: 32px;
+    background-size: 32px 32px;
+    border: 1px solid silver;
+}
+.symbionts-notes-admin-change .browse .text{
+    display: block;
+    float: left;
+    height: 16px;
+    padding-top: 18px;
+    padding-left: 16px;
+}
+.symbionts-notes-admin-change .browse{
+    cursor: pointer;
+}
+.symbionts-notes-admin-change .browse:hover{
+    background: #EEEEEE;
+}

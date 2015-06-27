@@ -1,0 +1,9 @@
+{
+    "version": "0.0.9",
+    "need":{
+        "libraries":{
+            "kernel": "0.4.11",
+            "mysql": "0.2.5"
+        }
+    }
+}

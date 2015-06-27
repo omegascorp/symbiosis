@@ -1,0 +1,21 @@
+{
+    "symbionts.settings": "Настройки",
+    "symbionts.settings.version": "Версия",
+    "symbionts.settings.regenerate": "Режим разработчика",
+    "symbionts.settings.regenerateHelp": "Все всременные файлы будут удалены после генерации страницы.",
+    "symbionts.settings.abbreviations": "Аббревиатуры",
+    "symbionts.settings.abbreviationsHelp": "Перед названием страницы будет записываться его аббревиатура (например: /ru/about/).",
+    "symbionts.settings.browserLanguage": "Язык браузера",
+    "symbionts.settings.browserLanguageHelp": "Контент будет показан пользователям на языке брузера, в случе если он не указан явно.",
+    "symbionts.settings.aliasesInTranslit": "Адреса страниц на транслите",
+    "symbionts.settings.aliasesInTranslitHelp": "Адреса страниц будут конвертироваться на транслит.",
+    "symbionts.settings.aliasesLanguage": "Исходный язык для конвертации в транслит",
+    "symbionts.settings.path": "Путь к сайту",
+    "symbionts.settings.postfix": "Строка после адреса страницы",
+    "symbionts.settings.sessionPrefix": "Ключь сесии",
+    "symbionts.settings.autorisationType": "Тип авторизации",
+    "symbionts.settings.autorisationTypeSession": "Сессия",
+    "symbionts.settings.autorisationTypeCookie": "Куки",
+    "symbionts.settings.save": "Сохранить",
+    "symbionts.settings.refresh": "Обновить"
+}

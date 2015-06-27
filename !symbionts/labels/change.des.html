@@ -1,0 +1,17 @@
+<div class="symbionts-labels-admin-change" data-path="{&path}">
+    <h1 class="admin-block">{&title}</h1>
+    <ul>
+    {each(&labels as &name => &label)}
+        <li class="admin-block admin-layout">
+            <label class="admin-layout-25">{&name}</label>
+            <span class="admin-layout-75">
+                <input type="text" value="{&label}" />
+            </span>
+        </li>
+    {/each}
+    </ul>
+    <div class="admin-block">
+        <div class="admin-button admin-button-save">{@symbionts.labels.save}</div>
+        <div class="admin-button admin-button-cancel">{@symbionts.labels.cancel}</div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="symbionts-tags-admin-select">
+    <div class="selected">
+        {each(&tags as &tag)}
+        <a href="admin/tags/{&tag[alias]}/" class="tag" data-id="{&tag[id]}">{&tag[title]}</a>
+        {/each}
+    </div>
+    <input class="find" type="text" />
+    <div class="tags">
+        
+    </div>
+    <span class="admin-button-save">{@symbionts.tags.save}</span>
+    <span class="label-tags admin-hidden">{@symbionts.tags.tags}</span>
+    <span class="label-addTags admin-hidden">{@symbionts.tags.addTags}</span>
+    <div class="tabs" style="display: none;">
+        <ul>
+        {each(&languages as &language)}
+                <li><a href="#symbionts-tags-admin-select-{&language[abbr]}">{&language[abbr]}</a></li>
+        {/each}
+        </ul>
+        {each(&languages as &language)}
+        <div id="symbionts-tags-admin-select-{&language[abbr]}" class="tab" data-abbr="{&language[abbr]}">
+            <input type="text" />
+        </div>
+        {/each}
+    </div>
+</div>

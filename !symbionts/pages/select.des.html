@@ -1,0 +1,18 @@
+{Pages.setPage}
+{if(&neglectId!=&id)}
+<option value="{&id}" {if(&id==&selectedId)}selected="selected"{/if}>
+    {repeat(&level)}&nbsp;{/repeat}{&title}
+</option>
+{/if}
+{&subpages}
+{/Pages}
+{Pages.setTitle}
+    
+{/Pages}
+
+<select>
+    <option value="0"></option>
+    {Pages.getPages.selectedId=&selectedId.neglectId=&neglectId}
+        {&pages}
+    {/Pages}
+</select>
