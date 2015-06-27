@@ -9,7 +9,7 @@ class Data{
 			$nbsp=strpos($text, $symbols, $len);
 			$text=($nbsp?substr($text, 0, $nbsp):substr($text, 0, $len)).'...';
 		}
-		$text=mysql_escape_string($text);
+		$text=mysql_real_escape_string($text);
 		return $text;
 	}
 	//Show HTML tags
@@ -20,7 +20,7 @@ class Data{
 			$nbsp=strpos($text, $symbols, $len);
 			$text=($nbsp?substr($text, 0, $nbsp):substr($text, 0, $len)).'...';
 		}
-		$text=mysql_escape_string($text);
+		$text=mysql_real_escape_string($text);
 		return $text;
 	}
 	//Delete HTML tags
@@ -31,7 +31,7 @@ class Data{
 			$nbsp=strpos($text, $symbols, $len);
 			$text=($nbsp?substr($text, 0, $nbsp):substr($text, 0, $len)).'...';
 		}
-		$text=mysql_escape_string($text);
+		$text=mysql_real_escape_string($text);
 		return $text;
 	}
 	//P

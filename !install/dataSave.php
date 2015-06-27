@@ -13,8 +13,8 @@ $file=fopen('../db/config.json', 'w');
 fwrite($file, json_encode($config));
 fclose($file);
 
-$username=mysql_escape_string($_POST['username']);
-$password=mysql_escape_string($_POST['password']);
+$username=mysql_real_escape_string($_POST['username']);
+$password=mysql_real_escape_string($_POST['password']);
 $email=preg_replace("/[^A-z0-9_\-@]/", "", $_POST['email']);
 
 /*
