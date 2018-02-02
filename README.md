@@ -1,4 +1,4 @@
-# Malacia Surb Astvacacin church website (based on Symbiosis CMS)
+# Symbiosis CMS
 
 Requirements:
 Apache with mode rewrite, PHP5, php-json, MySQL5
